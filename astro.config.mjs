@@ -14,7 +14,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  output: "server",
+  output: "static",
   integrations: [icon()],
 
   adapter: node({
