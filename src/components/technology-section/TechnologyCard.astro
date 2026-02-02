@@ -1,0 +1,31 @@
+---
+const { src, title, content, reverse } = Astro.props;
+---
+
+<div
+  class=`w-[90%] m-20 flex ${reverse ? 'flex-row-reverse' : 'flex-row'} justify-between items-center`
+>
+  <div
+    class='text-white w-[40%] h-full flex flex-col justify-start items-start gap-5'
+  >
+    <h2 class='text-3xl font-bold'>Application Monitoring</h2>
+    <p class='opacity-70 leading-7'>
+      In a continuous delivery environment, constant application monitoring is
+      essential for addressing issues in real time. Tools such as real-time
+      error monitoring and performance monitoring services play a critical role
+      in this process. They enable teams to identify and resolve problems
+      quickly, ensuring that applications function smoothly and efficiently. By
+      using these tools, organizations can enhance workflow efficiency, maintain
+      high performance levels, and continuously improve the user experience.
+      This proactive approach to monitoring helps prevent disruptions, optimize
+      performance, and deliver a seamless, high-quality experience for users,
+      ultimately contributing to overall success and satisfaction.
+    </p>
+  </div>
+  <div class='w-[40%]'>
+    <img
+      src={src}
+      class='object-cover'
+    />
+  </div>
+</div>

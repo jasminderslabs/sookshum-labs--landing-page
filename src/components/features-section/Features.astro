@@ -1,0 +1,31 @@
+---
+import Card from "./FeatureCard.astro";
+const p1 =
+  "Transforming ideas into visual masterpieces, we craft stunning user experiences that captivate and convert your target audience.";
+---
+
+<section class='w-full min-h-172.5 max-w-480 mx-auto mt-20 flex items-center'>
+  <div class='w-[90%] h-full mx-auto flex justify-evenly items-center gap-5'>
+    <Card
+      src='/Design.png'
+      title='design'
+      content={p1}
+      width='250'
+      heigh='240'
+    />
+    <Card
+      src='/code.png'
+      title='develop'
+      content={p1}
+      width='210'
+      heigh='240'
+    />
+    <Card
+      src='/Grow.png'
+      title='grow'
+      content={p1}
+      width='300'
+      heigh='240'
+    />
+  </div>
+</section>

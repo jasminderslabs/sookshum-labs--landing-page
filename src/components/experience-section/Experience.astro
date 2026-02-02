@@ -1,0 +1,91 @@
+---
+import ExperienceCard from "./ExperienceCard.astro";
+const cards = [
+  {
+    src: "/medicalKit.png",
+    title: "healthcare",
+    content:
+      "We develop apps & websites that streamline operations, improve patient care, and empower the healthcare industry.",
+    list: [
+      "Telemedicine Platform",
+      "Patient Health Management System",
+      "Virtual Health Coaching",
+    ],
+  },
+  {
+    src: "/suitcase.png",
+    title: "eCommerce",
+    content:
+      "We craft user-friendly eCommerce solutions that drive conversions and build customer loyalty.",
+    list: ["Multi-Channel Retail Platforms", "Doctor-On-Demand", "Fitness App"],
+  },
+  {
+    src: "/tennis.png",
+    title: "Sports",
+    content:
+      "We design and develop fan-centric sports platforms that drive engagement and connect communities.",
+    list: [
+      "Fitness Tracking Apps",
+      "Personal Training & Coaching Solutions",
+      "Activity and Performance Tracking solutions",
+    ],
+  },
+  {
+    src: "/medicalKit.png",
+    title: "healthcare",
+    content:
+      "We develop apps & websites that streamline operations, improve patient care, and empower the healthcare industry.",
+    list: [
+      "Telemedicine Platform",
+      "Patient Health Management System",
+      "Virtual Health Coaching",
+    ],
+  },
+  {
+    src: "/suitcase.png",
+    title: "eCommerce",
+    content:
+      "We craft user-friendly eCommerce solutions that drive conversions and build customer loyalty.",
+    list: ["Multi-Channel Retail Platforms", "Doctor-On-Demand", "Fitness App"],
+  },
+  {
+    src: "/tennis.png",
+    title: "Sports",
+    content:
+      "We design and develop fan-centric sports platforms that drive engagement and connect communities.",
+    list: [
+      "Fitness Tracking Apps",
+      "Personal Training & Coaching Solutions",
+      "Activity and Performance Tracking solutions",
+    ],
+  },
+];
+---
+
+<section class='flex flex-col items-center gap-16 max-w-480 mt-10 mx-auto'>
+  <div class='h-full flex flex-col items-center gap-5 mx-20 w-full'>
+    <div
+      class='flex flex-col justify-between gap-5 mb-10 items-center text-white w-[43%]'
+    >
+      <button
+        class='bg-[#282828B8] cursor-pointer opacity-70 text-white rounded-full w-fit py-3 px-8 mt-4 border-[0.5px] border-[#282828B2] font-bold'
+      >
+        Industries we Serve
+      </button>
+      <h2 class='font-semibold text-5xl'>
+        Our Diverse Industry <i class='font-light'>Experiences?</i>
+      </h2>
+      <p class='text-center text-lg opacity-70'>
+        We believe in a transparent and collaborative development process. From
+        concept to launch, we'll keep you informed at every stage.
+      </p>
+    </div>
+  </div>
+  <div class='w-[90%] mx-20 overflow-auto flex gap-5 no-scrollbar'>
+    {
+      cards.map((data) => {
+        return <ExperienceCard {...data} />;
+      })
+    }
+  </div>
+</section>

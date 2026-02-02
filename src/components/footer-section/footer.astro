@@ -1,0 +1,43 @@
+---
+import { ArrowUpRight } from "@lucide/astro";
+import OurServices from "./footer-services.astro";
+import Company from "./footer-company.astro";
+import Address from "./footer-address.astro";
+import SocialLinks from "./social-links.astro";
+---
+
+<section class='max-w-[1920px] pt-5 bg-[#282828B8] flex flex-col mx-auto'>
+  <div class='w-[90%] m-20 flex justify-between gap-20'>
+    <div class='text-white w-[25%] flex flex-col gap-10'>
+      <span class='inline-block'>
+        <img
+          src='sookshum-logo.svg'
+          alt='sookshum-logo'
+          width='155'
+          height='45'
+          class='object-contain'
+        />
+      </span>
+      <p>
+        We deliver excellence through our innovative solutions and exceptionally
+        reliable service.
+      </p>
+      <div class='w-full flex gap-3 items-center'>
+        <div
+          class='px-5 font-bold py-3 rounded-full bg-[#F79A12] w-fit cursor-pointer'
+        >
+          <button class='w-full h-full flex justify-between items-center gap-2'>
+            Request a Quote <ArrowUpRight /></button
+          >
+        </div>
+        <button class='bg-[#282828B2] rounded-full py-3 px-5 cursor-pointer'
+          >Refer Us</button
+        >
+      </div>
+    </div>
+    <OurServices />
+    <Company />
+    <Address />
+  </div>
+  <SocialLinks />
+</section>

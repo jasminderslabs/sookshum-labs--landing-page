@@ -1,0 +1,26 @@
+---
+const { src, title, content } = Astro.props;
+---
+
+<div
+  class='w-full h-auto rounded-4xl p-5 card bg-[#282828B2] flex flex-col justify-between items-center'
+>
+  <div class='w-full h-fit flex justify-center'>
+    <img
+      src={src}
+      alt='ecom-assest'
+      class='object-center w-full h-full'
+    />
+  </div>
+  <div class='w-full text-white flex flex-col gap-2 px-2'>
+    <span class='font-semibold text-lg capitalize'>{title}</span>
+    <p class='opacity-70'>
+      {content}
+    </p>
+    <button
+      class='bg-[#282828B8] cursor-pointer opacity-70 text-white rounded-full w-fit py-3 px-8 mt-4 border-[0.5px] border-[#282828B2] font-bold'
+    >
+      Discover
+    </button>
+  </div>
+</div>

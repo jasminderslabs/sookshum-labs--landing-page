@@ -1,0 +1,25 @@
+---
+const { src, title, content } = Astro.props;
+---
+
+<div
+  class='h-auto bg-[#282828B2] rounded-4xl relative flex flex-col gap-5 p-5 card'
+>
+  <div class='w-[28%]'>
+    <img
+      src={src}
+      alt='customerSupport'
+      class='w-full h-full object-cover'
+    />
+  </div>
+  <div
+    class='w-full text-white flex flex-col gap-2 px-2 pb-3 h-full justify-end'
+  >
+    <span class='font-semibold text-lg capitalize'>
+      {title}
+    </span>
+    <p class='opacity-70'>
+      {content}
+    </p>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+---
+const star = "/Filled.png";
+const stars = Array.from({ length: 5 }, (_, i) => star);
+const { title, name, review } = Astro.props;
+---
+
+<div
+  class='min-w-[33%] max-w-[45%] h-72 bg-[#282828B2] text-white p-6 flex flex-col justify-between gap-5 rounded-4xl card shrink-0'
+>
+  <div class='flex items-center gap-5 w-full'>
+    {
+      stars.map((path) => {
+        return (
+          <img
+            src={path}
+            width='24'
+            height='24'
+          />
+        );
+      })
+    }
+  </div>
+  <p class=''>
+    "{review}"
+  </p>
+  <div class='text-white flex justify-evenly gap-5'>
+    <img
+      src='/lady.png'
+      width='50'
+      height='50'
+    />
+    <div class='w-full'>
+      <span class='block'>{title}</span>
+      <span class='block'>{name}</span>
+    </div>
+  </div>
+</div>
