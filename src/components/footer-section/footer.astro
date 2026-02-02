@@ -6,9 +6,13 @@ import Address from "./footer-address.astro";
 import SocialLinks from "./social-links.astro";
 ---
 
-<section class='max-w-[1920px] pt-5 bg-[#282828B8] flex flex-col mx-auto'>
-  <div class='w-[90%] m-20 flex justify-between gap-20'>
-    <div class='text-white w-[25%] flex flex-col gap-10'>
+<section class='max-w-480 pt-5 bg-[#282828B8] flex flex-col mx-auto'>
+  <div
+    class='md:w-[90%] mx-5 lg:m-20 flex flex-col items-center md:items-start w-full md:flex-row justify-between flex-wrap gap-10 lg:gap-20'
+  >
+    <div
+      class='text-white w-[50%] md:w-[25%] flex flex-col md:items-start items-center gap-10 py-10 md:p-0'
+    >
       <span class='inline-block'>
         <img
           src='sookshum-logo.svg'
@@ -18,11 +22,11 @@ import SocialLinks from "./social-links.astro";
           class='object-contain'
         />
       </span>
-      <p>
+      <p class='text-center'>
         We deliver excellence through our innovative solutions and exceptionally
         reliable service.
       </p>
-      <div class='w-full flex gap-3 items-center'>
+      <div class='w-full flex md:flex-row flex-col gap-3 items-center shrink-0'>
         <div
           class='px-5 font-bold py-3 rounded-full bg-[#F79A12] w-fit cursor-pointer'
         >
@@ -39,5 +43,7 @@ import SocialLinks from "./social-links.astro";
     <Company />
     <Address />
   </div>
-  <SocialLinks />
+  <div class='flex justify-center items-center'>
+    <SocialLinks />
+  </div>
 </section>

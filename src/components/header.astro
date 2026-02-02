@@ -1,22 +1,23 @@
 ---
-import { ChevronDown, ArrowUpRight, ChevronRight } from "@lucide/astro";
-const navigations = [
-  "ecommerce development",
-  "web app development",
-  "mobile app development",
-  "ui/ux design",
-  "low code development",
-  "admin development",
-  "headless cms development",
-  "website development",
-];
+import { ChevronDown, ArrowUpRight, ChevronRight, Menu } from "@lucide/astro";
+
+// const navigations = [
+//   "ecommerce development",
+//   "web app development",
+//   "mobile app development",
+//   "ui/ux design",
+//   "low code development",
+//   "admin development",
+//   "headless cms development",
+//   "website development",
+// ];
 ---
 
 <header
   class='bg-black w-full h-32 flex items-center relative max-w-480 mx-auto'
 >
   <div
-    class='relative flex w-full h-auto mx-20.25 justify-between items-center text-white'
+    class='relative w-full px-5 lg:px-0 h-auto mx-auto lg:mx-20.25 flex justify-between items-center text-white'
   >
     <span class='inline-block'>
       <img
@@ -27,8 +28,10 @@ const navigations = [
         class='object-contain'
       />
     </span>
-    <div class='flex font-bold'>
-      <ul class='flex gap-8 items-center justify-between text-md'>
+    <div class='hidden md:flex font-bold'>
+      <ul
+        class='flex md:gap-2 lg:gap-8 items-center justify-between text-sm tlg:ext-md'
+      >
         <li>
           <a>Home</a>
         </li>
@@ -48,14 +51,17 @@ const navigations = [
       </ul>
     </div>
     <div
-      class='text-lg font-bold h-13.75 px-6 flex items-center rounded-full bg-[#F79A12] cursor-pointer'
+      class='text-lg font-bold h-13.75 px-6 hidden md:flex items-center rounded-full bg-[#F79A12] cursor-pointer'
     >
       <button class='w-full h-full flex justify-between items-center gap-3'>
         Get In touch <ArrowUpRight /></button
       >
     </div>
-  </div>
-  <div
+    <div class='flex justify-end items-center w-full md:hidden'>
+      <Menu size={30} />
+    </div>
+
+    <!-- <div
     class='w-full h-0 p-0 bg-black overflow-hidden absolute left-0 right-0 top-[63%] dropdown z-20 flex justify-between'
   >
     <div class='flex justify-between w-full gap-10 relative'>
@@ -107,5 +113,6 @@ const navigations = [
         </div>
       </div>
     </div>
+  </div> -->
   </div>
 </header>

@@ -3,10 +3,10 @@ const { src, title, content, reverse } = Astro.props;
 ---
 
 <div
-  class=`w-[90%] m-20 flex ${reverse ? 'flex-row-reverse' : 'flex-row'} justify-between items-center`
+  class=`w-auto lg:w-[90%] m-5 lg:m-20 flex ${reverse ? 'flex-col-reverse sm:flex-row-reverse' : 'flex-col-reverse sm:flex-row'} justify-between items-center`
 >
   <div
-    class='text-white w-[40%] h-full flex flex-col justify-start items-start gap-5'
+    class='text-white sm:w-[45%] lg:w-[40%] h-full flex flex-col justify-start items-start gap-5'
   >
     <h2 class='text-3xl font-bold'>Application Monitoring</h2>
     <p class='opacity-70 leading-7'>
@@ -22,7 +22,7 @@ const { src, title, content, reverse } = Astro.props;
       ultimately contributing to overall success and satisfaction.
     </p>
   </div>
-  <div class='w-[40%]'>
+  <div class='sm:w-[50%] lg:w-[40%] my-5'>
     <img
       src={src}
       class='object-cover'

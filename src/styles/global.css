@@ -116,6 +116,18 @@ header:has(ul .services:hover, .dropdown:hover) > .dropdown:last-child {
   transition: height 0.3s ease;
   padding: 50px;
 }
+.card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.card-animate img {
+  transition: transform 1s ease;
+}
+
+.card-animate:hover img {
+  transform: rotate3d(3, 0, 1, 20deg);
+}
 
 .card:hover,
 .card:hover button {
@@ -124,4 +136,19 @@ header:has(ul .services:hover, .dropdown:hover) > .dropdown:last-child {
 
 .no-scrollbar {
   scrollbar-width: none;
+}
+button {
+  cursor: pointer;
+}
+.slide {
+  animation: slideAllAnimation 5s linear infinite;
+}
+
+@keyframes slideAllAnimation {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }

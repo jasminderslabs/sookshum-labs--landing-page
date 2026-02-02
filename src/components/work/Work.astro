@@ -1,14 +1,14 @@
 <section class='flex flex-col items-center gap-16 max-w-480 mt-10 mx-auto'>
   <div class='h-full flex flex-col items-center gap-5 mx-20 w-full'>
     <div
-      class='flex flex-col justify-between gap-5 mb-10 items-center text-white w-[37%]'
+      class='flex flex-col justify-between gap-5 mb-10 items-center text-white w-[90%] md:w-[60%] lg:w-[37%]'
     >
       <button
         class='bg-[#282828B8] cursor-pointer opacity-70 text-white rounded-full w-fit py-3 px-8 mt-4 border-[0.5px] border-[#282828B2] font-bold'
       >
         Work
       </button>
-      <h2 class='font-semibold text-5xl'>
+      <h2 class='font-semibold text-3xl md:text-5xl text-center'>
         See our Recent <i class='font-light'>Projects?</i>
       </h2>
       <p class='text-center text-lg opacity-70'>
@@ -17,11 +17,10 @@
       </p>
     </div>
   </div>
-  <div class='max-w-480 mx-20'>
-    <div class='gap-5 grid grid-cols-2'>
+  <div class='max-w-480 mx-2 lg:mx-20'>
+    <div class='gap-5 grid grid-cols-1 md:grid-cols-2'>
       <div
-        class='relative'
-        style='grid-area: 1 / 1 / 5 / 2;'
+        class='relative md:row-start-1 md:col-start-1 md:row-end-5 md:col-end-2'
       >
         <img
           src='/work-mobile.png'
@@ -39,8 +38,7 @@
       </div>
 
       <div
-        class='relative'
-        style='grid-area: 1 / 2 / 4 / 3;'
+        class='relative md:row-start-1 md:col-start-2 md:row-end-4 md:col-end-3'
       >
         <img src='/work-mobile2.png' />
         <div
@@ -54,8 +52,7 @@
         </div>
       </div>
       <div
-        class='relative'
-        style='grid-area: 5 / 1 / 9 / 2;'
+        class='relative md:row-start-5 md:col-start-1 md:row-end-9 md:col-end-2'
       >
         <img
           src='/work-mobile2.png'
@@ -72,8 +69,7 @@
         </div>
       </div>
       <div
-        class='relative'
-        style='grid-area: 4 / 2 / 8 / 3;'
+        class='relative md:row-start-4 md:col-start-2 md:row-end-8 md:col-end-3'
       >
         <img src='/work-mobile.png' />
         <div
@@ -87,8 +83,7 @@
         </div>
       </div>
       <div
-        class='relative'
-        style='grid-area: 9 / 1 / 11 / 2;'
+        class='relative md:row-start-9 md:col-start-1 md:row-end-11 md:col-end-2'
       >
         <img src='/work-mobile2.png' />
         <div
@@ -102,8 +97,7 @@
         </div>
       </div>
       <div
-        class='relative'
-        style='grid-area: 8 / 2 / 11 / 3;'
+        class='relative md:row-start-8 md:col-start-2 md:row-end-11 md:col-end-3'
       >
         <img src='/work-mobile.png' />
         <div
@@ -119,3 +113,5 @@
     </div>
   </div>
 </section>
+
+<style></style>

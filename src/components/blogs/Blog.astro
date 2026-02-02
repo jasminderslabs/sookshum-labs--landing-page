@@ -1,13 +1,13 @@
 <section class='flex flex-col items-center gap-16 max-w-480 mt-10 mx-auto'>
   <div
-    class='flex flex-col justify-between gap-5 mb-10 items-center text-white w-[43%]'
+    class='flex flex-col justify-between gap-5 mb-10 items-center text-white w-[90%] md:w-[70%] lg:w-[43%]'
   >
     <button
       class='bg-[#282828B8] cursor-pointer opacity-70 text-white rounded-full w-fit py-3 px-8 mt-4 border-[0.5px] border-[#282828B2] font-bold'
     >
       Blog
     </button>
-    <h2 class='font-semibold text-5xl'>
+    <h2 class='font-semibold text-3xl lg:text-5xl text-center'>
       See our recent <i class='font-light'>Blog</i> Posts.
     </h2>
     <p class='text-center text-lg opacity-70'>
@@ -15,22 +15,21 @@
       valuable insights from our team of experts.
     </p>
   </div>
-  <div class='w-[90%] mx-auto max-h-182.5'>
-    <div class='w-full flex gap-4 overflow-auto'>
-      <div class='bg-[#282828B2] p-4 rounded-4xl h-full'>
-        <div class='flex h-ful'>
-          <img
-            src='/blogImg1.png'
-            class='min-h-full'
-          />
-        </div>
+  <div class='w-auto mx-5 lg:w-[90%] max-h-182.5 overflow-auto no-scrollbar'>
+    <div class='w-full flex gap-4 overflow-auto no-scrollbar'>
+      <div class='flex w-[30%] bg-[#282828B2] shrink-0'>
+        <img
+          src='/blogImg1.png'
+          class='object-fill rounded-4xl shrink-0 w-full'
+        />
       </div>
-      <div class='flex flex-col gap-5 justify-evenly'>
+
+      <div class='flex flex-col gap-5 justify-between'>
         <div
-          class='min-w-[600px] flex justify-between items-end bg-[#282828B2] p-4 rounded-4xl'
+          class='min-w-150 flex justify-between items-end bg-[#282828B2] p-4 rounded-4xl'
         >
           <div
-            class='min-w-[600px] flex justify-between items-end bg-[#FCCE62] rounded-4xl'
+            class='min-w-150 flex justify-between items-end bg-[#FCCE62] rounded-4xl'
           >
             <img
               src='blogImg2.png'
@@ -59,7 +58,7 @@
           </div>
         </div>
       </div>
-      <div class='flex bg-[#282828B2] rounded-4xl p-4'>
+      <div class='flex bg-[#282828B2] rounded-4xl p-4 shrink-0 max-w-[50%]'>
         <img
           src='/blogImg4.png'
           class='object-fill rounded-4xl'
