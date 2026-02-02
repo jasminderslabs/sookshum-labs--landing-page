@@ -9,10 +9,14 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@apphosting/astro-adapter": "^0.0.1",
+    "@astrojs/node": "^9.5.2",
     "@lucide/astro": "^0.563.0",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.14",
     "astro-icon": "^1.1.5",
+    "firebase": "^12.8.0",
+    "firebase-admin": "^13.6.0",
     "tailwindcss": "^4.1.18"
   }
 }
