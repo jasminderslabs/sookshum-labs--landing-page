@@ -12,15 +12,8 @@ const { src, title, content } = Astro.props;
     />
   </div>
   <div class='w-full text-white flex flex-col gap-2 px-2 pb-3'>
-    <span
-      class='font-semibold text-lg capitalize'
-      style='font-family: Rubik;'
-      >{title}</span
-    >
-    <p
-      class='opacity-70'
-      style='font-family: Inter;'
-    >
+    <span class='font-semibold text-lg capitalize'>{title}</span>
+    <p class='opacity-70'>
       {content}
     </p>
   </div>
