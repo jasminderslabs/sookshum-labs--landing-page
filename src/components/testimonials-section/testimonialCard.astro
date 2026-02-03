@@ -5,37 +5,39 @@ const { title, name, review } = Astro.props;
 ---
 
 <div
-  class='testimonial-card shrink-0 max-h-[50%] overflow-hidden relative min-w-[45%] max-w-[80%] lg:max-w-[45%] h-auto bg-[#282828B2] text-white p-6 flex flex-col justify-between gap-5 rounded-4xl'
+  class='testimonial-card shrink-0 relative flex flex-col gap-5 p-6 rounded-4xl bg-[#282828B2] text-white
+         w-[85%] md:w-[45%] lg:w-[30%] min-h-75 h-auto overflow-hidden'
 >
-  <div class='flex items-center gap-5 w-full'>
+  <div class='flex items-center gap-2 w-full'>
     {
-      stars.map((path) => {
-        return (
-          <img
-            src={path}
-            width='24'
-            height='24'
-          />
-        );
-      })
+      stars.map((path) => (
+        <img
+          src={path}
+          class='w-5 h-5 md:w-6 md:h-6 object-contain'
+          alt='star'
+        />
+      ))
     }
   </div>
-  <p class=''>
+
+  <p class='text-sm md:text-base leading-relaxed wrap-break-word grow'>
     "{review}"
   </p>
-  <div class='text-white flex justify-evenly gap-5'>
+
+  <div class='flex items-center gap-4 grow-0'>
     <img
       src='/lady.png'
-      width='50'
-      height='50'
+      class='w-12 h-12 rounded-full object-cover shrink-0'
+      alt='avatar'
     />
-    <div class='w-full'>
-      <span class='block'>{title}</span>
-      <span class='block'>{name}</span>
+    <div class='flex flex-col'>
+      <span class='font-bold text-sm md:text-base'>{name}</span>
+      <span class='text-xs md:text-sm opacity-70'>{title}</span>
     </div>
   </div>
+
   <span
-    class='w-full absolute h-full bg-white/50 inset-0 -top-full -left-full rounded-4xl'
+    class='absolute inset-0 -top-full -left-full w-full h-full bg-white/10 rounded-4xl pointer-events-none'
   >
   </span>
 </div>

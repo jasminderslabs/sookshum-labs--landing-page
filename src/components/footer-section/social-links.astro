@@ -11,7 +11,7 @@ const url = [
 ---
 
 <div
-  class='h-fit w-[90%] text-white flex justify-between md:flex-row flex-col-reverse mx-20 my-5 items-center'
+  class='h-fit w-[90%] text-white flex justify-between md:flex-row flex-col-reverse md:mx-20 my-5 items-center'
 >
   <span class='md:my-0 my-5 text-center'
     >© 2024 Sookshum Labs Technologies Private Limited. All Rights Reserved</span
@@ -20,11 +20,11 @@ const url = [
     {
       url.map((src) => {
         return (
-          <span class=' w-10 h-10 block'>
+          <span class='w-5 h-5 md:w-10 md:h-10 block'>
             <img
               src={src}
               alt={src.replace("/", "")}
-              class={`aspect-square h-full w-full object-fill cursor-pointer`}
+              class={`aspect-square h-full w-full object-contain cursor-pointer`}
             />
           </span>
         );
