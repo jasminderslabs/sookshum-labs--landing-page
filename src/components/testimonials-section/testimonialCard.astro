@@ -5,8 +5,8 @@ const { title, name, review } = Astro.props;
 ---
 
 <div
-  class='testimonial-card shrink-0 relative flex flex-col gap-5 p-6 rounded-4xl bg-[#282828B2] text-white
-         w-[95%] md:w-[65%] lg:w-[50%] min-h-75 h-auto overflow-hidden'
+  class='testimonial-card testimonial-animate shrink-0 relative flex flex-col gap-5 p-6 rounded-4xl bg-[#282828B2] text-white
+         w-[95%] md:w-[65%] lg:w-[50%] min-h-75 h-auto overflow-hidden transition-all duration-700'
 >
   <div class='flex items-center gap-2 w-full'>
     {
@@ -35,24 +35,6 @@ const { title, name, review } = Astro.props;
       <span class='text-xs md:text-sm opacity-70'>{title}</span>
     </div>
   </div>
-
-  <span
-    class='absolute inset-0 -top-full -left-full w-full h-full bg-white/10 rounded-4xl pointer-events-none'
-  >
-  </span>
 </div>
 
-<style>
-  .testimonial-card:hover > span {
-    left: 0;
-    top: 0;
-    transition: all 0.5s ease-in;
-    background: linear-gradient(
-      to left top,
-      transparent,
-      transparent 40%,
-      rgba(230, 134, 36, 0.23) 100%
-    );
-    filter: grayscale(0);
-  }
-</style>
+<style></style>

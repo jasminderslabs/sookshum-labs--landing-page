@@ -1,0 +1,307 @@
+---
+import { ChevronRight } from "@lucide/astro";
+import { IoCaretDownOutline } from "react-icons/io5";
+import { GoArrowUpRight } from "react-icons/go";
+import { HiMenuAlt4 } from "react-icons/hi";
+
+const navigations = [
+  "ecommerce development",
+  "web app development",
+  "mobile app development",
+  "ui/ux design",
+  "low code development",
+  "admin development",
+  "headless cms development",
+  "website development",
+];
+---
+
+<header
+  class='max-w-[1920px] mx-auto xl:px-[80px] px-5 md:px-10 lg:h-[120px] xl:h-[124px] sm:h-[100px] h-[76px] flex justify-between text-white items-center relative'
+>
+  <span class='inline-block'>
+    <img
+      src='sookshum-logo.svg'
+      alt='sookshum-logo'
+      width='155'
+      height='45'
+      class='object-contain w-[128px] sm:w-[154px] shrink-0'
+    />
+  </span>
+  <div class='hidden lg:flex h-full'>
+    <ul class='flex md:gap-8 items-center text-sm md:text-[1rem]'>
+      <li class='font-medium h-full hover:text-white cursor-pointer'>
+        <a class='h-full flex justify-center items-center'>Home</a>
+      </li>
+      <li
+        class='flex items-center gap-1 services justify-center font-medium h-full hover:opacity-100 text-gray-400 hover:text-white cursor-pointer'
+      >
+        <a class='h-full flex justify-center items-center'>Services</a>
+        <IoCaretDownOutline
+          size={18}
+          color='gray'
+        />
+      </li>
+      <li
+        class='font-medium h-full text-gray-400 hover:text-white hover:opacity-100 cursor-pointer'
+      >
+        <a class='h-full flex justify-center items-center'>About us</a>
+      </li>
+    </ul>
+  </div>
+  <div class='flex gap-4'>
+    <div
+      class='py-0 px-5 xl:px-6 h-[48px] xl:h-[55px] hidden md:flex items-center rounded-full bg-[#E68624] cursor-pointer transition-all dark-bg duration-700 hover:[backdrop-filter:blur(100px)] dark-btn-shadow'
+    >
+      <button
+        class='w-full h-full font-medium text-[13px] xl:text-[16px] flex justify-between items-center gap-1'
+      >
+        Get In Touch <GoArrowUpRight size={16} />
+      </button>
+    </div>
+    <div class='flex justify-end items-center lg:hidden'>
+      <HiMenuAlt4 size={35} />
+    </div>
+  </div>
+
+  <div
+    class='max-w-[1920px] md:block hidden border border-[#ffffff1a] border-t-0 rounded-bl-4xl rounded-br-4xl mx-auto lg:py-[34px] lg:px[40px] xl:px-[80px] px-5 md:px-10 w-full h-0 invisible bg-[#151515] overflow-hidden absolute left-0 right-0 top-[100%] dropdown z-20 flex'
+  >
+    <div
+      class='flex justify-between w-full gap-10 relative gap-[14px] sm:gap-4 xl:py-[32px] lg:gap-[20px] xl:gap-[105px]'
+    >
+      {/** first option */}
+      <div
+        class='text-white font-black poppins-regular flex flex-col gap-2 grow'
+      >
+        {
+          navigations.map((text, index) => {
+            return (
+              <span class='services-dropdown block flex w-full dropdown-shadow-border  capitalize h-[72px]  lg:py-4 lg:pl-8 lg:pr-[26px] rounded-full items-center justify-between gap-10 text-sm shrink-0 hover:text-white text-gray-400'>
+                {text}
+                <ChevronRight class='text-gray-400 hover:text-white' />
+              </span>
+            );
+          })
+        }
+      </div>
+      <div
+        class='flex justify-between gap-[14px] sm:gap-4 lg:gap-[20px] xl:gap-[105px] sm:w-[63.79%] w-[46.7%]'
+      >
+        <div
+          class='link-container flex flex-col sm:grow items-start gap-[14px] w-full pl-2 sm:p-0 sm:w-fit'
+        >
+          <span
+            class='flex w-full text-white capitalize bg-[#1c1c1c] hover:bg-[#ffffff1a] hover:transition-all hover:duration-500 p-0 sm:p-4 gap-4
+            rounded-[32px] items-center text-sm sm:text-base xl:text-[18px]'
+            style='box-shadow : 2px 4px 16px 0px #f8f8f80f inset;'
+          >
+            <span class='w-[60px] h-[60px] rounded-2xl inline-block'>
+              <img
+                src='/shopify.webp'
+                class='object-contain w-full h-full'
+              />
+            </span>
+            Shopify
+          </span>
+          <span
+            class='flex w-full text-white capitalize bg-[#1c1c1c] hover:bg-[#ffffff1a] transition-all duration-500 p-0 sm:p-4 gap-4
+            rounded-[32px] items-center text-sm sm:text-base xl:text-[18px]'
+            style='box-shadow : 2px 4px 16px 0px #f8f8f80f inset;'
+          >
+            <span class='w-[60px] h-[60px] rounded-2xl inline-block'>
+              <img
+                src='/shopify.webp'
+                class='object-contain w-full h-full'
+              />
+            </span>
+            Shopify
+          </span>
+        </div>
+
+        <div
+          class='p-4 rounded-4xl w-fit h-fit gap-2 flex flex-col bg-[#1c1c1c]'
+          style='box-shadow : 2px 4px 16px 0px #f8f8f80f inset;'
+        >
+          <div
+            class='flex flex-col xl:h-[180px] xl:w-[316px] w-[232px] h-[190px] rounded-[32px] cursor-pointer'
+          >
+            <video
+              src='/let-connect.webm'
+              id='video'
+              class='object-cover w-full h-full z-1 rounded-4xl'
+            ></video>
+          </div>
+          <span
+            class='font-poppins sm:text-base text-sm font-normal xl:text-[18px] w-full text-white capitalize'
+            >Let's create a project.</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const links = [
+    [
+      {
+        text: "shopify",
+        src: "/shopify.webp",
+      },
+      {
+        text: "shopify",
+        src: "/shopify.webp",
+      },
+      {
+        text: "shopify",
+        src: "/shopify.webp",
+      },
+    ],
+    [
+      {
+        text: "shopify",
+        src: "/shopify.webp",
+      },
+      {
+        text: "shopify",
+        src: "/shopify.webp",
+      },
+      {
+        text: "shopify",
+        src: "/shopify.webp",
+      },
+      ,
+      {
+        text: "shopify",
+        src: "/shopify.webp",
+      },
+      ,
+      {
+        text: "shopify",
+        src: "/shopify.webp",
+      },
+    ],
+    [
+      {
+        text: "shopify",
+        src: "/shopify.webp",
+      },
+      {
+        text: "shopify",
+        src: "/shopify.webp",
+      },
+    ],
+    [
+      {
+        text: "shopify",
+        src: "/shopify.webp",
+      },
+      {
+        text: "shopify",
+        src: "/shopify.webp",
+      },
+    ],
+    [
+      {
+        text: "shopify",
+        src: "/shopify.webp",
+      },
+      {
+        text: "shopify",
+        src: "/shopify.webp",
+      },
+    ],
+    [
+      {
+        text: "shopify",
+        src: "/shopify.webp",
+      },
+      {
+        text: "shopify",
+        src: "/shopify.webp",
+      },
+    ],
+    [
+      {
+        text: "shopify",
+        src: "/shopify.webp",
+      },
+      {
+        text: "shopify",
+        src: "/shopify.webp",
+      },
+    ],
+    [
+      {
+        text: "shopify",
+        src: "/shopify.webp",
+      },
+      {
+        text: "shopify",
+        src: "/shopify.webp",
+      },
+    ],
+  ];
+  const items = document.querySelectorAll(".services-dropdown");
+  const linkContainer = document.querySelector(".link-container");
+  const video = document.querySelector("#video");
+  video?.addEventListener("mouseenter", () => {
+    console.log(video);
+    video?.play();
+  });
+
+  items.forEach((item, index) => {
+    item.addEventListener("mouseenter", () => {
+      item.classList.add("dropdown-bg", "dropdown-shadow-button");
+      item.style.color = "white";
+
+      items.forEach((item2) => {
+        if (item2 !== item) item2.classList.remove("dropdown-bg");
+      });
+      linkContainer.innerHTML = "";
+      links[index].forEach(({ text, src }) => {
+        const span = document.createElement("span");
+        const span2 = document.createElement("span");
+        const img = document.createElement("img");
+
+        img.src = src;
+        img.classList.add("object-contain", "w-full", "h-full");
+
+        span.classList.add(
+          "flex",
+          "w-full",
+          "text-white",
+          "capitalize",
+          "bg-[#1c1c1c]",
+          "hover:bg-[#ffffff1a]",
+          "hover:transition-all",
+          "hover:duration-500",
+          "p-0",
+          "sm:p-4",
+          "gap-4",
+          "rounded-[32px]",
+          "items-center",
+          "text-sm",
+          "sm:text-base",
+          "xl:text-[18px]",
+        );
+        span2.classList.add(
+          "w-[60px]",
+          "h-[60px]",
+          "rounded-2xl",
+          "inline-block",
+        );
+        span2.append(img);
+        span.append(span2);
+        span.append(text);
+        linkContainer?.append(span);
+      });
+    });
+
+    item.addEventListener("mouseleave", () => {
+      item.classList.remove("dropdown-shadow-button");
+      item.style.color = "rgb(156 163 175)";
+    });
+  });
+</script>
