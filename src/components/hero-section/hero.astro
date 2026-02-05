@@ -3,24 +3,23 @@ import { ArrowUpRight } from "@lucide/astro";
 ---
 
 <section
-  class='w-full h-fit text-white poppins-regular md:my-10 bg-black max-w-480 mx-auto'
+  class='relative flex relative overflow-hidden sm:flex-wrap-reverse mx-auto flex-col-reverse justify-between h-fit max-w-[1920px] mx-auto mt-0 lg:mt-[52px]'
 >
-  <div
-    class='flex relative md:flex-row flex-col justify-between h-fit max-w-480 mx-5 md:mx-20.25 my-20'
-  >
+  <div class='flex relative md:flex-row flex-col justify-between h-fit'>
     <div
-      class='w-full md:w-fit min-h-142.5 flex flex-col justify-evenly md:justify-between font-poppins z-10 bg-transparent'
+      class='w-full md:w-fit flex flex-col gap-[14px] justify-evenly md:justify-between font-poppins z-10 bg-transparent lg:pt-[22px] lg:pb-[96px] lg:pl-[81px]'
     >
-      <div class='flex flex-col gap-10 w-full'>
+      <div class='flex flex-col w-full gap-[14px]'>
         <span
-          class='w-fit px-6.25 py-2.5 bg-white/10 border border-white/20 backdrop-blur-3xl rounded-[25px] flex justify-center items-center gap-3'
+          class='mt-[23px] w-fit lg:py-[23px] lg:px-[32px] h-[50px] border border-[#ffffff1a] rounded-full text-white flex justify-center items-center flex-nowrap gap-2 dark-btn-shadow bg-[#282828b3] dropdown-shadow-button'
         >
-          <span class='inline-block w-2 h-2 bg-green-400 rounded-full'></span>
-          <span class='text-lg font-bold'>Open For Projects</span>
+          <span class='inline-block w-[6px] h-[6px] bg-green-400 rounded-full'
+          ></span>
+          <span class='text-[16px]'>Open For Projects</span>
         </span>
-        <div class='flex flex-col gap-5 w-full'>
+        <div class='flex flex-col gap-2 w-full'>
           <h1
-            class='text-[45px] md:text-[50px] lg:text-[80px] md:leading-16 lg:leading-26 font-extrabold bg-linear-to-r from-[#EAEAEA] to-[#ADADAD] text-transparent bg-clip-text h-fit'
+            class='text-[45px] md:text-[50px] lg:text-[67px] font-semibold leading-[87px] tracking-tight bg-linear-to-r from-[#EAEAEA] to-[#ADADAD] text-transparent bg-clip-text h-fit hero-heading'
           >
             We deliver <span
               class='inline-block bg-linear-to-r from-[#E17C27] to-[#DF5E26] bg-clip-text text-transparent'
@@ -29,7 +28,7 @@ import { ArrowUpRight } from "@lucide/astro";
             </span><br /> Custom Digital Solutions
           </h1>
           <p
-            class='lg:max-w-180 max-w-187.5 w-full sm:max-w-110.5 xs:max-w-[352px] font-poppins font-medium xs:font-normal xs:text-sm sm:text-2xl tracking-tight leading-8 text-[#F8F8F8B2] opacity-70'
+            class='lg:max-w-[750px] max-w-187.5 w-full sm:max-w-110.5 xs:max-w-[352px] font-poppins font-medium xs:font-normal xs:text-sm sm:text-[22px] tracking-tight leading-8 text-[#8f8f8f]'
           >
             We are a reliable technology partner to meet your custom software
             solution needs
@@ -37,22 +36,24 @@ import { ArrowUpRight } from "@lucide/astro";
         </div>
       </div>
       <div
-        class='px-5 py-3 md:px-6 text-sm md:text-lg font-bold md:py-4 rounded-full bg-[#F79A12] w-fit mt-10 cursor-pointer shrink-0'
+        class='py-0 px-5 xl:px-6 h-[48px] xl:h-[55px] hidden md:flex items-center rounded-full bg-[#E68624] cursor-pointer transition-all dark-bg duration-700 hover:[backdrop-filter:blur(100px)] dark-btn-shadow w-fit mt-[66px]'
       >
         <button
-          class='w-full h-full flex justify-between items-center gap-2 shrink-0'
+          class='w-full h-full font-medium text-[13px] xl:text-[16px] flex justify-between items-center gap-1 text-white'
         >
-          Request a Quote <ArrowUpRight /></button
-        >
+          Request a quote <ArrowUpRight size={16} />
+        </button>
       </div>
     </div>
 
-    <video
-      src='/sookshum-hero-video.webm'
-      autoplay
-      loop
-      muted
-      class='object-contain md:absolute md:-right-20 xl:bottom-0 xl:-top-10 md:top-30 w-auto max-h-150 z-1'
-    ></video>
+    <div class='absolute right-[-2%] -top-[4%] w-fit h-[700px] overflow-hidden'>
+      <video
+        src='/sookshum-hero-video.webm'
+        autoplay
+        loop
+        muted
+        class='object-cover h-[620px] w-auto z-20'
+      ></video>
+    </div>
   </div>
 </section>
