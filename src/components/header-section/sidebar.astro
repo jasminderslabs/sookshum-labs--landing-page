@@ -4,16 +4,16 @@ import ServicesDropdown from "./servicesDropdown.astro";
 ---
 
 <div
-  class='sidebar fixed bg-[#151515] overflow-auto sm:w-full z-10 transition-all sm:h-[calc(100vh-100px)] h-[calc(100vh-75px)] sm:top-[100px] top-[75px] bottom-0 -left-full w-full z-[9999] px-[31px] pt-[24px] lg:hidden'
+  class='sidebar fixed bg-[#151515] overflow-auto sm:w-full transition-all sm:h-[calc(100vh-100px)] h-[calc(100vh-75px)] sm:top-25 top-18.75 bottom-0 -left-full w-full z-9999 px-7.75 pt-6 lg:hidden'
 >
   <a
     href='/'
-    class='w-full px-4 py-4 sm:px-10 text-white block font-semibold text-[14px] h-[52px] flex items-center'
+    class='w-full px-4 py-4 sm:px-10 text-white font-semibold text-[14px] h-13 flex items-center'
     >Home</a
   >
   <div>
     <a
-      class='w-full px-4 md:py-4 sm:px-10 block text-[14px] h-[52px] flex justify-between items-center text-white'
+      class='w-full px-4 md:py-4 sm:px-10 text-[14px] h-13 flex justify-between items-center text-white'
       >Services
       <div class='down-arrow'>
         <svg
@@ -36,15 +36,15 @@ import ServicesDropdown from "./servicesDropdown.astro";
   </div>
   <a
     href='/'
-    class='w-full px-4 py-4 sm:px-10 text-white block text-[14px] h-[52px] sm:h-[72px] flex items-center'
+    class='w-full px-4 py-4 sm:px-10 text-white text-[14px] h-13 sm:h-18 flex items-center'
     >About us</a
   >
 
   <div
-    class='py-0 px-5 mt-[22px] xl:px-6 h-[48px] xl:h-[55px] flex md:hidden items-center rounded-full bg-[#E68624] cursor-pointer transition-all dark-bg duration-700 hover:[backdrop-filter:blur(100px)] dark-btn-shadow'
+    class='py-0 px-5 mt-5.5 xl:px-6 h-12 xl:h-13.75 flex md:hidden items-center rounded-full bg-[#E68624] cursor-pointer transition-all dark-bg duration-700 hover:[backdrop-filter:blur(100px)] dark-btn-shadow'
   >
     <button
-      class='w-full h-full font-[14px] font-medium text-[14px] xl:text-[16px] flex justify-center text-white items-center gap-1'
+      class='w-full h-full font-[14px] text-[14px] xl:text-[16px] flex justify-center text-white items-center gap-1'
     >
       Get In Touch <GoArrowUpRight size={16} />
     </button>
