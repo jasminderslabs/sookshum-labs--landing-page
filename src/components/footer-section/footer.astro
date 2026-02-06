@@ -4,6 +4,7 @@ import OurServices from "./footer-services.astro";
 import Company from "./footer-company.astro";
 import Address from "./footer-address.astro";
 import SocialLinks from "./social-links.astro";
+import Button from "../button/Button.astro";
 ---
 
 <section class='max-w-480 pt-5 bg-[#282828B8] flex flex-col mx-auto'>
@@ -28,7 +29,7 @@ import SocialLinks from "./social-links.astro";
       </p>
       <div class='w-full flex lg:flex-row flex-col gap-3 items-center shrink-0'>
         <div
-          class='px-2 md:px-5 font-bold py-3 rounded-full bg-[#F79A12] w-fit cursor-pointer shrink-0'
+          class='px-2 md:px-5 font-bold py-3 rounded-full w-fit bg-[#E68624] cursor-pointer transition-all dark-bg duration-700 hover:[backdrop-filter:blur(100px)] dark-btn-shadow shrink-0'
         >
           <button
             class='w-full h-full flex justify-between items-center gap-2 shrink-0 text-base md:text-sm'
@@ -36,10 +37,7 @@ import SocialLinks from "./social-links.astro";
             Request a Quote <ArrowUpRight /></button
           >
         </div>
-        <button
-          class='bg-[#282828B2] rounded-full py-3 px-5 cursor-pointer shrink-0 text-base md:text-sm'
-          >Refer Us</button
-        >
+        <Button text='refer us' />
       </div>
     </div>
     <OurServices />

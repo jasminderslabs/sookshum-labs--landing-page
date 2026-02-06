@@ -1,27 +1,31 @@
 ---
-const { title, src, content, width, height } = Astro.props;
+const { title, src, content } = Astro.props;
 ---
 
 <div
-  class='w-auto xxl:w-[544px] h-fit bg-[#282828B2] rounded-[20px] lg:rounded-4xl relative flex flex-col card card-animate dropdown-bg dropdown-shadow-button'
+  class='w-auto xxl:max-w-[544px] h-full bg-[#282828B2] rounded-[20px] lg:rounded-4xl relative flex flex-col justify-center card card-animate feature-card dark-btn-shadow dropdown-bg dropdown-shadow-button'
 >
-  <div class='relative w-full h-auto mb-20 xl:mb-0 xl:h-32.5'>
-    <img
-      src={src}
-      alt='feature-card-logo'
-      width={width}
-      height={height}
-      class='absolute -top-16 -left-10 right-0 m-auto object-contain h-[147px] lg:h-[176px] xl:h-auto'
-    />
+  <div class='relative'>
+    <div
+      class='absolute flex justify-center items-center w-full xl:h-[231px] -translate-y-[38%] -translate-x-[4%]'
+    >
+      <canvas
+        class='xl:h-[231px] xl:w-[231px] lg:h-[175px] lg:w-[175px] md:w-[147px] md:h-[147px] h-[196px]'
+        height='231'
+        width='231'
+      ></canvas>
+    </div>
   </div>
   <div
-    class='px-[9px] pb-[14px] pt-8 xl:pt-0 lg:px-4 lg:pb-8 flex flex-col gap-3'
+    class='pt-[110px] sm:pt-[98px] p-[9px] lg:px-[14px] xl:px-4 pb-[14px] lg:pb-8 flex flex-col gap-[8px] sm:gap-3 xl:gap-[14px] grow'
   >
     <span
-      class='text-white block relative md:text-[14px] lg:text-[20px] xl:text-[26px] font-medium font-poppins capitalize'
+      class='text-white block relative text-[14px] lg:text-[20px] xl:text-[26px] lg:pt-8 font-medium font-poppins capitalize hero-heading'
       >{title}</span
     >
-    <p class='text-[#F8F8F8B2] text-[12px] lg:text-[14px] xl:text-[16px]'>
+    <p
+      class='text-[#F8F8F8B2] text-[12px] lg:text-[14px] xl:text-[16px] leading-4 lg:leading-5'
+    >
       {content}
     </p>
     <!-- <button
@@ -31,3 +35,69 @@ const { title, src, content, width, height } = Astro.props;
     </button> -->
   </div>
 </div>
+
+<script>
+  const cards = document.querySelectorAll(".feature-card");
+  const imagePaths = [
+    "design-animation",
+    "develop-animation",
+    "grow-animation",
+  ];
+  const currentFrame = (index: number, path: string) => {
+    return `/core-services/${path}/${index.toString().padStart(4, "0")}.webp`;
+  };
+
+  const img = new Image();
+
+  const updateImage = (i: number, path: string, ctx: any) => {
+    if (i > 30) return;
+    img.src = currentFrame(i, path);
+
+    img.onload = () => {
+      ctx?.clearRect(0, 0, 231, 231);
+      ctx?.drawImage(img, 0, 0, 231, 231);
+
+      requestAnimationFrame(() => updateImage(i + 1, path, ctx));
+    };
+  };
+
+  const updateImageWhenLeave = (i: number, path: string, ctx: any) => {
+    if (i < 1) return;
+    img.src = currentFrame(i, path);
+
+    img.onload = () => {
+      ctx?.clearRect(0, 0, 231, 231);
+      ctx?.drawImage(img, 0, 0, 231, 231);
+
+      requestAnimationFrame(() => updateImageWhenLeave(i - 1, path, ctx));
+    };
+  };
+
+  // Render only first image when page loads.
+  cards.forEach((card, index) => {
+    const img = new Image();
+    img.src = currentFrame(1, imagePaths[index]);
+    img.onload = () => {
+      const canvas = card.children[0].children[0].children[0];
+      const ctx = canvas.getContext("2d");
+      console.log(canvas.height);
+      ctx.drawImage(img, 0, 0, 231, 231);
+    };
+  });
+
+  cards.forEach((card, index) => {
+    card.addEventListener("mouseenter", () => {
+      const canvas = card.children[0].children[0].children[0];
+      const ctx = canvas.getContext("2d");
+      updateImage(1, imagePaths[index], ctx);
+    });
+  });
+
+  cards.forEach((card, index) => {
+    card.addEventListener("mouseleave", () => {
+      const canvas = card.children[0].children[0].children[0];
+      const ctx = canvas.getContext("2d");
+      updateImageWhenLeave(30, imagePaths[index], ctx);
+    });
+  });
+</script>

@@ -126,17 +126,21 @@ header:has(ul .services:hover, .dropdown:hover) {
   transform-style: preserve-3d;
 }
 
-.card-animate img {
+/* .card-animate img {
   transition: transform 1s ease;
 }
 
 .card-animate:hover img {
   transform: rotate3d(3, 0, 1, 20deg);
-}
+} */
 
+.card {
+  border: 1px solid #1c1c1c;
+}
 .card:hover,
 .card:hover button {
   box-shadow: inset 0px 0px 45px 0px rgba(230, 134, 36, 0.3);
+  border: 0.1px solid #e6862466;
 }
 
 .no-scrollbar {
@@ -246,4 +250,9 @@ button {
     linear-gradient(120deg, var(--primary) 0, #df5e26 80%),
     linear-gradient(130deg, #eaeaea 2.16%, #adadad 93.44%) !important;
   color: unset;
+}
+
+.feature-card img {
+  height: 100%;
+  width: 100%;
 }

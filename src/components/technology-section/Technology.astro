@@ -1,5 +1,6 @@
 ---
 import Button from "../button/Button.astro";
+import TopSection from "../top-section/Topsection.astro";
 import TechnologyCard from "./TechnologyCard.astro";
 const cards = [
   {
@@ -23,21 +24,17 @@ const cards = [
     content: `In a continuous delivery environment, constant application monitoring is essential for addressing issues in real time. Tools such as real-time error monitoring and performance monitoring services play a critical role in this process. They enable teams to identify and resolve problems quickly, ensuring that applications function smoothly and efficiently. By using these tools, organizations can enhance workflow efficiency, maintain high performance levels, and continuously improve the user experience. This proactive approach to monitoring helps prevent disruptions, optimize performance, and deliver a seamless, high-quality experience for users, ultimately contributing to overall success and satisfaction.`,
   },
 ];
+const topSectionContent = {
+  heading: "Technologies we",
+  word: "use?",
+  para: `We leverage cutting-edge technologies to deliver innovative,
+      high-performance solutions that drive success and exceed your expectations`,
+  btnText: "technologies",
+};
 ---
 
-<section class='flex flex-col items-center gap-10 max-w-480 mx-auto my-20'>
-  <div
-    class='flex flex-col justify-between gap-5 items-center text-white w-[90%] md:w-[60%] lg:w-[40%]'
-  >
-    <Button text='technologies' />
-    <h2 class='font-semibold text-3xl lg:text-5xl text-center'>
-      Technologies we <i class='font-light'>use?</i>
-    </h2>
-    <p class='text-center text-lg opacity-70'>
-      We leverage cutting-edge technologies to deliver innovative,
-      high-performance solutions that drive success and exceed your expectations
-    </p>
-  </div>
+<section class='flex flex-col items-center gap-10 max-w-480 mx-auto'>
+  <TopSection {...topSectionContent} />
   {
     cards.map((data, index) => {
       return (

@@ -1,5 +1,5 @@
 ---
-import Button from "../button/Button.astro";
+import TopSection from "../top-section/Topsection.astro";
 import TestimonialCard from "./testimonialCard.astro";
 const cards = [
   {
@@ -54,21 +54,17 @@ const cards = [
     adipisicing elit.`,
   },
 ];
+const topSectionContent = {
+  heading: "There are reason people are | about us",
+  word: "raving",
+  para: `Don't just take our word for it. Explore what our satisfied clients have
+      to say about their experience working with our agency`,
+  btnText: "testimonials",
+};
 ---
 
-<section class='flex flex-col items-center gap-16 max-w-480 mx-auto my-20'>
-  <div
-    class='flex flex-col justify-between gap-5 items-center text-white w-[90%] md:w-[70%] lg:w-[40%]'
-  >
-    <Button text='testimonials' />
-    <h2 class='font-semibold text-3xl md:text-5xl text-center'>
-      There are reason people are <i class='font-light'>raving</i> about us.
-    </h2>
-    <p class='text-center text-lg opacity-70'>
-      Don't just take our word for it. Explore what our satisfied clients have
-      to say about their experience working with our agency.
-    </p>
-  </div>
+<section class='flex flex-col items-center gap-16 max-w-480 mx-auto'>
+  <TopSection {...topSectionContent} />
   <div class='relative w-[90%] mx-20'>
     <div class='flex overflow-auto no-scrollbar gap-5 endless-scroll'>
       {

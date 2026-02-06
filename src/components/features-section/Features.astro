@@ -2,34 +2,30 @@
 import Card from "./FeatureCard.astro";
 const p1 =
   "Transforming ideas into visual masterpieces, we craft stunning user experiences that captivate and convert your target audience.";
+const p2 = `Product development guided by industry standards, ensuring the efficient delivery of reliable and top-tier robust and scalable software solutions.
+`;
 ---
 
 <section
-  class='w-full md:pb-[32px] lg:pb-0 px-[20px] md:px-[40px] xl:px-[80px] lg:pt-[72px] mt-20 max-w-480 mx-auto flex justify-center items-center'
+  class='w-full md:pb-[32px] lg:pb-0 px-[20px] md:px-[40px] xl:px-[80px] lg:pt-[72px] mt-[92px] max-w-480 mx-auto flex justify-center items-center'
 >
   <div
-    class='w-auto h-full flex flex-col md:flex-row items-center gap-30 md:gap-2.5 lg:gap-5 xl:gap-4 2xl:gap-16'
+    class='w-auto h-full grid md:grid-cols-3 items-center gap-30 md:gap-2.5 lg:gap-[18px] xl:gap-5 xl:gap-4 2xl:gap-16'
   >
     <Card
-      src='/Design.png'
+      src='/core-services/design-animation/0001.webp'
       title='design'
       content={p1}
-      width='250'
-      heigh='240'
     />
     <Card
-      src='/code.png'
+      src='/core-services/develop-animation/0001.webp'
       title='develop'
-      content={p1}
-      width='210'
-      heigh='240'
+      content={p2}
     />
     <Card
-      src='/Grow.png'
+      src='/core-services/grow-animation/0001.webp'
       title='grow'
       content={p1}
-      width='300'
-      heigh='240'
     />
   </div>
 </section>
