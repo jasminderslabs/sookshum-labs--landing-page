@@ -29,15 +29,15 @@ import Button from "../button/Button.astro";
       </p>
       <div class='w-full flex lg:flex-row flex-col gap-3 items-center shrink-0'>
         <div
-          class='px-2 md:px-5 font-bold py-3 rounded-full w-fit bg-[#E68624] cursor-pointer transition-all dark-bg duration-700 hover:[backdrop-filter:blur(100px)] dark-btn-shadow shrink-0'
+          class='py-0 px-5 xl:px-6 h-12 xl:h-13.75 flex items-center rounded-full bg-[#E68624] cursor-pointer transition-all dark-bg duration-700 hover:[backdrop-filter:blur(100px)] dark-btn-shadow w-fit mt-7.5 xl:mt-16.5'
         >
           <button
-            class='w-full h-full flex justify-between items-center gap-2 shrink-0 text-base md:text-sm'
+            class='w-full h-full font-medium text-[13px] xl:text-[16px] flex justify-between items-center gap-1 text-white'
           >
-            Request a Quote <ArrowUpRight /></button
-          >
+            Request a quote <ArrowUpRight size={16} />
+          </button>
         </div>
-        <Button text='refer us' />
+        <Button text='Refer us' />
       </div>
     </div>
     <OurServices />

@@ -3,28 +3,131 @@ const { src, title, content, list } = Astro.props;
 ---
 
 <div
-  class='max-w-[95%] md:max-w-[60%] lg:w-[28%] bg-[#282828B2] rounded-4xl relative flex flex-col gap-5 p-5 card shrink-0'
+  class='bg-[#282828B2] rounded-4xl relative flex flex-col lg:gap-9 xl:gap-5 px-6.25 pt-6.25 lg:px-7.5 lg:py-3.5 xl:px-8 xl:pt-8 xl:pb-4 card max-w-[300px] sm:max-w-[315px] md:max-w-77.5
+  lg:max-w-100 xl:max-w-113.5 shrink-0 dark-btn-shadow dropdown-bg dropdown-shadow-button
+  experience-card'
 >
-  <div class='w-[40%]'>
-    <img
-      src={src}
-      alt='customerSupport'
-      class='object-cover'
-    />
-  </div>
-  <div class='w-full text-white flex flex-col gap-2 px-2 pb-3 h-full'>
-    <span class='font-semibold text-lg capitalize'>
+  <!-- <div class='xl:h-44.75 xl:w-42.5 w-[100px] h-[110px]'>
+    <canvas class='lg:w-full xl:h-44.75 xl:w-42.5 w-[100px] h-[110px]'></canvas>
+  </div> -->
+  <canvas
+    class='md:w-[100px] md:h-[100px] lg:w-[117px] lg:h-[112px] xl:h-44.75 xl:w-42.5 w-[100px] h-[110px]'
+  ></canvas>
+  <div class='w-full text-white flex flex-col py-4 lg:py-0 gap-2 h-fit'>
+    <span
+      class='font-medium text-[14px] lg:text-[16px] xl:text-[19px] capitalize'
+    >
       {title}
     </span>
-    <p class='opacity-70'>
+    <p class='opacity-70 text-[13px] lg:text-[14px] xl:text-[16px]'>
       {content}
     </p>
+    <ul
+      class='text-white list-disc font-medium pl-3 space-y-2 text-[13px] md:text-[14px] lg:text-[14px] xl:text-[18px] h-fit'
+    >
+      {
+        list?.map((data: unknown) => {
+          return <li>{data}</li>;
+        })
+      }
+    </ul>
   </div>
-  <ul class='text-white list-disc px-6 space-y-2'>
-    {
-      list?.map((data: unknown) => {
-        return <li>{data}</li>;
-      })
-    }
-  </ul>
 </div>
+
+<script>
+  const cards = document.querySelectorAll(".experience-card");
+  const imagePaths = [
+    { name: "healthcare", imageCount: 60 },
+    { name: "e-commerce", imageCount: 70 },
+    { name: "sports", imageCount: 40 },
+    { name: "business-solutions", imageCount: 100 },
+    { name: "on-demand-solutions", imageCount: 60 },
+  ];
+  const currentFrame = (index: number, path: string) => {
+    return `industries/${path}/${index.toString().padStart(4, "0")}.webp`;
+  };
+
+  const img = new Image();
+
+  const updateImage = (
+    i: number,
+    imageCount: number,
+    path: string,
+    ctx: any,
+    width: number,
+    height: number,
+  ) => {
+    if (i > imageCount) return;
+    img.src = currentFrame(i, path);
+
+    img.onload = () => {
+      ctx?.clearRect(0, 0, width, height);
+      ctx?.drawImage(img, 0, 0, width, height);
+
+      requestAnimationFrame(() =>
+        updateImage(i + 1, imageCount, path, ctx, width, height),
+      );
+    };
+  };
+
+  const updateImageWhenLeave = (
+    i: number,
+    path: string,
+    ctx: any,
+    width: number,
+    height: number,
+  ) => {
+    if (i < 1) return;
+    img.src = currentFrame(i, path);
+
+    img.onload = () => {
+      ctx?.clearRect(0, 0, width, height);
+      ctx?.drawImage(img, 0, 0, width, height);
+
+      requestAnimationFrame(() =>
+        updateImageWhenLeave(i - 1, path, ctx, width, height),
+      );
+    };
+  };
+
+  // Render only first image when page loads.
+  cards.forEach((card, index) => {
+    const img = new Image();
+    img.src = currentFrame(1, imagePaths[index].name);
+
+    const canvas = card.children[0];
+    const ctx = canvas.getContext("2d");
+    img.onload = () => {
+      ctx.drawImage(img, 0, 0, canvas.width, canvas?.height);
+    };
+  });
+
+  cards.forEach((card, index) => {
+    card.addEventListener("mouseenter", () => {
+      const canvas = card.children[0];
+      const ctx = canvas.getContext("2d");
+      updateImage(
+        1,
+        imagePaths[index].imageCount,
+        imagePaths[index].name,
+        ctx,
+        canvas?.width,
+        canvas?.height,
+      );
+    });
+  });
+
+  cards.forEach((card, index) => {
+    card.addEventListener("mouseleave", () => {
+      const canvas = card.children[0];
+      const ctx = canvas.getContext("2d");
+      updateImageWhenLeave(
+        imagePaths[index].imageCount,
+        imagePaths[index].name,
+        ctx,
+        canvas.width,
+        canvas?.height,
+      );
+    });
+  });
+</script>

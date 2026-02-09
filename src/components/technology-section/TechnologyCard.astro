@@ -3,29 +3,29 @@ const { src, title, content, reverse } = Astro.props;
 ---
 
 <div
-  class=`w-auto lg:w-[90%] m-5 lg:m-20 flex ${reverse ? 'flex-col-reverse sm:flex-row-reverse' : 'flex-col-reverse sm:flex-row'} justify-between items-center`
+  class=`w-full h-full xl:my-10 flex ${reverse ? 'flex-col-reverse sm:flex-row-reverse' : 'flex-col-reverse sm:flex-row'} justify-between items-center md:gap-10 lg:gap-0`
 >
   <div
-    class='text-white sm:w-[45%] lg:w-[40%] h-full flex flex-col justify-start items-start gap-5'
+    class='text-white h-full flex flex-col justify-start items-start gap-3 lg:gap-5 md:max-w-[329px] lg:max-w-[491px] xl:max-w-[530px]'
   >
-    <h2 class='text-3xl font-bold'>Application Monitoring</h2>
-    <p class='opacity-70 leading-7'>
-      In a continuous delivery environment, constant application monitoring is
-      essential for addressing issues in real time. Tools such as real-time
-      error monitoring and performance monitoring services play a critical role
-      in this process. They enable teams to identify and resolve problems
-      quickly, ensuring that applications function smoothly and efficiently. By
-      using these tools, organizations can enhance workflow efficiency, maintain
-      high performance levels, and continuously improve the user experience.
-      This proactive approach to monitoring helps prevent disruptions, optimize
-      performance, and deliver a seamless, high-quality experience for users,
-      ultimately contributing to overall success and satisfaction.
+    <h2 class='text-[20px] lg:text-[24px] xl:text-[36px] capitalize'>
+      {title}
+    </h2>
+    <p
+      class='opacity-70 text-[13px] lg:text-[14px] xl:leading-6 py-2 font-light xl:max-w-145.25'
+    >
+      {content}
     </p>
   </div>
-  <div class='sm:w-[50%] lg:w-[40%] my-5'>
-    <img
+  <div
+    class='md:h-[300px] md:w-[300px] lg:w-[360px] lg:h-[360px] xl:h-[505px] xl:w-[505px] flex justify-center items-center'
+  >
+    <video
       src={src}
-      class='object-cover'
-    />
+      autoplay
+      loop
+      muted
+      class='object-cover w-fit h-fit'
+    ></video>
   </div>
 </div>
