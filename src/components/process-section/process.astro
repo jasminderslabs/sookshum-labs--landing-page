@@ -4,19 +4,19 @@ import ProcessCard1 from "./processCard1.astro";
 import ProcessCard2 from "./ProcessCard2.astro";
 const cards = [
   {
-    src: "/requirement.png",
+    src: "/dash.mp4",
     title: "Requirement Gathering",
     content:
       "We take the time to understand your goals, target audience, and brand identity to craft solutions that truly resonates. ",
   },
   {
-    src: "/functional.png",
+    src: "/Functionality-Mapping&Wireframe.webm",
     title: "Functionality Mapping & Wireframe",
     content:
       "We strategically plan key features and functionalities to ensure your website is user-friendly and meets your objectives.",
   },
   {
-    src: "/processUx.png",
+    src: "/UI&UX-Designing.webm",
     title: "UI & UX Designing",
     content:
       "We create visually stunning, user-centric interfaces that are intuitive and engaging, delivering a seamless user experience.",
@@ -25,13 +25,13 @@ const cards = [
 
 const bottomCards = [
   {
-    src: "/Deployment.png",
+    src: "/Deployment.webm",
     title: "Deployment",
     content:
       "Effortless deployment with precision. We ensure seamless launches, smooth transitions, minimal downtime, and a flawless launch for your digital product’s success.",
   },
   {
-    src: "/support.png",
+    src: "/dash-1.mp4",
     title: "Support & Maintenance ",
     content:
       "Keeping you ahead of the curve. We provide continuous ongoing support and maintenance to ensure your digital products stays secure, up-to-date, and performing optimally.",
@@ -47,11 +47,11 @@ const topSectionContent = {
 };
 ---
 
-<section class='flex flex-col items-center gap-5 max-w-480 mx-auto'>
+<section
+  class='flex flex-col items-center gap-5 max-w-480 mx-auto xl:pt-30 xl:px-20'
+>
   <TopSection {...topSectionContent} />
-  <div
-    class='grid md:grid-cols-3 justify-items-center gap-2 lg:gap-5 mx-5 lg:mx-20 lg:w-[90%]'
-  >
+  <div class='grid md:grid-cols-3 justify-items-center gap-5'>
     {
       cards.map((data) => {
         return <ProcessCard1 {...data} />;
@@ -59,23 +59,26 @@ const topSectionContent = {
     }
   </div>
   <div
-    class='lg:w-[90%] mx-5 rounded-4xl min-h-100 flex flex-col md:flex-row justify-center items-center bg-[#282828B2] card'
+    class='overflow-hidden rounded-4xl flex flex-col md:flex-row justify-center items-center bg-[#282828B2] card xl:h-98'
   >
-    <div class='w-fit h-fit'>
-      <img
-        src='/Agile.png'
-        class='w-fit h-fit object-center'
-      />
+    <div class='overflow-hidden xl:min-w-125 xl:h-125'>
+      <video
+        src='/Agile-Development.webm'
+        loop
+        muted
+        autoplay
+        class='object-contain h-full w-auto'
+      ></video>
     </div>
     <div
-      class='w-fit h-full text-white flex flex-col md:justify-center gap-5 px-5'
+      class='w-fit h-full text-white flex flex-col md:justify-center px-8 xl:gap-3.5'
     >
       <h2
-        class='text-white block relative text-xl font-extrabold font-poppins capitalize md:text-center'
+        class='text-white relative font-medium font-poppins capitalize md:text-center xl:text-[19px]'
       >
         Agile Development
       </h2>
-      <p class='opacity-70 md:text-center'>
+      <p class='opacity-70 xl:text-[16px] xl:leading-6 xl:px-6 md:text-center'>
         Tailored to your needs, our agile development approach involves ongoing
         refinement and integration of your feedback. This ensures that your
         digital products evolve seamlessly with your changing needs, delivering
@@ -85,9 +88,7 @@ const topSectionContent = {
     </div>
   </div>
 
-  <div
-    class='w-auto lg:w-[90%] lg:mx-20 flex flex-col md:flex-row justify-between h-fit text-white gap-2 mx-5 lg:gap-5'
-  >
+  <div class='flex flex-col md:flex-row justify-between h-fit text-white gap-5'>
     {
       bottomCards.map((data) => {
         return <ProcessCard2 {...data} />;

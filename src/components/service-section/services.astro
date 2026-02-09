@@ -3,37 +3,37 @@ import TopSection from "../top-section/Topsection.astro";
 import ServicesCard from "./servicesCard.astro";
 const cards = [
   {
-    src: "/ecom.png",
-    title: "ecommerce development",
+    src: "/ecommerce-video.webm",
+    title: "ecommerce",
     content:
       "High-performance Ecommerce solutions tailored to accelerate the success of your business.",
   },
   {
-    src: "/mobile.png",
-    title: "mobile development",
+    src: "/mobile-app-video.webm",
+    title: "mobile app development",
     content:
       "Custom mobile applications designed to be intuitive and engaging, driving customer acquisition and retention.",
   },
   {
-    src: "/web.png",
+    src: "/web-app-video.webm",
     title: "web app development",
     content:
       "Creating custom web apps that transform ideas into powerful user-centric solutions for digital success.",
   },
   {
-    src: "/ux.png",
+    src: "/ui-ux-video.webm",
     title: "UI/UX design",
     content:
       "Crafting exceptional experiences by elevating your digital presence with user-centric UI/UX design that captivates, converts and delights.",
   },
   {
-    src: "/lowCode.png",
+    src: "/low-code-video.webm",
     title: "low code development",
     content:
       "Accelerate innovation by empowering your team with low-code solutions that turn ideas into powerful applications at lightning speed.",
   },
   {
-    src: "/Website.png",
+    src: "/website-app-video.webm",
     title: "website development",
     content:
       "Forging your digital identity using expert website development that transforms vision into engaging online experiences.",
@@ -47,11 +47,13 @@ const topSectionContent = {
 };
 ---
 
-<section class='flex flex-col items-center gap-16 max-w-480 mx-auto'>
+<section
+  class='flex flex-col items-center gap-16 max-w-480 mx-auto px-5 md:px-10 xl:pt-[120px] xl:px-20'
+>
   <TopSection {...topSectionContent} />
 
   <div
-    class='w-auto lg:w-[90%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:justify-items-center gap-2 lg:gap-5 mx-5 lg:mx-20'
+    class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:justify-items-center gap-3 md:gap-5'
   >
     {
       cards.map((data) => {

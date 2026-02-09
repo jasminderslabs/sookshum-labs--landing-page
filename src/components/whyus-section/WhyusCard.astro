@@ -3,23 +3,116 @@ const { src, title, content } = Astro.props;
 ---
 
 <div
-  class='h-auto bg-[#282828B2] rounded-4xl relative flex flex-col gap-5 p-5 card'
+  class='h-auto bg-[#282828B2] rounded-4xl relative flex flex-col xl:gap-4 xl:p-8 card why-us-card dark-btn-shadow dropdown-bg dropdown-shadow-button'
 >
-  <div class='w-[20%] md:w-[30%]'>
-    <img
-      src={src}
-      alt='customerSupport'
-      class='w-full h-full object-cover'
-    />
-  </div>
-  <div
-    class='w-full text-white flex flex-col gap-2 px-2 pb-3 h-full justify-end'
-  >
-    <span class='font-semibold text-lg capitalize'>
+  <canvas class='xl:w-[120px] xl:h-[113px] xl:max-h-[113px]'></canvas>
+
+  <div class='w-full text-white flex flex-col xl:gap-5'>
+    <h3 class='xl:text-[26px] capitalize hero-heading xl:leading-8'>
       {title}
-    </span>
-    <p class='opacity-70'>
+    </h3>
+    <p class='opacity-70 xl:leading-7 xl:text-[18px]'>
       {content}
     </p>
   </div>
 </div>
+<script>
+  const cards = document.querySelectorAll(".why-us-card");
+  //..........................................................................
+  // pending when mouse leave then images are not properly showing.
+  // ........................................................................
+  const imagePaths = [
+    { name: "chat", imageCount: 50 },
+    { name: "rank", imageCount: 50 },
+    { name: "competitive-price", imageCount: 40 },
+    { name: "account-manager", imageCount: 50 },
+    { name: "honest&valuable", imageCount: 50 },
+    { name: "team-of-experts", imageCount: 50 },
+  ];
+  const currentFrame = (index: number, path: string) => {
+    return `/why-us/${path}/${index.toString().padStart(4, "0")}.webp`;
+  };
+
+  const img = new Image();
+
+  const updateImage = (
+    i: number,
+    imageCount: number,
+    path: string,
+    ctx: any,
+    width: number,
+    height: number,
+  ) => {
+    if (i > imageCount) return;
+    img.src = currentFrame(i, path);
+
+    img.onload = () => {
+      ctx?.clearRect(0, 0, width, height);
+      ctx?.drawImage(img, 0, 0, width, height);
+
+      requestAnimationFrame(() =>
+        updateImage(i + 1, imageCount, path, ctx, width, height),
+      );
+    };
+  };
+
+  const updateImageWhenLeave = (
+    i: number,
+    path: string,
+    ctx: any,
+    width: number,
+    height: number,
+  ) => {
+    if (i < 1) return;
+    img.src = currentFrame(i, path);
+
+    img.onload = () => {
+      ctx?.clearRect(0, 0, width, height);
+      ctx?.drawImage(img, 0, 0, width, height);
+
+      requestAnimationFrame(() =>
+        updateImageWhenLeave(i - 1, path, ctx, width, height),
+      );
+    };
+  };
+
+  // Render only first image when page loads.
+  cards.forEach((card, index) => {
+    const img = new Image();
+    img.src = currentFrame(1, imagePaths[index].name);
+    const canvas = card.children[0];
+    const ctx = canvas.getContext("2d");
+    img.onload = () => {
+      ctx.drawImage(img, 0, 0, canvas.width, canvas?.height);
+    };
+  });
+
+  cards.forEach((card, index) => {
+    card.addEventListener("mouseenter", () => {
+      const canvas = card.children[0];
+      const ctx = canvas.getContext("2d");
+      updateImage(
+        1,
+        imagePaths[index].imageCount,
+        imagePaths[index].name,
+        ctx,
+        canvas?.width,
+        canvas?.height,
+      );
+    });
+  });
+
+  cards.forEach((card, index) => {
+    card.addEventListener("mouseleave", () => {
+      const canvas = card.children[0];
+      const ctx = canvas.getContext("2d");
+      updateImageWhenLeave(
+        imagePaths[index].imageCount,
+        imagePaths[index].name,
+        ctx,
+        canvas.width,
+        canvas?.height,
+      );
+    });
+  });
+</script>

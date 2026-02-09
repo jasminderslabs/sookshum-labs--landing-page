@@ -208,7 +208,7 @@ button {
   background-color: #1c1c1c;
 }
 
-.testimonial-animate {
+.testimonial-animate:hover {
   background-image: linear-gradient(
     to left top,
     transparent,

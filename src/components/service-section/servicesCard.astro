@@ -5,27 +5,24 @@ const { src, title, content } = Astro.props;
 ---
 
 <div
-  class='w-full h-auto rounded-4xl p-2 lg:p-5 card bg-[#282828B2] flex flex-col justify-between items-center'
+  class='w-full h-auto rounded-4xl pb-6 xl:pb-8 xl:gap-2 card bg-[#282828B2] flex flex-col justify-between items-center'
 >
-  <div class='w-full h-fit flex justify-center'>
-    <img
+  <div class='w-full flex justify-center xl:h-[354px]'>
+    <video
       src={src}
-      alt='ecom-assest'
-      class='object-center w-full h-full'
-    />
+      autoplay
+      loop
+      muted
+      class='object-cover w-full h-full rounded-4xl'
+    ></video>
   </div>
-  <div class='w-full text-white flex flex-col gap-2 px-2'>
-    <span
-      class='font-semibold text-lg capitalize'
-      style='font-family: Inter;'
-      >{title}</span
-    >
-    <p
-      class='opacity-70'
-      style='font-family: Inter; font-weight : 400;'
-    >
+  <div class='w-full text-white flex flex-col px-5 xl:px-8 xl:gap-[10px]'>
+    <h3 class='hero-heading text-[14px] xl:text-[19px] capitalize'>
+      {title}
+    </h3>
+    <p class='opacity-70 text-[13px] xl:text-[16px]'>
       {content}
     </p>
-    <Button text='discover' />
+    <Button text='Discover' />
   </div>
 </div>

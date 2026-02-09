@@ -3,20 +3,21 @@ const { src, title, content } = Astro.props;
 ---
 
 <div
-  class='relative bg-[#282828B2] rounded-4xl md:w-[50%] p-2 lg:p-5 card flex flex-col justify-between'
+  class='relative bg-[#282828B2] gap-2 xl:pb-8 rounded-4xl md:w-[50%] card flex flex-col justify-between'
 >
   <div class='flex justify-center items-center w-full h-full'>
-    <img
+    <video
       src={src}
-      alt={title}
-    />
+      loop
+      muted
+      autoplay
+      class='object-cover h-full w-full rounded-4xl'
+    ></video>
   </div>
-  <div
-    class='w-full text-white flex flex-col gap-2 px-2 pb-3 h-full justify-end'
-  >
-    <span class='font-semibold text-lg capitalize'>
+  <div class='w-full text-white flex flex-col gap-2 xl:px-8 xl:gap-[10px]'>
+    <h3 class='hero-heading xl:text-[19px] capitalize'>
       {title}
-    </span>
+    </h3>
     <p class='opacity-70'>
       {content}
     </p>

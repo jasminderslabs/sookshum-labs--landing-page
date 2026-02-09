@@ -8,11 +8,11 @@ const { heading, word, para, btnText } = Astro.props;
   class='h-full flex flex-col items-center gap-5 px-4 md:px-0 md:pt-[70px] pt-[60px] lg:pt-[90px] xl:pt-[120px] max-w-[385px] md:max-w-[500px] xl:max-w-[661px]'
 >
   <div
-    class='flex flex-col justify-between gap-[8px] md:gap-[15px] xl:gap-6 items-center text-white capitalize'
+    class='flex flex-col justify-between gap-[8px] md:gap-[15px] xl:gap-6 items-center text-white'
   >
     <Button text={btnText} />
     <h2
-      class='font-semibold text-[28px] md:text-[36px] lg:text-[42px] xl:text-5xl text-center hero-heading xl:leading-[67px]'
+      class='font-semibold text-[28px] md:text-[36px] lg:text-[42px] xl:text-5xl text-center hero-heading xl:leading-[67px] capitalize'
     >
       {heading.split("|")[0]}
       <i class='font-light'> {word}</i>
