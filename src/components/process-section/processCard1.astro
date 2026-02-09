@@ -1,9 +1,10 @@
 ---
-const { src, title, content } = Astro.props;
+const { src, title, content, index } = Astro.props;
+console.log(index);
 ---
 
 <div
-  class='h-auto rounded-4xl gap-2 xl:pb-8 card bg-[#282828B2] flex flex-col justify-between dark-btn-shadow dropdown-bg dropdown-shadow-button'
+  class=`h-auto rounded-4xl xl:gap-4 pb-6 xl:pb-8 card bg-[#282828B2] flex-col justify-between dark-btn-shadow dropdown-bg dropdown-shadow-button ${index === 3 ? 'lg:hidden' : 'flex'}`
 >
   <div class='w-full flex justify-center'>
     <video
@@ -14,11 +15,13 @@ const { src, title, content } = Astro.props;
       class='object-fill h-full w-full rounded-4xl'
     ></video>
   </div>
-  <div class='w-full text-white flex flex-col gap-2 xl:px-8 xl:gap-[10px]'>
-    <h3 class='hero-heading xl:text-[19px] capitalize'>
+  <div class='w-full text-white flex flex-col gap-2 px-5 xl:px-8 xl:gap-[10px]'>
+    <h3
+      class='hero-heading text-[14px] lg:text-[16px] xl:text-[19px] capitalize'
+    >
       {title}
     </h3>
-    <p class='opacity-70'>
+    <p class='opacity-70 text-[13px] lg:text-[14px] xl:text-[16px]'>
       {content}
     </p>
   </div>
