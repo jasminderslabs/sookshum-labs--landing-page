@@ -1,0 +1,34 @@
+---
+import { IoChevronUpSharp } from "react-icons/io5";
+---
+
+<span
+  class='scroll-btn hidden card cursor-pointer flex justify-center items-center fixed bottom-[120px] right-[15px] w-[50px] h-[50px] rounded-full bg-[#1c1c1c]'
+>
+  <IoChevronUpSharp
+    size={20}
+    color='white'
+  />
+</span>
+
+<script>
+  const scrollBtn = document.querySelector(".scroll-btn");
+  if (window.scrollY >= 300) {
+    scrollBtn?.classList.remove("hidden");
+  }
+  window.addEventListener("scroll", () => {
+    if (window.scrollY >= 300) {
+      scrollBtn?.classList.remove("hidden");
+    } else if (window.scrollY < 300) {
+      scrollBtn?.classList.add("hidden");
+    }
+  });
+
+  scrollBtn?.addEventListener("click", () => {
+    console.log("clicked");
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+</script>

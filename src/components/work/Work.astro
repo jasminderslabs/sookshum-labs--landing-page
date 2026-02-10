@@ -10,7 +10,10 @@ const topSectionContent = {
 };
 ---
 
-<section class='flex flex-col items-center gap-16 max-w-480 mx-auto'>
+<section
+  id={topSectionContent.btnText.toLowerCase()}
+  class='flex flex-col items-center gap-16 max-w-480 mx-auto'
+>
   <TopSection {...topSectionContent} />
   <div class='max-w-480 mx-2 lg:mx-20'>
     <div class='gap-5 grid grid-cols-1 md:grid-cols-2'>

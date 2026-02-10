@@ -57,6 +57,7 @@ const topSectionContent = {
 ---
 
 <section
+  id={topSectionContent.btnText.toLowerCase()}
   class='flex flex-col items-center max-w-480 mx-auto px-5 md:px-10 xl:px-20 gap-3 lg:gap-5'
 >
   <TopSection {...topSectionContent} />
@@ -77,12 +78,11 @@ const topSectionContent = {
   <div
     class='overflow-hidden rounded-4xl lg:flex lg:flex-row hidden justify-center items-center bg-[#282828B2] card xl:h-98'
   >
-    <div class='overflow-hidden xl:min-w-125 xl:h-125'>
+    <div class='overflow-hidden xl:min-w-125 xl:h-125 video-container'>
       <video
         src='/Agile-Development.webm'
         loop
         muted
-        autoplay
         class='object-contain h-full w-auto'
       ></video>
     </div>
@@ -118,3 +118,12 @@ const topSectionContent = {
     <!-- <div class='bg-[#282828B2] rounded-4xl h-[394px] w-[50%] card'>adsf</div> -->
   </div>
 </section>
+
+<script>
+  const cards = document.querySelectorAll(".video-container");
+  cards.forEach((card) => {
+    card.children[0].addEventListener("mouseenter", (e: any) => {
+      e?.target?.play();
+    });
+  });
+</script>

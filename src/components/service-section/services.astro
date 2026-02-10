@@ -62,3 +62,11 @@ const topSectionContent = {
     }
   </div>
 </section>
+<script>
+  const cards = document.querySelectorAll(".video-container");
+  cards.forEach((card) => {
+    card.children[0].addEventListener("mouseenter", (e: any) => {
+      e?.target?.play();
+    });
+  });
+</script>

@@ -18,11 +18,10 @@ const { src, title, content, reverse } = Astro.props;
     </p>
   </div>
   <div
-    class='md:h-[300px] md:w-[300px] lg:w-[360px] lg:h-[360px] xl:h-[505px] xl:w-[505px] flex justify-center items-center'
+    class='md:h-[300px] md:w-[300px] lg:w-[360px] lg:h-[360px] xl:h-[505px] xl:w-[505px] flex justify-center items-center video-container'
   >
     <video
       src={src}
-      autoplay
       loop
       muted
       class='object-cover w-fit h-fit'

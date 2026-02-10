@@ -56,7 +56,10 @@ const topSectionContent = {
 };
 ---
 
-<section class='flex flex-col items-center gap-16 max-w-480 mt-10 mx-auto'>
+<section
+  id={topSectionContent.btnText.toLowerCase()}
+  class='flex flex-col items-center gap-16 max-w-480 mt-10 mx-auto'
+>
   <TopSection {...topSectionContent} />
   <div
     class='overflow-auto w-full flex gap-4 xl:gap-6 no-scrollbar px-6 md:pl-10 lg:pl-15 xl:pl-40'

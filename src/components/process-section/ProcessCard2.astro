@@ -5,12 +5,11 @@ const { src, title, content } = Astro.props;
 <div
   class='relative bg-[#282828B2] gap-2 pb-6 xl:pb-8 rounded-4xl md:w-[50%] card flex flex-col justify-between'
 >
-  <div class='flex justify-center items-center w-full h-full'>
+  <div class='flex justify-center items-center w-full h-full video-container'>
     <video
       src={src}
       loop
       muted
-      autoplay
       class='object-cover h-full w-full rounded-4xl'
     ></video>
   </div>

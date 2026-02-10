@@ -1,14 +1,12 @@
 ---
 const { src, title, content, index } = Astro.props;
-console.log(index);
 ---
 
 <div
   class=`h-auto rounded-4xl xl:gap-4 pb-6 xl:pb-8 card bg-[#282828B2] flex-col justify-between dark-btn-shadow dropdown-bg dropdown-shadow-button ${index === 3 ? 'lg:hidden' : 'flex'}`
 >
-  <div class='w-full flex justify-center'>
+  <div class='w-full flex justify-center video-container'>
     <video
-      autoplay
       loop
       muted
       src={src}

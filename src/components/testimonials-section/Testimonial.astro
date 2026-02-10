@@ -63,7 +63,10 @@ const topSectionContent = {
 };
 ---
 
-<section class='flex flex-col items-center gap-16 max-w-480 mx-auto'>
+<section
+  id={topSectionContent.btnText.toLowerCase()}
+  class='flex flex-col items-center gap-16 max-w-480 mx-auto'
+>
   <TopSection {...topSectionContent} />
   <div class='relative w-[90%] mx-20'>
     <div class='flex overflow-auto no-scrollbar gap-5 endless-scroll'>
@@ -75,6 +78,23 @@ const topSectionContent = {
     </div>
     <span class='left-blur w-[25%] pointer-events-none'></span>
     <span class='right-blur w-[25%] pointer-events-none'></span>
+    <div class='w-full flex justify-center items-center pt-10 xl:pt-20'>
+      <a
+        href='https://www.designrush.com/'
+        target='_blank'
+      >
+        <div
+          class='flex justify-center items-center dark-btn-shadow dropdown-bg dropdown-shadow-button w-[133px] h-[125px] sm:w-[143px] sm:h-[135px] lg:w-[153px] lg:h-[145px] p-2.5 rounded-3xl'
+        >
+          <div class='bg-white rounded-xl py-[9px] px-[16px]'>
+            <img
+              src='/award.webp'
+              class='object-cover xl:w-[100px] xl:h-[106px]'
+            />
+          </div>
+        </div></a
+      >
+    </div>
   </div>
 </section>
 <style>

@@ -35,6 +35,8 @@ const { src, title, content, list } = Astro.props;
 </div>
 
 <script>
+  let start = null,
+    end = null;
   const cards = document.querySelectorAll(".experience-card");
   const imagePaths = [
     { name: "healthcare", imageCount: 60 },

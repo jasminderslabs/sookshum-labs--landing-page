@@ -7,29 +7,30 @@ import SocialLinks from "./social-links.astro";
 import Button from "../button/Button.astro";
 ---
 
-<section class='max-w-480 xl:mt-20 bg-[#282828B8] flex flex-col mx-auto'>
+<section class='max-w-480 bg-[#151515] flex flex-col mx-auto'>
   <div
-    class='md:w-[90%] md:mx-5 lg:m-20 flex flex-col items-center md:items-start w-full md:flex-row justify-between flex-wrap gap-5 md:gap-10 lg:gap-20'
+    class='flex flex-col items-center md:items-start w-full md:flex-row justify-between flex-wrap
+    xl:px-20.25 xl:pt-20 px-10 pt-15 sm:gap-0 gap-5'
   >
     <div
-      class='text-white w-full sm:w-[50%] md:w-[35%] lg:w-[25%] flex flex-col md:items-start items-center gap-10 py-10 md:p-0 text-base md:text-sm'
+      class='text-white flex flex-col md:items-start items-center gap-5 md:p-0 text-base md:text-sm max-w-[300px] xl:w-88.5'
     >
-      <span class='inline-block'>
+      <span class='inline-block w-46.5'>
         <img
           src='sookshum-logo.svg'
           alt='sookshum-logo'
-          width='155'
-          height='45'
-          class='object-contain'
+          class='object-fill h-full w-full'
         />
       </span>
-      <p class='text-center text-base md:text-sm'>
+      <p class='text-[13px] xl:text-[16px] opacity-85 sm:text-left text-center'>
         We deliver excellence through our innovative solutions and exceptionally
         reliable service.
       </p>
-      <div class='w-full flex lg:flex-row flex-col gap-3 items-center shrink-0'>
+      <div
+        class='w-full flex flex-row justify-center sm:justify-start gap-3 items-center shrink-0'
+      >
         <div
-          class='py-0 px-5 xl:px-6 h-12 xl:h-13.75 flex items-center rounded-full bg-[#E68624] cursor-pointer transition-all dark-bg duration-700 hover:[backdrop-filter:blur(100px)] dark-btn-shadow w-fit mt-7.5 xl:mt-16.5'
+          class='px-5 xl:px-6 flex items-center rounded-full bg-[#E68624] cursor-pointer transition-all dark-bg duration-700 hover:[backdrop-filter:blur(100px)] dark-btn-shadow w-fit h-12 xl:h-13.75'
         >
           <button
             class='w-full h-full font-medium text-[13px] xl:text-[16px] flex justify-between items-center gap-1 text-white'
@@ -37,14 +38,13 @@ import Button from "../button/Button.astro";
             Request a quote <ArrowUpRight size={16} />
           </button>
         </div>
-        <Button text='Refer us' />
       </div>
     </div>
     <OurServices />
     <Company />
     <Address />
   </div>
-  <div class='flex justify-center items-center'>
+  <div class='flex justify-center items-center px-5 sm:px-10 xl:px-20.25'>
     <SocialLinks />
   </div>
 </section>

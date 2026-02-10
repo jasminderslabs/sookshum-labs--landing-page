@@ -34,6 +34,7 @@ const topSectionContent = {
 ---
 
 <section
+  id={topSectionContent.btnText.toLowerCase()}
   class='flex flex-col items-center gap-10 max-w-480 mx-auto px-5 md:px-10 xl:px-20'
 >
   <TopSection {...topSectionContent} />
@@ -48,3 +49,11 @@ const topSectionContent = {
     })
   }
 </section>
+<script>
+  const cards = document.querySelectorAll(".video-container");
+  cards.forEach((card) => {
+    card.children[0].addEventListener("mouseenter", (e: any) => {
+      e?.target?.play();
+    });
+  });
+</script>

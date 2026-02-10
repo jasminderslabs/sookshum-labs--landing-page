@@ -111,6 +111,7 @@
 header {
   background-color: black;
 }
+
 header:has(ul .services:hover, .dropdown:hover) > .dropdown:last-child {
   max-height: 1000px;
   cursor: pointer;
@@ -118,37 +119,49 @@ header:has(ul .services:hover, .dropdown:hover) > .dropdown:last-child {
   transition: all 0.3s ease;
   visibility: visible;
 }
+
 header:has(ul .services:hover, .dropdown:hover) {
   background-color: #151515;
 }
+
 .card {
   perspective: 1000px;
   transform-style: preserve-3d;
 }
 
-/* .card-animate img {
-  transition: transform 1s ease;
-}
-
-.card-animate:hover img {
-  transform: rotate3d(3, 0, 1, 20deg);
-} */
-
 .card {
   border: 1px solid #1c1c1c;
 }
-.card:hover,
+
+.card:hover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0px 0px 45px 0px rgba(230, 134, 36, 0.3);
+  border: 1px solid #e6862466;
+  border-radius: 32px;
+}
+
 .card:hover button {
   box-shadow: inset 0px 0px 45px 0px rgba(230, 134, 36, 0.3);
-  border: 0.1px solid #e6862466;
+  border: 1px solid #e6862466;
 }
 
 .no-scrollbar {
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
+
 button {
   cursor: pointer;
 }
+
 .slide {
   animation: slideAllAnimation 5s linear infinite;
 }
@@ -198,15 +211,18 @@ button {
     rgba(54, 92, 251, 0.08) 0px 1px 2px 0px,
     rgba(255, 255, 255, 0.4) 0px 0px 6px 0px inset;
 }
+
 .dropdown-shadow-button {
   box-shadow:
     0 0 #0000,
     0 0 #0000,
     2px 4px 16px 0px #f8f8f80f inset;
 }
+
 .dropdown-bg {
   background-color: #1c1c1c;
 }
+
 .testimonial-card::before {
   content: "";
   position: absolute;
@@ -215,7 +231,6 @@ button {
   right: 0;
   bottom: 0;
   margin: auto;
-  /* transform: translateX(-100%) translateY(-100%); */
   z-index: -1;
   width: 100%;
   height: 100%;
@@ -227,17 +242,16 @@ button {
     rgba(230, 134, 36, 0) 86%,
     rgba(230, 134, 36, 0.23) 100%
   );
-  transition: all 0.3s linear;
+  transition: all 0.2s linear;
   background-size: 0% 0%;
   background-repeat: no-repeat;
   border-radius: 32px;
+  border: 1px solid black;
 }
 
 .testimonial-card:hover::before {
-  transform: translate(0, 0);
-  /* transition: all 0.4s linear; */
   background-size: 200% 200%;
-  /* background-color: red; */
+  border: 1px solid #e6862466;
 }
 
 .show-sidebar {
