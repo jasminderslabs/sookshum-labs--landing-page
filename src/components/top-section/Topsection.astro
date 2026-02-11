@@ -6,14 +6,14 @@ const { heading, word, para, btnText } = Astro.props;
 
 <div
   id={btnText.toLowerCase()}
-  class='h-full flex flex-col items-center gap-5 px-4 md:px-0 max-w-96.25 md:max-w-125 xl:max-w-165.25'
+  class='h-full flex flex-col items-center gap-5 md:px-0 max-w-96.25 md:max-w-125 xl:max-w-165.25'
 >
   <div
     class='flex flex-col justify-between gap-2 md:gap-3.75 xl:gap-6 items-center text-white xl:max-w-[661px]'
   >
     <Button text={btnText} />
     <h2
-      class='font-semibold text-[28px] md:text-[36px] lg:text-[42px] xl:text-5xl text-center shrink-0 hero-heading xl:leading-16.75 capitalize md:text-nowrap'
+      class='font-semibold text-[28px] md:text-[36px] lg:text-[42px] xl:text-5xl text-center shrink-0 hero-heading xl:leading-16.75 capitalize lg:text-nowrap'
     >
       {heading.split("|")[0]}
       <i class='font-light'> {word}</i>
