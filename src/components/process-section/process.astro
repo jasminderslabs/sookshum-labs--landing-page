@@ -56,7 +56,7 @@ const topSectionContent = {
 };
 ---
 
-<section
+<div
   class='flex flex-col items-center max-w-480 mx-auto px-5 md:px-10 xl:px-20 gap-3 lg:gap-5 md:pt-17.5 pt-15 lg:pt-22.5 xl:pt-30'
 >
   <TopSection {...topSectionContent} />
@@ -75,32 +75,37 @@ const topSectionContent = {
     }
   </div>
   <div
-    class='overflow-hidden rounded-4xl lg:flex lg:flex-row hidden justify-center items-center bg-[#282828B2] card xl:h-98'
+    class='overflow-hidden rounded-4xl lg:flex lg:flex-row hidden justify-center items-center bg-[#282828B2] card xl:h-98 hover:!bg-linear-to-br from-[#e6862466] via-transparent to-[#e6862466]'
   >
-    <div class='overflow-hidden xl:min-w-125 xl:h-125 video-container'>
-      <video
-        src='/Agile-Development.webm'
-        muted
-        class='object-contain h-full w-auto'
-      ></video>
-    </div>
     <div
-      class='w-fit h-full text-white flex flex-col md:justify-center px-8 xl:gap-3.5'
+      class='w-full h-full rounded-[20px] bg-[#1c1c1c] lg:rounded-4xl pb-6 xl:pb-8 xl:gap-2 lg:flex lg:flex-row hidden justify-center items-center dark-btn-shadow dropdown-bg dropdown-shadow-button'
     >
-      <h2
-        class='text-white relative font-medium font-poppins capitalize md:text-center xl:text-[19px]'
+      <div class='overflow-hidden xl:min-w-125 xl:h-125 video-container'>
+        <video
+          src='/Agile-Development.webm'
+          muted
+          class='object-contain h-full w-auto'
+        ></video>
+      </div>
+      <div
+        class='w-fit h-full text-white flex flex-col md:justify-center px-8 xl:gap-3.5'
       >
-        Agile Development
-      </h2>
-      <p
-        class='opacity-70 text-[14px] leading-5 xl:text-[16px] xl:leading-6 xl:px-6 md:text-center'
-      >
-        Tailored to your needs, our agile development approach involves ongoing
-        refinement and integration of your feedback. This ensures that your
-        digital products evolve seamlessly with your changing needs, delivering
-        a solution that stays relevant and effective throughout its lifecycle.
-        Your input drives continuous improvement for optimal results.
-      </p>
+        <h2
+          class='text-white relative font-medium font-poppins capitalize md:text-center xl:text-[19px]'
+        >
+          Agile Development
+        </h2>
+        <p
+          class='opacity-70 text-[14px] leading-5 xl:text-[16px] xl:leading-6 xl:px-6 md:text-center'
+        >
+          Tailored to your needs, our agile development approach involves
+          ongoing refinement and integration of your feedback. This ensures that
+          your digital products evolve seamlessly with your changing needs,
+          delivering a solution that stays relevant and effective throughout its
+          lifecycle. Your input drives continuous improvement for optimal
+          results.
+        </p>
+      </div>
     </div>
   </div>
 
@@ -115,7 +120,7 @@ const topSectionContent = {
 
     <!-- <div class='bg-[#282828B2] rounded-4xl h-[394px] w-[50%] card'>adsf</div> -->
   </div>
-</section>
+</div>
 
 <script>
   const cards = document.querySelectorAll(".video-container");

@@ -13,17 +13,17 @@ const navigations = [
 ---
 
 <div
-  class='max-w-[1920px] md:block hidden border border-[#ffffff1a] border-t-0 rounded-bl-4xl rounded-br-4xl mx-auto lg:pt-[34px] lg:px[40px] xl:px-[80px] px-5 md:px-10 w-full max-h-0 invisible bg-[#151515] overflow-hidden absolute left-0 right-0 top-[100%] dropdown z-50 flex'
+  class='max-w-480 md:block hidden border border-[#ffffff1a] border-t-0 rounded-bl-4xl rounded-br-4xl mx-auto lg:pt-[34px] lg:px[40px] xl:px-20 px-5 md:px-10 w-full max-h-0 invisible bg-[#151515] overflow-hidden absolute left-0 right-0 top-full dropdown z-50 flex'
 >
   <div
-    class='flex justify-between w-full gap-10 relative gap-[14px] sm:gap-4 xl:py-[32px] lg:gap-[20px] xl:gap-[105px]'
+    class='flex justify-between w-full gap-10 relative sm:gap-4 xl:py-8 lg:gap-5 xl:gap-26.25'
   >
     {/** first option */}
     <div class='text-white font-black poppins-regular flex flex-col gap-2 grow'>
       {
         navigations.map((text, index) => {
           return (
-            <span class='services-dropdown block flex w-full dropdown-shadow-border  capitalize h-[72px]  lg:py-4 lg:pl-8 lg:pr-[26px] rounded-full items-center justify-between gap-10 text-sm shrink-0 hover:text-white text-gray-400'>
+            <span class='services-dropdown block flex w-full dropdown-shadow-border  capitalize h-18  lg:py-4 lg:pl-8 lg:pr-6.5 rounded-full items-center justify-between gap-10 text-sm shrink-0 hover:text-white text-gray-400'>
               {text}
               <ChevronRight class='text-gray-400 hover:text-white' />
             </span>
@@ -32,17 +32,17 @@ const navigations = [
       }
     </div>
     <div
-      class='flex justify-between gap-[14px] sm:gap-4 lg:gap-[20px] xl:gap-[105px] sm:w-[63.79%] w-[46.7%]'
+      class='flex justify-between gap-3.5 sm:gap-4 lg:gap-5 xl:gap-26.25 sm:w-[63.79%] w-[46.7%]'
     >
       <div
-        class='link-container flex flex-col sm:grow items-start gap-[14px] w-full pl-2 sm:p-0 sm:w-fit'
+        class='link-container flex flex-col sm:grow items-start gap-3.5 w-full pl-2 sm:p-0 sm:w-fit'
       >
         <span
           class='flex w-full text-white capitalize bg-[#1c1c1c] hover:bg-[#ffffff1a] hover:transition-all hover:duration-500 p-0 sm:p-4 gap-4
-            rounded-[32px] items-center text-sm sm:text-base xl:text-[18px]'
+            rounded-4xl items-center text-sm sm:text-base xl:text-[18px]'
           style='box-shadow : 2px 4px 16px 0px #f8f8f80f inset;'
         >
-          <span class='w-[60px] h-[60px] rounded-2xl inline-block'>
+          <span class='w-15 h-15 rounded-2xl inline-block'>
             <img
               src='/shopify.webp'
               class='object-contain w-full h-full'
@@ -52,10 +52,10 @@ const navigations = [
         </span>
         <span
           class='flex w-full text-white capitalize bg-[#1c1c1c] hover:bg-[#ffffff1a] transition-all duration-500 p-0 sm:p-4 gap-4
-            rounded-[32px] items-center text-sm sm:text-base xl:text-[18px]'
+            rounded-4xl items-center text-sm sm:text-base xl:text-[18px]'
           style='box-shadow : 2px 4px 16px 0px #f8f8f80f inset;'
         >
-          <span class='w-[60px] h-[60px] rounded-2xl inline-block'>
+          <span class='w-15 h-15 rounded-2xl inline-block'>
             <img
               src='/shopify.webp'
               class='object-contain w-full h-full'
@@ -70,7 +70,7 @@ const navigations = [
         style='box-shadow : 2px 4px 16px 0px #f8f8f80f inset;'
       >
         <div
-          class='flex flex-col xl:h-[180px] xl:w-[316px] w-[232px] h-[190px] rounded-[32px] cursor-pointer'
+          class='flex flex-col xl:h-45 xl:w-79 w-58 h-47.5 rounded-4xl cursor-pointer'
         >
           <video
             src='/let-connect.webm'

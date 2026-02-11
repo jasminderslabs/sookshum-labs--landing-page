@@ -3,36 +3,35 @@ const { title, src, content } = Astro.props;
 ---
 
 <div
-  class='w-auto xxl:max-w-[544px] h-full bg-[#282828B2] rounded-[20px] lg:rounded-4xl relative flex flex-col justify-center card card-animate feature-card dark-btn-shadow dropdown-bg dropdown-shadow-button'
+  class='w-auto xxl:max-w-[544px] h-full hover:!bg-linear-to-br from-[#e6862466] via-transparent to-[#e6862466] rounded-[20px] lg:rounded-4xl relative flex flex-col justify-center card card-animate feature-card dark-btn-shadow dropdown-bg dropdown-shadow-button'
 >
-  <div class='relative'>
-    <div
-      class='absolute flex justify-center items-center w-full pointer-events-none xl:h-57.75 -translate-y-[38%] -translate-x-[4%]'
-    >
-      <canvas
-        class='xl:h-57.75 xl:w-57.75 lg:h-43.75 lg:w-43.75 md:w-36.75 md:h-36.75 h-49 relative z-20'
-        height='300'
-        width='300'
-      ></canvas>
-    </div>
-  </div>
   <div
-    class='pt-27.5 sm:pt-24.5 p-2.25 lg:px-3.5 xl:px-4 pb-3.5 lg:pb-8 flex flex-col gap-2 sm:gap-3 xl:gap-3.5 grow'
+    class='w-full h-full rounded-[20px] bg-[#1c1c1c] lg:rounded-4xl dark-btn-shadow dropdown-bg dropdown-shadow-button'
   >
-    <span
-      class='text-white block relative text-[14px] lg:text-[20px] xl:text-[26px] lg:pt-8 font-medium font-poppins capitalize hero-heading'
-      >{title}</span
+    <div class='relative z-50'>
+      <div
+        class='absolute flex justify-center items-center w-full pointer-events-none xl:h-57.75 -translate-y-[38%] -translate-x-[4%]'
+      >
+        <canvas
+          class='xl:h-57.75 xl:w-57.75 lg:h-43.75 lg:w-43.75 md:w-36.75 md:h-36.75 h-49 relative z-50'
+          height='300'
+          width='300'
+        ></canvas>
+      </div>
+    </div>
+    <div
+      class='pt-27.5 sm:pt-24.5 p-2.25 lg:px-3.5 xl:px-4 pb-3.5 lg:pb-8 flex flex-col gap-2 sm:gap-3 xl:gap-3.5 grow'
     >
-    <p
-      class='text-[#F8F8F8B2] text-[12px] lg:text-[14px] xl:text-[16px] leading-4 lg:leading-5'
-    >
-      {content}
-    </p>
-    <!-- <button
-      class='bg-[#282828B8] cursor-pointer opacity-70 text-white rounded-full w-fit py-3 px-8 mt-4 border-[0.5px] border-[#282828B2] font-bold'
-    >
-      Learn More
-    </button> -->
+      <span
+        class='text-white block relative text-[14px] lg:text-[20px] xl:text-[26px] lg:pt-8 font-medium font-poppins capitalize hero-heading'
+        >{title}</span
+      >
+      <p
+        class='text-[#F8F8F8B2] text-[12px] lg:text-[14px] xl:text-[16px] leading-4 lg:leading-5'
+      >
+        {content}
+      </p>
+    </div>
   </div>
 </div>
 
@@ -78,7 +77,7 @@ const { title, src, content } = Astro.props;
     const img = new Image();
     img.src = currentFrame(1, imagePaths[index]);
     img.onload = () => {
-      const canvas = card.children[0].children[0].children[0];
+      const canvas = card.children[0].children[0].children[0].children[0];
       const ctx = canvas.getContext("2d");
       console.log(canvas.height);
       ctx.drawImage(img, 0, 0, 300, 300);

@@ -3,22 +3,26 @@ const { src, title, content } = Astro.props;
 ---
 
 <div
-  class='h-auto bg-[#282828B2] rounded-4xl relative flex flex-col justify-between p-5 md:p-6 lg:p-7 gap-2 md:gap-15 lg:gap-8 xl:gap-4 xl:p-8 card why-us-card dark-btn-shadow dropdown-bg dropdown-shadow-button'
+  class='h-auto bg-[#282828B2] rounded-4xl relative flex flex-col justify-between hover:!bg-linear-to-br from-[#e6862466] via-transparent to-[#e6862466] card why-us-card dark-btn-shadow dropdown-bg dropdown-shadow-button'
 >
-  <canvas class='xl:w-[120px] xl:h-[113px] xl:max-h-[113px] w-[80px] h-[80px]'
-  ></canvas>
+  <div
+    class='w-full h-full rounded-[20px] bg-[#1c1c1c] lg:rounded-4xl p-5 md:p-6 lg:p-7 gap-2 md:gap-15 lg:gap-8 xl:gap-4 xl:p-8 flex flex-col justify-between dark-btn-shadow dropdown-bg dropdown-shadow-button'
+  >
+    <canvas class='xl:w-[120px] xl:h-[113px] xl:max-h-[113px] w-[80px] h-[80px]'
+    ></canvas>
 
-  <div class='w-full text-white flex flex-col gap-3 xl:gap-5'>
-    <h3
-      class='text-[14px] lg:text-[20px] xl:text-[26px] capitalize hero-heading xl:leading-8'
-    >
-      {title}
-    </h3>
-    <p
-      class='opacity-70 text-[12px] lg:text-[14px] leading-4 lg:leading-5 xl:leading-7 xl:text-[18px]'
-    >
-      {content}
-    </p>
+    <div class='w-full text-white flex flex-col gap-3 xl:gap-5'>
+      <h3
+        class='text-[14px] lg:text-[20px] xl:text-[26px] capitalize hero-heading xl:leading-8'
+      >
+        {title}
+      </h3>
+      <p
+        class='opacity-70 text-[12px] lg:text-[14px] leading-4 lg:leading-5 xl:leading-7 xl:text-[18px]'
+      >
+        {content}
+      </p>
+    </div>
   </div>
 </div>
 <script>
@@ -85,7 +89,7 @@ const { src, title, content } = Astro.props;
   cards.forEach((card, index) => {
     const img = new Image();
     img.src = currentFrame(1, imagePaths[index].name);
-    const canvas = card.children[0];
+    const canvas = card.children[0].children[0];
     const ctx = canvas.getContext("2d");
     img.onload = () => {
       ctx.drawImage(img, 0, 0, canvas.width, canvas?.height);
@@ -94,7 +98,7 @@ const { src, title, content } = Astro.props;
 
   cards.forEach((card, index) => {
     card.addEventListener("mouseenter", () => {
-      const canvas = card.children[0];
+      const canvas = card.children[0].children[0];
       const ctx = canvas.getContext("2d");
       updateImage(
         1,
@@ -109,7 +113,7 @@ const { src, title, content } = Astro.props;
 
   cards.forEach((card, index) => {
     card.addEventListener("mouseleave", () => {
-      const canvas = card.children[0];
+      const canvas = card.children[0].children[0];
       const ctx = canvas.getContext("2d");
       updateImageWhenLeave(
         imagePaths[index].imageCount,
