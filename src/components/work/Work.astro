@@ -1,5 +1,6 @@
 ---
 import TopSection from "../top-section/Topsection.astro";
+import WorkCard from "./WorkCard.astro";
 const topSectionContent = {
   heading: "See our Recent",
   word: "Projects?",
@@ -7,129 +8,48 @@ const topSectionContent = {
         recently brought to life`,
   btnText: "work",
 };
+
+const cards = [
+  {
+    src: "/work1.webp",
+    gridSize: "md:row-start-1 md:col-start-1 md:row-end-5 md:col-end-2",
+  },
+  {
+    src: "/work2.webp",
+    gridSize: "md:row-start-1 md:col-start-2 md:row-end-4 md:col-end-3 ",
+  },
+  {
+    src: "/work3.webp",
+    gridSize: "md:row-start-5 md:col-start-1 md:row-end-9 md:col-end-2",
+  },
+  {
+    src: "/work4.webp",
+    gridSize: "md:row-start-4 md:col-start-2 md:row-end-8 md:col-end-3",
+  },
+  {
+    src: "/work5.webp",
+    gridSize: "md:row-start-9 md:col-start-1 md:row-end-11 md:col-end-2",
+  },
+  {
+    src: "/work6.webp",
+    gridSize: " md:row-start-8 md:col-start-2 md:row-end-11 md:col-end-3",
+  },
+];
 ---
 
 <section
   class='flex flex-col items-center gap-16 max-w-480 mx-auto md:pt-17.5 pt-15 lg:pt-22.5 xl:pt-30'
 >
   <TopSection {...topSectionContent} />
-  <div class='max-w-480 mx-2 lg:mx-20'>
-    <div class='gap-5 grid grid-cols-1 md:grid-cols-2'>
-      <div
-        class='relative md:row-start-1 md:col-start-1 md:row-end-5 md:col-end-2'
-      >
-        <img
-          src='/work-mobile.png'
-          class='h-full shrink-0'
-        />
-        <div
-          class='w-fit text-white flex flex-col md:gap-2 md:px-2 md:pb-3 absolute bottom-5 left-5 bg-transparent backdrop-blur-sm right-0'
-        >
-          <span class='font-semibold text-sm md:text-lg capitalize'>
-            SWAP app
-          </span>
-          <p class='opacity-70'>
-            SWAP app is a sleek and intuitive mobile application designed to
-            make buying, selling,
-          </p>
-        </div>
-      </div>
-
-      <div
-        class='relative md:row-start-1 md:col-start-2 md:row-end-4 md:col-end-3'
-      >
-        <img
-          src='/work-mobile2.png'
-          class='shrink-0'
-        />
-        <div
-          class='w-fit text-white flex flex-col md:gap-2 md:px-2 md:pb-3 absolute bottom-5 left-5 bg-transparent backdrop-blur-sm right-0'
-        >
-          <span class='font-semibold text-sm md:text-lg capitalize'>
-            SWAP app
-          </span>
-          <p class='opacity-70'>
-            SWAP app is a sleek and intuitive mobile application designed to
-            make buying, selling,
-          </p>
-        </div>
-      </div>
-      <div
-        class='relative md:row-start-5 md:col-start-1 md:row-end-9 md:col-end-2 shrink-0'
-      >
-        <img
-          src='/work-mobile2.png'
-          class='h-full shrink-0'
-        />
-        <div
-          class='w-fit text-white flex flex-col md:gap-2 md:px-2 md:pb-3 absolute bottom-5 left-5 bg-transparent backdrop-blur-sm right-0'
-        >
-          <span class='font-semibold text-sm md:text-lg capitalize'>
-            SWAP app
-          </span>
-          <p class='opacity-70'>
-            SWAP app is a sleek and intuitive mobile application designed to
-            make buying, selling,
-          </p>
-        </div>
-      </div>
-      <div
-        class='relative md:row-start-4 md:col-start-2 md:row-end-8 md:col-end-3'
-      >
-        <img
-          src='/work-mobile.png'
-          class='shrink-0'
-        />
-        <div
-          class='w-fit text-white flex flex-col md:gap-2 md:px-2 md:pb-3 absolute bottom-5 left-5 bg-transparent backdrop-blur-sm right-0'
-        >
-          <span class='font-semibold text-sm md:text-lg capitalize'>
-            SWAP app
-          </span>
-          <p class='opacity-70'>
-            SWAP app is a sleek and intuitive mobile application designed to
-            make buying, selling,
-          </p>
-        </div>
-      </div>
-      <div
-        class='relative md:row-start-9 md:col-start-1 md:row-end-11 md:col-end-2'
-      >
-        <img
-          src='/work-mobile2.png'
-          class='shrink-0'
-        />
-        <div
-          class='w-fit text-white flex flex-col md:gap-2 md:px-2 md:pb-3 absolute bottom-5 left-5 bg-transparent backdrop-blur-sm right-0'
-        >
-          <span class='font-semibold text-sm md:text-lg capitalize'>
-            SWAP app
-          </span>
-          <p class='opacity-70'>
-            SWAP app is a sleek and intuitive mobile application designed to
-            make buying, selling,
-          </p>
-        </div>
-      </div>
-      <div
-        class='relative md:row-start-8 md:col-start-2 md:row-end-11 md:col-end-3'
-      >
-        <img
-          src='/work-mobile.png'
-          class='shrink-0'
-        />
-        <div
-          class='w-fit text-white flex flex-col md:gap-2 md:px-2 md:pb-3 absolute bottom-5 left-5 bg-transparent backdrop-blur-sm right-0'
-        >
-          <span class='font-semibold text-sm md:text-lg capitalize'>
-            SWAP app
-          </span>
-          <p class='opacity-70'>
-            SWAP app is a sleek and intuitive mobile application designed to
-            make buying, selling,
-          </p>
-        </div>
-      </div>
+  <div class='max-w-480 xl:px-[80px] md:px-[40px] px-[20px]'>
+    <div
+      class='md:gap-[12px] lg:gap-[18px] xl:gap-5 grid grid-cols-1 md:grid-cols-2'
+    >
+      {
+        cards.map((data) => {
+          return <WorkCard {...data} />;
+        })
+      }
     </div>
   </div>
 </section>

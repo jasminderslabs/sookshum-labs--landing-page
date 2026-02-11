@@ -99,15 +99,14 @@ const topSectionContent = {
 <style>
   .left-blur {
     position: absolute;
-    left: -10px;
+    left: -15px;
     top: 0;
     bottom: 0;
     height: 100%;
-
+    z-index: 50;
     opacity: 100%;
     filter: blur(10px);
     background: linear-gradient(90deg, black, transparent);
-    z-index: 10;
   }
   .right-blur {
     position: absolute;
@@ -118,7 +117,7 @@ const topSectionContent = {
     opacity: 100%;
     filter: blur(10px);
     background: linear-gradient(90deg, transparent, black);
-    z-index: 10;
+    z-index: 50;
   }
 </style>
 
