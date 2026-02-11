@@ -6,10 +6,10 @@ const { heading, word, para, btnText } = Astro.props;
 
 <div
   id={btnText.toLowerCase()}
-  class='h-full flex flex-col items-center gap-5 md:px-0 max-w-96.25 md:max-w-125 xl:max-w-165.25'
+  class='h-full flex flex-col items-center gap-5 md:px-0 max-w-96.25 md:max-w-125 xl:max-w-165.25 transition-all duration-700'
 >
   <div
-    class='flex flex-col justify-between gap-2 md:gap-3.75 xl:gap-6 items-center text-white xl:max-w-[661px]'
+    class='flex flex-col justify-between gap-2 md:gap-3.75 xl:gap-6 items-center text-white xl:max-w-165.25'
   >
     <Button text={btnText} />
     <h2

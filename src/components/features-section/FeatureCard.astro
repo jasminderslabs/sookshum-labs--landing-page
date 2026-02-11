@@ -1,9 +1,9 @@
 ---
-const { title, src, content } = Astro.props;
+const { title, content } = Astro.props;
 ---
 
 <div
-  class='w-auto xxl:max-w-[544px] h-full hover:!bg-linear-to-br from-[#e6862466] via-transparent to-[#e6862466] rounded-[20px] lg:rounded-4xl relative flex flex-col justify-center card card-animate feature-card dark-btn-shadow dropdown-bg dropdown-shadow-button'
+  class='w-auto xxl:max-w-[544px] h-full hover:bg-linear-to-br! from-[#e6862466] via-transparent to-[#e6862466] rounded-[20px] lg:rounded-4xl relative flex flex-col justify-center card card-animate feature-card dark-btn-shadow dropdown-bg dropdown-shadow-button'
 >
   <div
     class='w-full h-full rounded-[20px] bg-[#1c1c1c] lg:rounded-4xl dark-btn-shadow dropdown-bg dropdown-shadow-button'
@@ -27,7 +27,7 @@ const { title, src, content } = Astro.props;
         >{title}</span
       >
       <p
-        class='text-[#F8F8F8B2] text-[12px] lg:text-[14px] xl:text-[16px] leading-4 lg:leading-5'
+        class='text-[#F8F8F8B2] text-[12px] lg:text-[14px] xl:text-[16px] leading-4 lg:leading-6'
       >
         {content}
       </p>
@@ -77,7 +77,8 @@ const { title, src, content } = Astro.props;
     const img = new Image();
     img.src = currentFrame(1, imagePaths[index]);
     img.onload = () => {
-      const canvas = card.children[0].children[0].children[0].children[0];
+      const canvas = card.children[0].children[0].children[0]
+        .children[0] as any;
       const ctx = canvas.getContext("2d");
       console.log(canvas.height);
       ctx.drawImage(img, 0, 0, 300, 300);
@@ -86,7 +87,8 @@ const { title, src, content } = Astro.props;
 
   cards.forEach((card, index) => {
     card.addEventListener("mouseenter", () => {
-      const canvas = card.children[0].children[0].children[0];
+      const canvas = card.children[0].children[0].children[0]
+        .children[0] as any;
       const ctx = canvas.getContext("2d");
       updateImage(1, imagePaths[index], ctx);
     });
@@ -94,7 +96,8 @@ const { title, src, content } = Astro.props;
 
   cards.forEach((card, index) => {
     card.addEventListener("mouseleave", () => {
-      const canvas = card.children[0].children[0].children[0];
+      const canvas = card.children[0].children[0].children[0]
+        .children[0] as any;
       const ctx = canvas.getContext("2d");
       updateImageWhenLeave(30, imagePaths[index], ctx);
     });
