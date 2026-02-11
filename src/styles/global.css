@@ -133,6 +133,10 @@ header:has(ul .services:hover, .dropdown:hover) {
   border: 1px solid #1c1c1c;
 }
 
+.scroll-btn:hover {
+  box-shadow: inset 0px 0px 45px 0px rgba(230, 134, 36, 0.3);
+}
+
 .card:hover::before {
   content: "";
   position: absolute;
