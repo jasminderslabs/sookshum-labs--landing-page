@@ -141,12 +141,33 @@ header:has(ul .services:hover, .dropdown:hover) {
   bottom: 0;
   top: 0;
   margin: auto;
+
   width: 100%;
   height: 100%;
   box-shadow: inset 0px 0px 45px 0px rgba(230, 134, 36, 0.3);
   border: 1px solid #e6862466;
   border-radius: 32px;
+
+  /* Gradient from top-left (color1) to bottom-right (color2) */
 }
+/* .card:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  width: 100%;
+  height: 99%;
+  z-index: -1;
+  background-image: linear-gradient(
+    to bottom right,
+    transparent 0% 40%,
+    #1c1c1c 40% 70%,
+    transparent 70%
+  );
+} */
 
 .card:hover button {
   box-shadow: inset 0px 0px 45px 0px rgba(230, 134, 36, 0.3);

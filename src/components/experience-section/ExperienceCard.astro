@@ -11,7 +11,7 @@ const { src, title, content, list } = Astro.props;
     <canvas class='lg:w-full xl:h-44.75 xl:w-42.5 w-[100px] h-[110px]'></canvas>
   </div> -->
   <canvas
-    class='md:w-[100px] md:h-[100px] lg:w-[117px] lg:h-[112px] xl:h-44.75 xl:w-42.5 w-[100px] h-[110px]'
+    class='md:w-25 md:h-25 lg:w-29.25 lg:h-28 xl:h-44.75 xl:w-42.5 w-25 h-27.5'
   ></canvas>
   <div class='w-full text-white flex flex-col py-4 lg:py-0 gap-2 h-fit'>
     <span
@@ -97,8 +97,8 @@ const { src, title, content, list } = Astro.props;
     const img = new Image();
     img.src = currentFrame(1, imagePaths[index].name);
 
-    const canvas = card.children[0];
-    const ctx = canvas.getContext("2d");
+    const canvas = card.children[0] as any;
+    const ctx = canvas?.getContext("2d");
     img.onload = () => {
       ctx.drawImage(img, 0, 0, canvas.width, canvas?.height);
     };
@@ -106,8 +106,8 @@ const { src, title, content, list } = Astro.props;
 
   cards.forEach((card, index) => {
     card.addEventListener("mouseenter", () => {
-      const canvas = card.children[0];
-      const ctx = canvas.getContext("2d");
+      const canvas = card.children[0] as any;
+      const ctx = canvas?.getContext("2d");
       updateImage(
         1,
         imagePaths[index].imageCount,
@@ -121,8 +121,8 @@ const { src, title, content, list } = Astro.props;
 
   cards.forEach((card, index) => {
     card.addEventListener("mouseleave", () => {
-      const canvas = card.children[0];
-      const ctx = canvas.getContext("2d");
+      const canvas = card.children[0] as any;
+      const ctx = canvas?.getContext("2d");
       updateImageWhenLeave(
         imagePaths[index].imageCount,
         imagePaths[index].name,
