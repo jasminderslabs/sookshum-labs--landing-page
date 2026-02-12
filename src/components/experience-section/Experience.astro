@@ -1,5 +1,4 @@
 ---
-import Button from "../button/Button.astro";
 import TopSection from "../top-section/Topsection.astro";
 import ExperienceCard from "./ExperienceCard.astro";
 const cards = [
@@ -56,11 +55,11 @@ const topSectionContent = {
 ---
 
 <section
-  class='flex flex-col items-center gap-16 max-w-480 mt-10 mx-auto md:pt-17.5 pt-15 lg:pt-22.5 xl:pt-30'
+  class='flex flex-col items-center gap-8 sm:gap-12 lg:gap-15 xl:gap-16 max-w-480 mt-10 mx-auto md:pt-17.5 pt-15 lg:pt-22.5 xl:pt-30'
 >
   <TopSection {...topSectionContent} />
   <div
-    class='overflow-auto w-full flex gap-4 xl:gap-6 no-scrollbar px-6 md:pl-10 lg:pl-15 xl:pl-40'
+    class='overflow-auto w-full flex gap-4 xl:gap-5 no-scrollbar px-6 md:pl-10 lg:pl-15 xl:pl-40'
   >
     {
       cards.map((data) => {
