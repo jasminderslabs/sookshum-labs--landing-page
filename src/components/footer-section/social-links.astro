@@ -16,11 +16,11 @@ const url = [
   <span class='md:my-0 sm:my-5 text-center text-[10px] lg:text-sm leading-5.5'
     >© 2024 Sookshum Labs Technologies Private Limited. All Rights Reserved</span
   >
-  <div class='flex justify-center items-center gap-1 lg:gap-2.5'>
+  <div class='flex items-center gap-1 lg:gap-2.5'>
     {
       url.map((src) => {
         return (
-          <span class='w-7.5 h-7.5 sm:w-6.25 sm:h-6 lg:w-9.25 lg:h-9.25 block'>
+          <span class='w-7.5 h-7.5 sm:w-6.25 sm:h-6 lg:w-9.25 lg:h-9 block'>
             <img
               src={src}
               alt={src.replace("/", "")}
