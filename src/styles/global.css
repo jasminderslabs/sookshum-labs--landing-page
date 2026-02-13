@@ -114,12 +114,15 @@ header {
 
 header:has(ul .services:hover, .dropdown:hover) > .dropdown:last-child {
   max-height: 1000px;
-  cursor: pointer;
   z-index: 20;
   transition: all 0.3s ease;
   visibility: visible;
 }
-
+.hide-dropdown {
+  max-height: 0px;
+  visibility: hidden;
+  z-index: 20;
+}
 header:has(ul .services:hover, .dropdown:hover) {
   background-color: #151515;
 }
