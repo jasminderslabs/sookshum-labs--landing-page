@@ -15,14 +15,14 @@ import ServicesDropdown from "./servicesDropdown.astro";
     <a
       class='w-full px-4 md:py-4 sm:px-10 text-[14px] h-13 flex justify-between items-center text-white'
       >Services
-      <div class='down-arrow'>
+      <div class='down-arrow transition-all duration-100'>
         <svg
           width='9'
           height='14'
           viewBox='0 0 9 14'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
-          class='stroke-white transition-all'
+          class='stroke-white transition-all services-icon'
           ><path
             d='M1.66846 1L7.66846 7L1.66846 13'
             stroke-width='1.5'
@@ -52,7 +52,14 @@ import ServicesDropdown from "./servicesDropdown.astro";
 </div>
 
 <script>
-  const arrow = document.querySelectorAll(".down-arrow");
+  const container = document.querySelector(".parent-container") as any;
+  const icon = document.querySelector(".services-icon") as any;
+  const arrow = document.querySelectorAll(".down-arrow") as any;
+
+  icon?.addEventListener("click", () => {
+    container?.classList.toggle("max-h-dvh");
+  });
+
   arrow.forEach((item) => {
     item?.addEventListener("click", () => {
       // anchor tag to make color white when hover or open
@@ -60,8 +67,14 @@ import ServicesDropdown from "./servicesDropdown.astro";
         "text-white",
       );
       const content = item.parentElement?.parentElement?.children[1];
-      content?.classList.toggle("hidden");
+
+      if (content.classList.contains("content")) {
+        content.classList.toggle("hidden");
+      }
+      console.log(content);
+
       item.classList.toggle("rotate-90");
+      item.classList.add("transition-all", "duration-100");
     });
   });
 </script>
