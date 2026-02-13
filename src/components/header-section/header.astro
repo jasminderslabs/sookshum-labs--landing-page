@@ -7,13 +7,13 @@ import Sidebar from "./sidebar.astro";
 <header
   class='max-w-480 mx-auto xl:px-20 px-5 md:px-10 lg:h-30 xl:h-31 sm:h-25 h-19 flex justify-between text-white items-center z-20 relative'
 >
-  <span class='inline-block'>
+  <span class='inline-block z-999 relative'>
     <img
       src='sookshum-logo.svg'
       alt='sookshum-logo'
       width='155'
       height='45'
-      class='object-contain w-32 sm:w-38.5 shrink-0'
+      class='object-cover w-32 sm:w-38.5 shrink-0'
     />
   </span>
   <div class='hidden lg:flex h-full'>
@@ -53,9 +53,20 @@ import Sidebar from "./sidebar.astro";
       class='py-0 px-5 xl:px-6 h-12 xl:h-13.75 hidden md:flex items-center rounded-full bg-[#E68624] cursor-pointer transition-all dark-bg duration-700 hover:[backdrop-filter:blur(100px)] dark-btn-shadow'
     >
       <button
-        class='w-full h-full font-medium text-[13px] xl:text-[16px] flex justify-between items-center gap-1'
+        class='w-full h-full font-medium text-[13px] xl:text-[16px] flex justify-between items-center gap-2'
       >
-        Get In Touch <GoArrowUpRight size={14} />
+        Get In Touch
+        <img
+          alt='top-arrow'
+          loading='lazy'
+          width='200'
+          height='200'
+          decoding='async'
+          data-nimg='1'
+          class='w-2 h-2 sm:w-2.5 sm:h-2.5'
+          src='/arrow.svg'
+          style='color: transparent;'
+        />
       </button>
     </div>
 

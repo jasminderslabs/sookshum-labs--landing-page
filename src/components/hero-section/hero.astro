@@ -3,9 +3,23 @@ import { GoArrowUpRight } from "react-icons/go";
 ---
 
 <section
-  class='relative flex overflow-hidden sm:flex-wrap-reverse mx-auto flex-col-reverse justify-between h-fit max-w-480 mt-0 xl:mt-13'
+  class='relative flex overflow-visible sm:overflow-hidden sm:flex-wrap-reverse mx-auto flex-col-reverse justify-between h-fit max-w-480 mt-0 xl:mt-13'
 >
   <div class='flex relative md:flex-row flex-col-reverse justify-between h-fit'>
+    <div
+      class='absolute lg:-top-[150px] lg:h-[200px] xs:-top-[10%] top-[-2.4%] z-0 w-screen overflow-hidden'
+    >
+      <img
+        alt='image'
+        width='1455'
+        height='312'
+        decoding='async'
+        data-nimg='1'
+        class='lg:scale-[3.8] xs:scale-[3] scale-[2] min-w-screen h-25'
+        src='/stars.svg'
+        style='color: transparent;'
+      />
+    </div>
     <div
       class='w-full md:w-fit flex flex-col gap-3.5 justify-evenly md:justify-between font-poppins z-10 bg-transparent
       pt-5.5 pl-5 pb-8
@@ -45,23 +59,34 @@ import { GoArrowUpRight } from "react-icons/go";
         class='py-0 px-5 xl:px-6 h-12 xl:h-13.75 flex items-center rounded-full bg-[#E68624] cursor-pointer transition-all dark-bg duration-700 hover:[backdrop-filter:blur(100px)] dark-btn-shadow w-fit mt-7.5 xl:mt-16.5'
       >
         <button
-          class='w-full h-full font-medium text-[13px] xl:text-[16px] flex justify-between items-center gap-1 text-white'
+          class='w-full h-full font-medium text-[13px] xl:text-[16px] flex justify-between items-center gap-2 text-white'
         >
-          Request a quote <GoArrowUpRight size={14} />
+          Request a quote
+          <img
+            alt='top-arrow'
+            loading='lazy'
+            width='200'
+            height='200'
+            decoding='async'
+            data-nimg='1'
+            class='w-2 h-2 sm:w-2.5 sm:h-2.5'
+            src='/arrow.svg'
+            style='color: transparent;'
+          />
         </button>
       </div>
     </div>
 
     <div
-      class='relative md:absolute -mt-6 -mb-8 sm:m-0 lg:right-[-2%] md:right-[-15%] md:top-[5%] lg:top-[4%] xl:-top-[4%] w-fit md:w-136 lg:w-146 xl:w-auto
-      md:h-102 lg:h-109.5 xl:h-175 z-999 sm:z-0'
+      class='relative md:absolute -mt-6 -mb-8 sm:m-0 lg:right-[-2%] md:right-[-15%] md:top-[5%] lg:top-[5%] xl:-top-[4%] w-fit md:w-136 lg:w-146 xl:w-auto
+      md:h-102 lg:h-109.5 xl:h-175 sm:z-0'
     >
       <video
         src='/sookshum-hero-video.webm'
         autoplay
         loop
         muted
-        class='object-fill xl:object-cover xl:h-145 2xl:h-155 w-auto'
+        class='object-cover xl:object-cover xl:h-145 2xl:h-155 w-auto'
       ></video>
     </div>
   </div>

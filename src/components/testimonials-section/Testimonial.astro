@@ -123,26 +123,42 @@ const topSectionContent = {
 
 <script>
   const scrollbar = document.querySelector(".endless-scroll");
+  let requestAnimationFrameID: any = null;
+  const cards = document.querySelectorAll(".testimonial-card");
 
   scrollbar?.addEventListener("scroll", (e: any) => {
     if (e?.target?.scrollLeft === 0) {
       e?.target?.scrollTo({
         left: 1900,
         top: 0,
+        behaviour: "smooth",
       });
     } else if (e?.target?.scrollLeft > 1900) {
       e?.target?.scrollTo({
         left: 10,
         top: 0,
+        behaviour: "smooth",
       });
     }
   });
+  cards.forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      if (requestAnimationFrameID) {
+        window.cancelAnimationFrame(requestAnimationFrameID);
+      }
+    });
+
+    card.addEventListener("mouseleave", () => {
+      scrollbar?.scrollBy(1, 0);
+
+      requestAnimationFrameID = requestAnimationFrame(autoScroll);
+    });
+  });
 
   function autoScroll() {
-    scrollbar?.scrollBy(2, 0);
-
-    requestAnimationFrame(autoScroll);
+    scrollbar?.scrollBy(1, 0);
+    requestAnimationFrameID = requestAnimationFrame(autoScroll);
   }
 
-  requestAnimationFrame(autoScroll);
+  requestAnimationFrameID = requestAnimationFrame(autoScroll);
 </script>

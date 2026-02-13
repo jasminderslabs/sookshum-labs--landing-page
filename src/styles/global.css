@@ -222,7 +222,6 @@ header:has(ul .services:hover, .dropdown:hover) {
 
 .card:hover button {
   box-shadow: inset 0px 0px 45px 0px rgba(230, 134, 36, 0.3);
-  border: 1px solid #e6862466;
 }
 
 .no-scrollbar {

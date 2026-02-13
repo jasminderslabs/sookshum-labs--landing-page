@@ -3,7 +3,8 @@ const { title, content } = Astro.props;
 ---
 
 <div
-  class='w-auto xxl:max-w-[544px] h-full hover:bg-linear-to-br! from-[#e6862466] via-transparent to-[#e6862466] rounded-[20px] lg:rounded-4xl relative flex flex-col justify-center card card-animate feature-card dark-btn-shadow dropdown-bg dropdown-shadow-button'
+  class=`w-auto xxl:max-w-[544px] h-full hover:bg-linear-to-br! from-[#e6862466] via-transparent to-[#e6862466] rounded-[20px] lg:rounded-4xl relative flex flex-col justify-center card card-animate ${title} feature-card dark-btn-shadow dropdown-bg dropdown-shadow-button border-2 border-[#151515]`
+  data-name={title}
 >
   <div
     class='w-full h-full rounded-[20px] bg-[#1c1c1c] lg:rounded-4xl dark-btn-shadow dropdown-bg dropdown-shadow-button'
@@ -20,7 +21,7 @@ const { title, content } = Astro.props;
       </div>
     </div>
     <div
-      class='pt-26 p-2.25 lg:px-3.5 xl:px-4 pb-3.5 lg:pb-8 flex flex-col gap-2 lg:gap-3 xl:gap-3.5 grow'
+      class='pt-26 p-2.25 lg:px-3.5 xl:px-4 pb-3.5 lg:pb-5.75 xl:pb-8 flex flex-col gap-2 lg:gap-3 xl:gap-3.5 grow'
     >
       <span
         class='text-white block relative text-[14px] lg:text-[20px] xl:text-[26px] pt-4 lg:pt-5 xl:pt-7 font-medium font-poppins capitalize hero-heading'
@@ -37,6 +38,9 @@ const { title, content } = Astro.props;
 
 <script>
   const cards = document.querySelectorAll(".feature-card");
+  let design: any,
+    develop: any,
+    grow: any = null;
   const imagePaths = [
     "design-animation",
     "develop-animation",
@@ -47,20 +51,29 @@ const { title, content } = Astro.props;
   };
 
   const img = new Image();
+  // pass different attribute name to update function.
 
-  const updateImage = (i: number, path: string, ctx: any) => {
-    if (i > 30) return;
+  const updateImage = (i: number, path: string, ctx: any, name: any) => {
+    if (i > 30) {
+      updateImageWhenLeave(30, path, ctx, name);
+      return;
+    }
     img.src = currentFrame(i, path);
 
     img.onload = () => {
       ctx?.clearRect(0, 0, 300, 300);
       ctx?.drawImage(img, 0, 0, 300, 300);
 
-      requestAnimationFrame(() => updateImage(i + 1, path, ctx));
+      requestAnimationFrame(() => updateImage(i + 1, path, ctx, name));
     };
   };
 
-  const updateImageWhenLeave = (i: number, path: string, ctx: any) => {
+  const updateImageWhenLeave = (
+    i: number,
+    path: string,
+    ctx: any,
+    name: any,
+  ) => {
     if (i < 1) return;
     img.src = currentFrame(i, path);
 
@@ -68,7 +81,7 @@ const { title, content } = Astro.props;
       ctx?.clearRect(0, 0, 300, 300);
       ctx?.drawImage(img, 0, 0, 300, 300);
 
-      requestAnimationFrame(() => updateImageWhenLeave(i - 1, path, ctx));
+      requestAnimationFrame(() => updateImageWhenLeave(i - 1, path, ctx, name));
     };
   };
 
@@ -80,7 +93,6 @@ const { title, content } = Astro.props;
       const canvas = card.children[0].children[0].children[0]
         .children[0] as any;
       const ctx = canvas.getContext("2d");
-      console.log(canvas.height);
       ctx.drawImage(img, 0, 0, 300, 300);
     };
   });
@@ -90,16 +102,7 @@ const { title, content } = Astro.props;
       const canvas = card.children[0].children[0].children[0]
         .children[0] as any;
       const ctx = canvas.getContext("2d");
-      updateImage(1, imagePaths[index], ctx);
-    });
-  });
-
-  cards.forEach((card, index) => {
-    card.addEventListener("mouseleave", () => {
-      const canvas = card.children[0].children[0].children[0]
-        .children[0] as any;
-      const ctx = canvas.getContext("2d");
-      updateImageWhenLeave(30, imagePaths[index], ctx);
+      updateImage(1, imagePaths[index], ctx, card.dataset.name);
     });
   });
 </script>
