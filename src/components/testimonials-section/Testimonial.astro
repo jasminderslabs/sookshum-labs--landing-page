@@ -126,18 +126,18 @@ const topSectionContent = {
   let requestAnimationFrameID: any = null;
   const cards = document.querySelectorAll(".testimonial-card");
 
-  scrollbar?.addEventListener("scroll", (e: any) => {
-    if (e?.target?.scrollLeft === 0) {
-      e?.target?.scrollTo({
+  scrollbar?.addEventListener("scroll", (e) => {
+    const target = e.target as any;
+
+    if (target?.scrollLeft === 0) {
+      target.scrollTo({
         left: 1900,
-        top: 0,
-        behaviour: "smooth",
+        behavior: "instant",
       });
-    } else if (e?.target?.scrollLeft > 1900) {
-      e?.target?.scrollTo({
-        left: 10,
-        top: 0,
-        behaviour: "smooth",
+    } else if (target.scrollLeft >= 1900) {
+      target.scrollTo({
+        left: 1,
+        behavior: "instant",
       });
     }
   });

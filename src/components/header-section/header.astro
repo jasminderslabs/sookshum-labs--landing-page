@@ -245,10 +245,12 @@ import Sidebar from "./sidebar.astro";
     item.addEventListener("mouseenter", () => {
       item.classList.add("dropdown-bg", "dropdown-shadow-button");
       item.style.color = "white";
+      item.children[0].style.color = "white";
 
       items.forEach((item2) => {
         if (item2 !== item) item2.classList.remove("dropdown-bg");
       });
+
       linkContainer.innerHTML = "";
       links[index].forEach(({ text, src }) => {
         const span = document.createElement("span");
@@ -299,6 +301,7 @@ import Sidebar from "./sidebar.astro";
     item.addEventListener("mouseleave", () => {
       item.classList.remove("dropdown-shadow-button");
       item.style.color = "rgb(156 163 175)";
+      item.children[0].style.color = "";
     });
   });
 

@@ -5,36 +5,40 @@ const { title, name, review } = Astro.props;
 ---
 
 <div
-  class='testimonial-card testimonial-animate shrink-0 flex flex-col gap-5 p-6 rounded-4xl bg-[#282828B2] text-white
-         max-w-[99%] md:max-w-[80%] lg:max-w-[60%] xl:max-w-[40%] transition-all duration-1000 relative z-50 xl:max-h-74.5 dark-btn-shadow dropdown-bg dropdown-shadow-button'
+  class='testimonial-animate shrink-0 p-px rounded-4xl text-white
+         max-w-[99%] md:max-w-[80%] lg:max-w-[60%] xl:max-w-[40%] transition-all duration-1000 relative xl:max-h-74.5 dark-btn-shadow dropdown-bg dropdown-shadow-button hover:bg-linear-to-br! from-[#e6862466] via-transparent to-[#e6862466]'
 >
-  <div class='flex items-center gap-2 w-full'>
-    {
-      stars.map((path) => (
-        <img
-          src={path}
-          class='w-5 h-5 md:w-6 md:h-6 object-contain'
-          alt='star'
-        />
-      ))
-    }
-  </div>
-
-  <p
-    class='text-[10px] sm:text-[13px] lg:text-[14px] font-light leading-relaxed wrap-break-word grow'
+  <div
+    class='testimonial-card w-full h-full bg-transparent relative overflow-hidden p-6 rounded-4xl dark-btn-shadow dropdown-bg dropdown-shadow-button flex flex-col gap-5'
   >
-    "{review}"
-  </p>
+    <div class='flex items-center gap-2 w-full'>
+      {
+        stars.map((path) => (
+          <img
+            src={path}
+            class='w-5 h-5 md:w-6 md:h-6 object-contain'
+            alt='star'
+          />
+        ))
+      }
+    </div>
 
-  <div class='flex items-center gap-4 grow-0'>
-    <img
-      src='/lady.png'
-      class='w-12 h-12 rounded-full object-cover shrink-0'
-      alt='avatar'
-    />
-    <div class='flex flex-col'>
-      <span class='font-bold text-sm md:text-base'>{name}</span>
-      <span class='text-[10px] md:text-sm opacity-70'>{title}</span>
+    <p
+      class='text-[10px] sm:text-[13px] lg:text-[14px] font-light leading-relaxed wrap-break-word grow'
+    >
+      "{review}"
+    </p>
+
+    <div class='flex items-center gap-4 grow-0'>
+      <img
+        src='/lady.png'
+        class='w-12 h-12 rounded-full object-cover shrink-0'
+        alt='avatar'
+      />
+      <div class='flex flex-col'>
+        <span class='font-bold text-sm md:text-base'>{name}</span>
+        <span class='text-[10px] md:text-sm opacity-70'>{title}</span>
+      </div>
     </div>
   </div>
 </div>
