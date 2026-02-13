@@ -9,9 +9,9 @@ const { title, name, review } = Astro.props;
          max-w-[99%] md:max-w-[80%] lg:max-w-[60%] xl:max-w-[40%] transition-all duration-1000 relative xl:max-h-74.5 dark-btn-shadow dropdown-bg dropdown-shadow-button hover:bg-linear-to-br! from-[#e6862466] via-transparent to-[#e6862466]'
 >
   <div
-    class='testimonial-card w-full h-full bg-transparent relative overflow-hidden p-6 rounded-4xl dark-btn-shadow dropdown-bg dropdown-shadow-button flex flex-col gap-5'
+    class='testimonial-card w-full h-full bg-transparent relative overflow-hidden p-6 rounded-4xl dark-btn-shadow dropdown-bg dropdown-shadow-button flex flex-col gap-5 z-auto'
   >
-    <div class='flex items-center gap-2 w-full'>
+    <div class='flex items-center gap-2 w-full relative z-999'>
       {
         stars.map((path) => (
           <img
@@ -24,12 +24,12 @@ const { title, name, review } = Astro.props;
     </div>
 
     <p
-      class='text-[10px] sm:text-[13px] lg:text-[14px] font-light leading-relaxed wrap-break-word grow'
+      class='text-[10px] sm:text-[13px] lg:text-[14px] font-light leading-relaxed wrap-break-word grow relative z-999'
     >
       "{review}"
     </p>
 
-    <div class='flex items-center gap-4 grow-0'>
+    <div class='flex items-center gap-4 grow-0 relative z-999'>
       <img
         src='/lady.png'
         class='w-12 h-12 rounded-full object-cover shrink-0'
