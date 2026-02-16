@@ -357,3 +357,23 @@ button {
   height: 100%;
   width: 100%;
 }
+
+.btn-div {
+  position: absolute;
+  background-color: #4b4b4b;
+  width: 200px;
+  height: 200px;
+  transform: scale(0);
+  border-radius: 100%;
+  animation: spread 0.3s linear;
+  z-index: -1;
+}
+
+@keyframes spread {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(2);
+  }
+}

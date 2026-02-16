@@ -1,5 +1,4 @@
 ---
-import { GoArrowUpRight } from "react-icons/go";
 import Dropdown from "./dropdown.astro";
 import Sidebar from "./sidebar.astro";
 ---
@@ -108,96 +107,94 @@ import Sidebar from "./sidebar.astro";
         src: "/shopify.webp",
       },
       {
-        text: "shopify",
-        src: "/shopify.webp",
-      },
-      {
-        text: "shopify",
-        src: "/shopify.webp",
+        text: "magento",
+        src: "/magento.webp",
       },
     ],
     [
       {
-        text: "shopify",
-        src: "/shopify.webp",
+        text: "nestjs",
+        src: "/nestjs.webp",
       },
       {
-        text: "shopify",
-        src: "/shopify.webp",
+        text: "laravel",
+        src: "/laravel.webp",
       },
       {
-        text: "shopify",
-        src: "/shopify.webp",
-      },
-      ,
-      {
-        text: "shopify",
-        src: "/shopify.webp",
-      },
-      ,
-      {
-        text: "shopify",
-        src: "/shopify.webp",
+        text: "nextjs",
+        src: "/nextjs.webp",
       },
     ],
     [
       {
-        text: "shopify",
-        src: "/shopify.webp",
-      },
-      {
-        text: "shopify",
-        src: "/shopify.webp",
+        text: "flutter",
+        src: "/flutter.webp",
       },
     ],
     [
       {
-        text: "shopify",
-        src: "/shopify.webp",
+        text: "mobile app UI design",
+        src: "/design.webp",
       },
       {
-        text: "shopify",
-        src: "/shopify.webp",
-      },
-    ],
-    [
-      {
-        text: "shopify",
-        src: "/shopify.webp",
+        text: "website UI design",
+        src: "/develop.webp",
       },
       {
-        text: "shopify",
-        src: "/shopify.webp",
+        text: "web app UI design",
+        src: "/web-app.webp",
+      },
+      {
+        text: "landing page UI design",
+        src: "/landing-page.webp",
       },
     ],
     [
       {
-        text: "shopify",
-        src: "/shopify.webp",
+        text: "retool",
+        src: "/retool.webp",
       },
       {
-        text: "shopify",
-        src: "/shopify.webp",
-      },
-    ],
-    [
-      {
-        text: "shopify",
-        src: "/shopify.webp",
-      },
-      {
-        text: "shopify",
-        src: "/shopify.webp",
+        text: "appsmith",
+        src: "/appsmith.webp",
       },
     ],
     [
       {
-        text: "shopify",
-        src: "/shopify.webp",
+        text: "retool",
+        src: "/retool.webp",
       },
       {
-        text: "shopify",
-        src: "/shopify.webp",
+        text: "appsmith",
+        src: "/appsmith.webp",
+      },
+      {
+        text: "nextjs",
+        src: "/nextjs.webp",
+      },
+    ],
+    [
+      {
+        text: "strapi",
+        src: "/strapi.webp",
+      },
+      {
+        text: "payload CMS",
+        src: "/payload.webp",
+      },
+      {
+        text: "directus",
+        src: "/directus.webp",
+      },
+    ],
+    [
+      {
+        text: "wordpress",
+        src: "/wordpress.webp",
+      },
+      {
+        text: "webflow",
+        src: "/webflow.webp",
       },
     ],
   ];
@@ -241,6 +238,10 @@ import Sidebar from "./sidebar.astro";
   video?.addEventListener("mouseenter", () => {
     video?.play();
   });
+
+  items[0].classList.add("dropdown-bg");
+  items[0].style.color = "white";
+  items[0].children[0].style.color = "white";
 
   items.forEach((item, index) => {
     item.addEventListener("mouseenter", () => {
@@ -291,6 +292,7 @@ import Sidebar from "./sidebar.astro";
           "h-[60px]",
           "rounded-2xl",
           "inline-block",
+          "overflow-hidden",
         );
         span2.append(img);
         span.append(span2);

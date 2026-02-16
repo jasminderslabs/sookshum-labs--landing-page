@@ -4,10 +4,26 @@ const { text } = Astro.props;
 
 <a href={`#${text.toString().toLowerCase()}`}>
   <button
-    class='cursor-pointer text-[#f8f8f8b2] rounded-full w-fit text-[11px] lg:text-[14px] xl:text-[16px] px-3 py-2 lg:py-3 lg:px-5 xl:px-8 font-medium dropdown-shadow-button dropdown-bg dark-btn-shadow lg:h-11 xl:h-13 tracking-wide dropdown-shadow-button'
+    class='cursor-pointer text-[#f8f8f8b2] rounded-full w-fit text-[11px] lg:text-[14px] xl:text-[16px] px-3 py-2 lg:py-3 lg:px-5 xl:px-8 font-medium dropdown-shadow-button dropdown-bg dark-btn-shadow lg:h-11 xl:h-13 tracking-wide dropdown-shadow-button btn relative overflow-hidden'
     style=`background-color: #282828b3`
     ;
   >
     {text}
   </button>
 </a>
+<script>
+  const btns = document.querySelectorAll(".btn");
+
+  btns.forEach((btn) => {
+    btn?.addEventListener("click", (e) => {
+      const div = document.createElement("div");
+      div.classList.add("btn-div");
+      btn.appendChild(div);
+      const x = e.clientX - btn.getBoundingClientRect().left;
+      const y = e.clientY - btn.getBoundingClientRect().top;
+
+      div.style.left = `${x - div.offsetWidth / 2}px`;
+      div.style.top = `${y - div.offsetHeight / 2}px`;
+    });
+  });
+</script>

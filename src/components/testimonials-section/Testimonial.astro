@@ -1,59 +1,13 @@
 ---
 import TopSection from "../top-section/Topsection.astro";
 import TestimonialCard from "./testimonialCard.astro";
-const cards = [
-  {
-    name: "John Mark",
-    title: "CEO of Facebook",
-    review: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa deleniti
+const cards = Array.from({ length: 30 }, () => ({
+  name: "John Mark",
+  title: "CEO of Facebook",
+  review: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa deleniti
     obcaec temporibus autem alias ratione ducimus, minus, consectetur
     adipisicing elit.`,
-  },
-  {
-    name: "John Mark",
-    title: "CEO of Facebook",
-    review: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa deleniti
-    obcaec height='28'ati, temporibus autem alias ratione ducimus, minus, consectetur
-    adipisicing elit.  reprehenderit distinctio ipsum. Laboriosam ad ea ut doloremque
-    corrupti sapiente magnam veniam! Lorem ipsum dolor sit amet, consectetur
-    adipisicing elit.`,
-  },
-  {
-    name: "John Mark",
-    title: "CEO of Facebook",
-    review: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa deleniti
-    obcaec height='28'ati, temporibus autem alias ratione ducimus, minus, consectetur
-    adipisicing elit.`,
-  },
-  {
-    name: "John Mark",
-    title: "CEO of Facebook",
-    review: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa deleniti
-    obcaec height='28'ati, temporibus autem alias ratione ducimus, minus, consectetur
-    adipisicing elit.`,
-  },
-  {
-    name: "John Mark",
-    title: "CEO of Facebook",
-    review: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa deleniti
-    obcaec height='28'ati, temporibus autem alias ratione ducimus, minus, consectetur
-    adipisicing elit.`,
-  },
-  {
-    name: "John Mark",
-    title: "CEO of Facebook",
-    review: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa deleniti
-    obcaec height='28'ati, temporibus autem alias ratione ducimus, minus, consectetur
-    adipisicing elit.`,
-  },
-  {
-    name: "John Mark",
-    title: "CEO of Facebook",
-    review: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa deleniti
-    obcaec height='28'ati, temporibus autem alias ratione ducimus, minus, consectetur
-    adipisicing elit.`,
-  },
-];
+}));
 const topSectionContent = {
   heading: "There are reason people are | about us",
   word: "raving",
