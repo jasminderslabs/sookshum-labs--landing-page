@@ -1,4 +1,5 @@
 ---
+import { MoveLeft, MoveRight } from "@lucide/astro";
 import TopSection from "../top-section/Topsection.astro";
 import ExperienceCard from "./ExperienceCard.astro";
 const cards = [
@@ -55,11 +56,25 @@ const topSectionContent = {
 ---
 
 <section
-  class='flex flex-col items-center gap-8 sm:gap-12 lg:gap-15 xl:gap-16 max-w-480 mt-10 mx-auto md:pt-17.5 pt-15 lg:pt-22.5 xl:pt-30'
+  class='relative flex flex-col items-center gap-8 sm:gap-12 lg:gap-15 xl:gap-16 max-w-480 mt-10 mx-auto md:pt-17.5 pt-15 lg:pt-22.5 xl:pt-30'
 >
   <TopSection {...topSectionContent} />
   <div
-    class='overflow-auto w-full flex gap-4 xl:gap-5 no-scrollbar px-6 md:pl-10 lg:pl-15 xl:pl-40'
+    class='absolute right-35 top-65 flex justify-center items-center border border-white gap-10'
+  >
+    <MoveLeft
+      color='white'
+      size='30'
+      class='left-arrow'
+    />
+    <MoveRight
+      color='white'
+      size='30'
+      class='right-arrow'
+    />
+  </div>
+  <div
+    class='overflow-auto w-full flex gap-4 xl:gap-5 no-scrollbar px-6 md:pl-10 lg:pl-15 xl:pl-40 scrollbar'
   >
     {
       cards.map((data) => {
@@ -68,3 +83,13 @@ const topSectionContent = {
     }
   </div>
 </section>
+<script>
+  const leftArrow = document.querySelector(".left-arrow");
+  const rightArrow = document.querySelector(".right-arrow");
+  const scrollbar = document.querySelector(".scrollbar");
+  console.log(leftArrow);
+  if (scrollBy.scrollLeft === 0) {
+    leftArrow.color = "red";
+    console.log(leftArrow);
+  }
+</script>

@@ -210,6 +210,7 @@ import Sidebar from "./sidebar.astro";
   const bottomLine = document.querySelector(".bottom-line");
   const services = document.querySelector(".services");
   const dropdown = document.querySelector(".dropdown");
+  const header = document.querySelector("header");
 
   services?.addEventListener("mouseenter", () => {
     setTimeout(() => {
@@ -307,6 +308,7 @@ import Sidebar from "./sidebar.astro";
 
   menu?.addEventListener("click", () => {
     if (sidebar?.classList.contains("show-sidebar")) {
+      header.style.backgroundColor = "";
       document.body.style.overflow = "auto";
       sidebar?.classList.remove("show-sidebar");
       topLine?.classList.remove("rotate-[45deg]", "-mt-1");
@@ -316,6 +318,7 @@ import Sidebar from "./sidebar.astro";
         "-ml-[7.5px]",
       );
     } else {
+      header.style.backgroundColor = "black";
       document.body.style.overflow = "hidden";
       sidebar?.classList.add("show-sidebar");
       topLine?.classList.add("rotate-[45deg]", "-mt-1");
