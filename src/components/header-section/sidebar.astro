@@ -44,9 +44,20 @@ import ServicesDropdown from "./servicesDropdown.astro";
     class='py-0 px-5 mt-5.5 xl:px-6 h-12 xl:h-13.75 flex md:hidden items-center rounded-full bg-[#E68624] cursor-pointer transition-all dark-bg duration-700 hover:[backdrop-filter:blur(100px)] dark-btn-shadow'
   >
     <button
-      class='w-full h-full font-[14px] text-[14px] xl:text-[16px] flex justify-center text-white items-center gap-1'
+      class='w-full h-full text-[14px] xl:text-[16px] flex gap-2 justify-center text-white items-center font-medium'
     >
-      Get In Touch <GoArrowUpRight size={16} />
+      Get In Touch
+      <img
+        alt='top-arrow'
+        loading='lazy'
+        width='200'
+        height='200'
+        decoding='async'
+        data-nimg='1'
+        class='w-2 h-2 sm:w-2.5 sm:h-2.5'
+        src='/arrow.svg'
+        style='color: transparent;'
+      />
     </button>
   </div>
 </div>
