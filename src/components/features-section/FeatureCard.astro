@@ -36,228 +36,96 @@ const { title, content } = Astro.props;
   </div>
 </div>
 
-<!-- <script>
+<script>
   const cards = document.querySelectorAll(".feature-card");
-  let mouseLeave = false;
-  let isComplete = false;
-  let running = false;
+
   const imagePaths = [
     "design-animation",
     "develop-animation",
     "grow-animation",
   ];
+
+  const FRAME_COUNT = 30;
+
   const currentFrame = (index: number, path: string) => {
     return `/core-services/${path}/${index.toString().padStart(4, "0")}.webp`;
   };
 
-  const img = new Image();
-  // pass different attribute name to update function.
-
-  const updateImage = (i: number, path: string, ctx: any, name: any) => {
-    if (i > 30) {
-      isComplete = true;
-      running = false;
-      if (mouseLeave) updateImageWhenLeave(30, path, ctx, name);
-      return;
-    }
-    running = true;
-    img.src = currentFrame(i, path);
-
-    img.onload = () => {
-      ctx?.clearRect(0, 0, 300, 300);
-      ctx?.drawImage(img, 0, 0, 300, 300);
-
-      requestAnimationFrame(() => updateImage(i + 1, path, ctx, name));
-    };
-  };
-
-  const updateImageWhenLeave = (
-    i: number,
-    path: string,
-    ctx: any,
-    name: any,
-  ) => {
-    if (i < 1) {
-      isComplete = false;
-      running = false;
-      return;
-    }
-    img.src = currentFrame(i, path);
-    running = true;
-    img.onload = () => {
-      ctx?.clearRect(0, 0, 300, 300);
-      ctx?.drawImage(img, 0, 0, 300, 300);
-
-      requestAnimationFrame(() => updateImageWhenLeave(i - 1, path, ctx, name));
-    };
-  };
-
-  // Render only first image when page loads.
   cards.forEach((card, index) => {
+    const path = imagePaths[index];
+
+    const canvas = card.querySelector("canvas") as HTMLCanvasElement;
+    const ctx = canvas.getContext("2d");
+
+    let mouseLeave = false;
+    let isComplete = false;
+    let running = false;
+    let animationId: number | null = null;
     const img = new Image();
-    img.src = currentFrame(1, imagePaths[index]);
-    img.onload = () => {
-      const canvas = card.children[0].children[0].children[0]
-        .children[0] as any;
-      const ctx = canvas.getContext("2d");
-      ctx.drawImage(img, 0, 0, 300, 300);
-    };
-  });
 
-  cards.forEach((card, index) => {
+    const updateImage = (i: number) => {
+      if (i > FRAME_COUNT) {
+        isComplete = true;
+        running = false;
+
+        if (mouseLeave) {
+          updateImageWhenLeave(FRAME_COUNT);
+        }
+
+        return;
+      }
+
+      running = true;
+      img.src = currentFrame(i, path);
+
+      img.onload = () => {
+        ctx?.clearRect(0, 0, 300, 300);
+        ctx?.drawImage(img, 0, 0, 300, 300);
+
+        animationId = requestAnimationFrame(() => updateImage(i + 1));
+      };
+    };
+
+    const updateImageWhenLeave = (i: number) => {
+      if (i < 1) {
+        isComplete = false;
+        running = false;
+        return;
+      }
+
+      running = true;
+      img.src = currentFrame(i, path);
+
+      img.onload = () => {
+        ctx?.clearRect(0, 0, 300, 300);
+        ctx?.drawImage(img, 0, 0, 300, 300);
+
+        animationId = requestAnimationFrame(() => updateImageWhenLeave(i - 1));
+      };
+    };
+
+    const firstImg = new Image();
+    firstImg.src = currentFrame(1, path);
+    firstImg.onload = () => {
+      ctx?.drawImage(firstImg, 0, 0, 300, 300);
+    };
+
     card.addEventListener("mouseenter", () => {
       mouseLeave = false;
 
-      const canvas = card.children[0].children[0].children[0]
-        .children[0] as any;
-      const ctx = canvas.getContext("2d");
-      if (!running) updateImage(1, imagePaths[index], ctx, card.dataset.name);
+      if (!running) {
+        if (animationId) cancelAnimationFrame(animationId);
+        updateImage(1);
+      }
     });
+
     card.addEventListener("mouseleave", () => {
       mouseLeave = true;
 
-      const canvas = card.children[0].children[0].children[0]
-        .children[0] as any;
-      const ctx = canvas.getContext("2d");
-      if (!running)
-        updateImageWhenLeave(30, imagePaths[index], ctx, card.dataset.name);
+      if (!running) {
+        if (animationId) cancelAnimationFrame(animationId);
+        updateImageWhenLeave(FRAME_COUNT);
+      }
     });
-  });
-</script> -->
-
-<script>
-  import gsap from "gsap";
-
-  const cards = document.querySelectorAll(".feature-card");
-  const imagePaths = [
-    "design-animation",
-    "develop-animation",
-    "grow-animation",
-  ];
-
-  cards.forEach((card, index) => {
-    // 1. Target Canvas and Context
-    const canvas = card.querySelector("canvas");
-    const ctx = canvas?.getContext("2d");
-    const path = imagePaths[index];
-
-    // Configuration
-    const config = {
-      frameCount: 30,
-      duration: 0.5,
-    };
-
-    // 2. Card-Specific State
-    const state = { frame: 0 };
-    const status = {
-      isHovering: false,
-      isLeaving: false,
-    };
-
-    let hoverAnimation = null;
-    let leaveAnimation = null;
-
-    // 3. Preload Images
-    const images = [];
-    for (let i = 0; i < config.frameCount; i++) {
-      const img = new Image();
-      img.src = `/core-services/${path}/${(i + 1).toString().padStart(4, "0")}.webp`;
-      images.push(img);
-    }
-
-    // Render Function
-    const render = () => {
-      const frameIndex = Math.round(state.frame);
-      if (images[frameIndex] && ctx) {
-        ctx.clearRect(0, 0, 300, 300);
-        ctx.drawImage(images[frameIndex], 0, 0, 300, 300);
-      }
-    };
-
-    // Initial Draw
-    images[0].onload = render;
-
-    // 4. Animation Logic
-    const startHoverAnimation = () => {
-      if (hoverAnimation) hoverAnimation.kill();
-
-      status.isHovering = true;
-      hoverAnimation = gsap.to(state, {
-        frame: config.frameCount - 1,
-        snap: "frame",
-        ease: "none",
-        duration: config.duration,
-        onUpdate: render,
-        onComplete: () => {
-          status.isHovering = false;
-          // If the user moved their mouse out while this was playing
-          if (card.dataset.pendingLeave === "true") {
-            card.dataset.pendingLeave = "false";
-            startLeaveAnimation();
-          }
-        },
-      });
-    };
-
-    const startLeaveAnimation = () => {
-      if (leaveAnimation) leaveAnimation.kill();
-
-      status.isLeaving = true;
-      leaveAnimation = gsap.to(state, {
-        frame: 0,
-        snap: "frame",
-        ease: "none",
-        duration: config.duration,
-        onUpdate: render,
-        onComplete: () => {
-          status.isLeaving = false;
-          // If the user moved their mouse back in while this was playing
-          if (card.dataset.pendingHover === "true") {
-            card.dataset.pendingHover = "false";
-            startHoverAnimation();
-          }
-        },
-      });
-    };
-
-    // 5. Event Handlers
-    const handleMouseEnter = () => {
-      card.dataset.pendingHover = "true";
-      card.dataset.pendingLeave = "false";
-
-      if (status.isLeaving) {
-        // Wait for leave to finish
-        leaveAnimation.eventCallback("onComplete", () => {
-          if (card.dataset.pendingHover === "true") {
-            card.dataset.pendingHover = "false";
-            startHoverAnimation();
-          }
-        });
-      } else if (!status.isHovering) {
-        card.dataset.pendingHover = "false";
-        startHoverAnimation();
-      }
-    };
-
-    const handleMouseLeave = () => {
-      card.dataset.pendingLeave = "true";
-      card.dataset.pendingHover = "false";
-
-      if (status.isHovering) {
-        // Wait for hover to finish
-        hoverAnimation.eventCallback("onComplete", () => {
-          if (card.dataset.pendingLeave === "true") {
-            card.dataset.pendingLeave = "false";
-            startLeaveAnimation();
-          }
-        });
-      } else if (!status.isLeaving) {
-        card.dataset.pendingLeave = "false";
-        startLeaveAnimation();
-      }
-    };
-
-    card.addEventListener("mouseenter", handleMouseEnter);
-    card.addEventListener("mouseleave", handleMouseLeave);
   });
 </script>

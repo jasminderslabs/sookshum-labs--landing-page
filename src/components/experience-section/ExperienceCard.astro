@@ -39,6 +39,7 @@ const { src, title, content, list } = Astro.props;
 
 <script>
   const cards = document.querySelectorAll(".experience-card");
+
   const imagePaths = [
     { name: "healthcare", imageCount: 60 },
     { name: "e-commerce", imageCount: 70 },
@@ -46,91 +47,94 @@ const { src, title, content, list } = Astro.props;
     { name: "business-solutions", imageCount: 100 },
     { name: "on-demand-solutions", imageCount: 60 },
   ];
+
   const currentFrame = (index: number, path: string) => {
     return `industries/${path}/${index.toString().padStart(4, "0")}.webp`;
   };
 
-  const img = new Image();
-
-  const updateImage = (
-    i: number,
-    imageCount: number,
-    path: string,
-    ctx: any,
-    width: number,
-    height: number,
-  ) => {
-    if (i > imageCount) return;
-    img.src = currentFrame(i, path);
-
-    img.onload = () => {
-      ctx?.clearRect(0, 0, width, height);
-      ctx?.drawImage(img, 0, 0, width, height);
-
-      requestAnimationFrame(() =>
-        updateImage(i + 1, imageCount, path, ctx, width, height),
-      );
-    };
-  };
-
-  const updateImageWhenLeave = (
-    i: number,
-    path: string,
-    ctx: any,
-    width: number,
-    height: number,
-  ) => {
-    if (i < 1) return;
-    img.src = currentFrame(i, path);
-
-    img.onload = () => {
-      ctx?.clearRect(0, 0, width, height);
-      ctx?.drawImage(img, 0, 0, width, height);
-
-      requestAnimationFrame(() =>
-        updateImageWhenLeave(i - 1, path, ctx, width, height),
-      );
-    };
-  };
-
-  // Render only first image when page loads.
   cards.forEach((card, index) => {
+    const { name, imageCount } = imagePaths[index];
+
+    const canvas = card.querySelector("canvas") as HTMLCanvasElement;
+    const ctx = canvas.getContext("2d");
+
+    let frame = 1;
+    let animationId: number | null = null;
+    let direction: "forward" | "backward" = "forward";
+    let mouseInside = false;
+    let isAnimating = false;
+    let hasCompletedForward = false;
+
     const img = new Image();
-    img.src = currentFrame(1, imagePaths[index].name);
 
-    const canvas = card.children[0].children[0] as any;
-    const ctx = canvas?.getContext("2d");
-    img.onload = () => {
-      ctx.drawImage(img, 0, 0, canvas.width, canvas?.height);
+    const animate = () => {
+      img.src = currentFrame(frame, name);
+
+      img.onload = () => {
+        ctx?.clearRect(0, 0, canvas.width, canvas.height);
+        ctx?.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        if (direction === "forward") {
+          if (frame < imageCount) {
+            frame++;
+          } else {
+            hasCompletedForward = true;
+
+            if (!mouseInside) {
+              direction = "backward";
+              frame--;
+            } else {
+              isAnimating = false;
+              return;
+            }
+          }
+        } else {
+          if (frame > 1) {
+            frame--;
+          } else {
+            // fully reversed
+            isAnimating = false;
+            hasCompletedForward = false;
+            return;
+          }
+        }
+
+        animationId = requestAnimationFrame(animate);
+      };
     };
-  });
 
-  cards.forEach((card, index) => {
+    // Initial frame render
+    const firstImg = new Image();
+    firstImg.src = currentFrame(1, name);
+    firstImg.onload = () => {
+      ctx?.drawImage(firstImg, 0, 0, canvas.width, canvas.height);
+    };
+
     card.addEventListener("mouseenter", () => {
-      const canvas = card.children[0].children[0] as any;
-      const ctx = canvas?.getContext("2d");
-      updateImage(
-        1,
-        imagePaths[index].imageCount,
-        imagePaths[index].name,
-        ctx,
-        canvas?.width,
-        canvas?.height,
-      );
-    });
-  });
+      mouseInside = true;
 
-  cards.forEach((card, index) => {
+      if (isAnimating) return;
+
+      direction = "forward";
+      frame = 1;
+      isAnimating = true;
+      hasCompletedForward = false;
+
+      if (animationId) cancelAnimationFrame(animationId);
+      animate();
+    });
+
     card.addEventListener("mouseleave", () => {
-      const canvas = card.children[0].children[0] as any;
-      const ctx = canvas?.getContext("2d");
-      updateImageWhenLeave(
-        imagePaths[index].imageCount,
-        imagePaths[index].name,
-        ctx,
-        canvas.width,
-        canvas?.height,
-      );
+      mouseInside = false;
+
+      if (hasCompletedForward && !isAnimating) {
+        direction = "backward";
+        frame = imageCount - 1;
+        isAnimating = true;
+
+        if (animationId) cancelAnimationFrame(animationId);
+        animate();
+      }
     });
   });
 </script>

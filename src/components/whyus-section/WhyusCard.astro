@@ -24,8 +24,10 @@ const { src, title, content } = Astro.props;
     </div>
   </div>
 </div>
+
 <script>
   const cards = document.querySelectorAll(".why-us-card");
+
   const imagePaths = [
     { name: "chat", imageCount: 50 },
     { name: "rank", imageCount: 50 },
@@ -34,90 +36,80 @@ const { src, title, content } = Astro.props;
     { name: "honest&valuable", imageCount: 50 },
     { name: "team-of-experts", imageCount: 50 },
   ];
+
   const currentFrame = (index: number, path: string) => {
     return `/why-us/${path}/${index.toString().padStart(4, "0")}.webp`;
   };
 
-  const img = new Image();
-
-  const updateImage = (
-    i: number,
-    imageCount: number,
-    path: string,
-    ctx: any,
-    width: number,
-    height: number,
-  ) => {
-    if (i > imageCount) return;
-    img.src = currentFrame(i, path);
-
-    img.onload = () => {
-      ctx?.clearRect(0, 0, width, height);
-      ctx?.drawImage(img, 0, 0, width, height);
-
-      requestAnimationFrame(() =>
-        updateImage(i + 1, imageCount, path, ctx, width, height),
-      );
-    };
-  };
-
-  const updateImageWhenLeave = (
-    i: number,
-    path: string,
-    ctx: any,
-    width: number,
-    height: number,
-  ) => {
-    if (i < 1) return;
-    img.src = currentFrame(i, path);
-
-    img.onload = () => {
-      ctx?.clearRect(0, 0, width, height);
-      ctx?.drawImage(img, 0, 0, width, height);
-
-      requestAnimationFrame(() =>
-        updateImageWhenLeave(i - 1, path, ctx, width, height),
-      );
-    };
-  };
-
-  // Render only first image when page loads.
   cards.forEach((card, index) => {
-    const img = new Image();
-    img.src = currentFrame(1, imagePaths[index].name);
-    const canvas = card.children[0].children[0] as any;
+    const canvas = card.children[0].children[0] as HTMLCanvasElement;
     const ctx = canvas.getContext("2d");
-    img.onload = () => {
-      ctx.drawImage(img, 0, 0, canvas.width, canvas?.height);
+
+    const { name, imageCount } = imagePaths[index];
+
+    let mouseLeave = false;
+    let isComplete = false;
+    let animationId: number | null = null;
+    const img = new Image();
+
+    const updateImage = (i: number) => {
+      if (i > imageCount) {
+        isComplete = true;
+
+        if (mouseLeave) {
+          updateImageWhenLeave(imageCount);
+        }
+
+        return;
+      }
+
+      img.src = currentFrame(i, name);
+
+      img.onload = () => {
+        ctx?.clearRect(0, 0, canvas.width, canvas.height);
+        ctx?.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        animationId = requestAnimationFrame(() => updateImage(i + 1));
+      };
     };
-  });
 
-  cards.forEach((card, index) => {
+    const updateImageWhenLeave = (i: number) => {
+      if (i < 1) return;
+
+      img.src = currentFrame(i, name);
+
+      img.onload = () => {
+        ctx?.clearRect(0, 0, canvas.width, canvas.height);
+        ctx?.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        animationId = requestAnimationFrame(() => updateImageWhenLeave(i - 1));
+      };
+    };
+
+    // Initial render
+    const firstImg = new Image();
+    firstImg.src = currentFrame(1, name);
+    firstImg.onload = () => {
+      ctx?.drawImage(firstImg, 0, 0, canvas.width, canvas.height);
+    };
+
     card.addEventListener("mouseenter", () => {
-      const canvas = card.children[0].children[0] as any;
-      const ctx = canvas.getContext("2d");
-      updateImage(
-        1,
-        imagePaths[index].imageCount,
-        imagePaths[index].name,
-        ctx,
-        canvas?.width,
-        canvas?.height,
-      );
-    });
-  });
+      mouseLeave = false;
+      isComplete = false;
 
-  cards.forEach((card, index) => {
+      if (animationId) cancelAnimationFrame(animationId);
+
+      updateImage(1);
+    });
+
     card.addEventListener("mouseleave", () => {
-      const canvas = card.children[0].children[0] as any;
-      const ctx = canvas.getContext("2d");
-      updateImageWhenLeave(
-        imagePaths[index].imageCount,
-        imagePaths[index].name,
-        ctx,
-        canvas.width,
-        canvas?.height,
-      );
+      mouseLeave = true;
+
+      if (isComplete) {
+        if (animationId) cancelAnimationFrame(animationId);
+        updateImageWhenLeave(imageCount);
+        isComplete = false;
+      }
     });
   });
 </script>
