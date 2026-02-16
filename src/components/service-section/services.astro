@@ -63,13 +63,13 @@ const topSectionContent = {
   </div>
 </section>
 <script>
-  const cards = document.querySelectorAll(".video-container");
+  const cards = document.querySelectorAll(".video-card");
   cards.forEach((card) => {
-    card.children[0].addEventListener("mouseenter", (e: any) => {
-      e?.target?.play();
+    card.addEventListener("mouseenter", (e: any) => {
+      card.children[0].children[0]?.play();
     });
-    card.children[0].addEventListener("touchstart", (e: any) => {
-      e?.target?.play();
+    card.children[0].children[0].addEventListener("touchstart", (e: any) => {
+      card.children[0].children[0]?.play();
     });
   });
 </script>
