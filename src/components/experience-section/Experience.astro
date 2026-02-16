@@ -60,17 +60,15 @@ const topSectionContent = {
 >
   <TopSection {...topSectionContent} />
   <div
-    class='absolute right-35 top-65 flex justify-center items-center border border-white gap-10'
+    class='absolute sm:right-10 sm:top-40 lg:right-10 lg:top-50 xl:right-35 xl:top-65 hidden md:flex justify-center items-center border border-white gap-3'
   >
     <MoveLeft
-      color='white'
       size='30'
-      class='left-arrow'
+      class='left-arrow cursor-pointer'
     />
     <MoveRight
-      color='white'
       size='30'
-      class='right-arrow'
+      class='right-arrow cursor-pointer'
     />
   </div>
   <div
@@ -84,12 +82,30 @@ const topSectionContent = {
   </div>
 </section>
 <script>
-  const leftArrow = document.querySelector(".left-arrow");
-  const rightArrow = document.querySelector(".right-arrow");
-  const scrollbar = document.querySelector(".scrollbar");
-  console.log(leftArrow);
-  if (scrollBy.scrollLeft === 0) {
-    leftArrow.color = "red";
-    console.log(leftArrow);
+  const leftArrow = document.querySelector(".left-arrow") as any;
+  const rightArrow = document.querySelector(".right-arrow") as any;
+  const scrollbar = document.querySelector(".scrollbar") as any;
+  if (scrollbar.scrollLeft === 0) {
+    leftArrow.style.color = "#777E91";
+    rightArrow.style.color = "white";
   }
+  scrollbar.addEventListener("scroll", () => {
+    const isAtStart = scrollbar.scrollLeft === 0;
+
+    const isAtEnd =
+      Math.ceil(scrollbar.scrollLeft + scrollbar.clientWidth) >=
+      scrollbar.scrollWidth;
+
+    leftArrow.style.color = isAtStart ? "#777E91" : "white";
+
+    rightArrow.style.color = isAtEnd ? "#777E91" : "white";
+  });
+
+  rightArrow.addEventListener("click", () => {
+    scrollbar.scrollBy({ left: 350, behavior: "smooth" });
+  });
+
+  leftArrow.addEventListener("click", () => {
+    scrollbar.scrollBy({ left: -350, behavior: "smooth" });
+  });
 </script>
