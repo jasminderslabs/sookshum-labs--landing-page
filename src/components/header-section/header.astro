@@ -198,16 +198,16 @@ import Sidebar from "./sidebar.astro";
       },
     ],
   ];
-  const items = document.querySelectorAll(".services-dropdown");
-  const linkContainer = document.querySelector(".link-container");
-  const video = document.querySelector(".video-card");
-  const menu = document.querySelector(".menu-bar");
-  const sidebar = document.querySelector(".sidebar");
+  const items = document.querySelectorAll(".services-dropdown"); // items name like => web development, low code development tools
+  const linkContainer = document.querySelector(".link-container"); // links when hover on the item show with image and text like => shopify etc.
+  const video = document.querySelector(".video-card"); // video in the dropdown..
+  const menu = document.querySelector(".menu-bar"); // menu bar icon double lines..
+  const sidebar = document.querySelector(".sidebar"); // sidebar open on mobile screen.
   const topLine = document.querySelector(".top-line");
   const bottomLine = document.querySelector(".bottom-line");
   const services = document.querySelector(".services");
   const dropdown = document.querySelector(".dropdown");
-  const header = document.querySelector(".hero-section") as any;
+  const header = document.querySelector("header") as any;
 
   services?.addEventListener("mouseenter", () => {
     setTimeout(() => {
@@ -310,7 +310,9 @@ import Sidebar from "./sidebar.astro";
 
   menu?.addEventListener("click", () => {
     if (sidebar?.classList.contains("show-sidebar")) {
-      header.style.overflow = "visible";
+      header.style.backgroundColor = "transparent";
+      header.style.position = "relative";
+      header.style.zIndex = "auto";
       document.body.style.overflow = "auto";
       sidebar?.classList.remove("show-sidebar");
       topLine?.classList.remove("rotate-[45deg]", "-mt-1");
@@ -320,7 +322,9 @@ import Sidebar from "./sidebar.astro";
         "-ml-[7.5px]",
       );
     } else {
-      header.style.overflow = "hidden";
+      header.style.backgroundColor = "black";
+      header.style.position = "relative";
+      header.style.zIndex = "999";
       document.body.style.overflow = "hidden";
       sidebar?.classList.add("show-sidebar");
       topLine?.classList.add("rotate-[45deg]", "-mt-1");

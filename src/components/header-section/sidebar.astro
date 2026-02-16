@@ -66,18 +66,20 @@ import ServicesDropdown from "./servicesDropdown.astro";
   const container = document.querySelector(".parent-container") as any;
   const icon = document.querySelector(".services-icon") as any;
   const arrow = document.querySelectorAll(".down-arrow") as any;
-
+  let prevElement: any = null;
+  let prevArrow: any = null;
   icon?.addEventListener("click", () => {
     container?.classList.toggle("max-h-dvh");
   });
 
   arrow.forEach((item) => {
-    item?.addEventListener("click", () => {
+    item?.addEventListener("click", (e) => {
       // anchor tag to make color white when hover or open
       item.parentElement?.parentElement?.children[0].children[0].classList.toggle(
         "text-white",
       );
-      const content = item.parentElement?.parentElement?.children[1];
+
+      const content = item.parentElement?.parentElement?.children[1]; // access div that has content such as => shopify, magento etc.
 
       if (content.classList.contains("content")) {
         content.classList.toggle("hidden");
