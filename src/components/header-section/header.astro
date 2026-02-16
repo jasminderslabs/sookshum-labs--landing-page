@@ -4,7 +4,7 @@ import Sidebar from "./sidebar.astro";
 ---
 
 <header
-  class='max-w-480 mx-auto xl:px-20 px-5 md:px-10 lg:h-30 xl:h-31 sm:h-25 h-19 flex justify-between text-white items-center z-20 relative'
+  class='max-w-480 mx-auto xl:px-20 px-5 md:px-10 lg:h-30 xl:h-31 sm:h-25 h-19 flex justify-between text-white items-center'
 >
   <span class='inline-block z-999 relative'>
     <img
@@ -200,14 +200,14 @@ import Sidebar from "./sidebar.astro";
   ];
   const items = document.querySelectorAll(".services-dropdown");
   const linkContainer = document.querySelector(".link-container");
-  const video = document.querySelector("#video");
+  const video = document.querySelector(".video-card");
   const menu = document.querySelector(".menu-bar");
   const sidebar = document.querySelector(".sidebar");
   const topLine = document.querySelector(".top-line");
   const bottomLine = document.querySelector(".bottom-line");
   const services = document.querySelector(".services");
   const dropdown = document.querySelector(".dropdown");
-  const header = document.querySelector("header");
+  const header = document.querySelector(".hero-section") as any;
 
   services?.addEventListener("mouseenter", () => {
     setTimeout(() => {
@@ -236,7 +236,7 @@ import Sidebar from "./sidebar.astro";
     }, 300);
   });
   video?.addEventListener("mouseenter", () => {
-    video?.play();
+    video.children[0].children[0]?.play();
   });
 
   items[0].classList.add("dropdown-bg");
@@ -310,7 +310,7 @@ import Sidebar from "./sidebar.astro";
 
   menu?.addEventListener("click", () => {
     if (sidebar?.classList.contains("show-sidebar")) {
-      header.style.backgroundColor = "";
+      header.style.overflow = "visible";
       document.body.style.overflow = "auto";
       sidebar?.classList.remove("show-sidebar");
       topLine?.classList.remove("rotate-[45deg]", "-mt-1");
@@ -320,7 +320,7 @@ import Sidebar from "./sidebar.astro";
         "-ml-[7.5px]",
       );
     } else {
-      header.style.backgroundColor = "black";
+      header.style.overflow = "hidden";
       document.body.style.overflow = "hidden";
       sidebar?.classList.add("show-sidebar");
       topLine?.classList.add("rotate-[45deg]", "-mt-1");
