@@ -53,7 +53,7 @@ const topSectionContent = {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        const video = entry.target;
+        const video = entry.target as HTMLVideoElement;
 
         if (entry.isIntersecting) {
           video.play();

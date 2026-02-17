@@ -117,14 +117,12 @@ const topSectionContent = {
         return <ProcessCard2 {...data} />;
       })
     }
-
-    <!-- <div class='bg-[#282828B2] rounded-4xl h-[394px] w-[50%] card'>adsf</div> -->
   </div>
 </div>
 
 <script>
   const cards = document.querySelectorAll(".video-card");
-  cards.forEach((card) => {
+  cards.forEach((card: any) => {
     card.addEventListener("mouseenter", (e: any) => {
       card.children[0].children[0]?.play();
     });

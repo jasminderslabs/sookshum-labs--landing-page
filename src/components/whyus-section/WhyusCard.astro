@@ -42,14 +42,14 @@ const { src, title, content } = Astro.props;
   };
 
   cards.forEach((card, index) => {
-    const canvas = card.children[0].children[0];
+    const canvas = card.children[0].children[0] as HTMLCanvasElement;
     const ctx = canvas.getContext("2d");
 
     const { name, imageCount } = imagePaths[index];
 
-    let images = [];
+    let images: any = [];
     let frame = 0;
-    let animationId = null;
+    let animationId: null | number = null;
 
     let isLoaded = false;
     let isAnimating = false;
@@ -57,7 +57,7 @@ const { src, title, content } = Astro.props;
     let hasPlayedForward = false;
 
     const preloadImages = () => {
-      const promises = [];
+      const promises: any = [];
 
       for (let i = 1; i <= imageCount; i++) {
         const img = new Image();
@@ -78,7 +78,7 @@ const { src, title, content } = Astro.props;
         canvas.width = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
 
-        ctx.drawImage(images[0], 0, 0, canvas.width, canvas.height);
+        ctx?.drawImage(images[0], 0, 0, canvas.width, canvas.height);
       });
     };
 
@@ -89,8 +89,8 @@ const { src, title, content } = Astro.props;
 
       isAnimating = true;
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(images[frame], 0, 0, canvas.width, canvas.height);
+      ctx?.clearRect(0, 0, canvas.width, canvas.height);
+      ctx?.drawImage(images[frame], 0, 0, canvas.width, canvas.height);
 
       if (frame < imageCount - 1) {
         frame++;
@@ -110,8 +110,8 @@ const { src, title, content } = Astro.props;
 
       isAnimating = true;
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(images[frame], 0, 0, canvas.width, canvas.height);
+      ctx?.clearRect(0, 0, canvas.width, canvas.height);
+      ctx?.drawImage(images[frame], 0, 0, canvas.width, canvas.height);
 
       if (frame > 0) {
         frame--;

@@ -137,27 +137,6 @@ header:has(ul .services:hover, .dropdown:hover) {
     transparent,
     #e6862466
   );
-  /* background-image:
-    linear-gradient(
-      271deg,
-      rgba(230, 134, 36, 0) 87.8%,
-      rgba(230, 134, 36, 0.19) 116.94%
-    ),
-    linear-gradient(
-      1deg,
-      rgba(230, 134, 36, 0) 88.01%,
-      rgba(230, 134, 36, 0.19) 115.85%
-    ),
-    linear-gradient(
-      91deg,
-      rgba(230, 134, 36, 0) 87.12%,
-      rgba(230, 134, 36, 0.19) 120.22%
-    ),
-    linear-gradient(
-      181deg,
-      rgba(230, 134, 36, 0) 86.43%,
-      rgba(230, 134, 36, 0.19) 120.21%
-    ); */
 }
 .scroll-btn:hover {
   box-shadow: inset 0px 0px 45px 0px rgba(230, 134, 36, 0.3);
@@ -202,24 +181,6 @@ header:has(ul .services:hover, .dropdown:hover) {
     border-radius: 20px;
   }
 }
-/* .card:hover::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  margin: auto;
-  width: 100%;
-  height: 99%;
-  z-index: -1;
-  background-image: linear-gradient(
-    to bottom right,
-    transparent 0% 40%,
-    #1c1c1c 40% 70%,
-    transparent 70%
-  );
-} */
 
 .card:hover button {
   box-shadow: inset 0px 0px 45px 0px rgba(230, 134, 36, 0.3);
@@ -318,7 +279,6 @@ button {
   background-size: 0% 0%;
   background-repeat: no-repeat;
   border-radius: 32px;
-  /* border: 1px solid black; */
 }
 
 .testimonial-card:hover::before {

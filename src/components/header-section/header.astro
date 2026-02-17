@@ -21,7 +21,7 @@ import Sidebar from "./sidebar.astro";
         <a class='h-full flex justify-center items-center'>Home</a>
       </li>
       <li
-        class='services flex items-center gap-2 services justify-center h-full hover:opacity-100 text-gray-400 hover:text-white cursor-pointer'
+        class='services flex items-center gap-2 justify-center h-full hover:opacity-100 text-gray-400 hover:text-white cursor-pointer'
       >
         <a class='h-full flex justify-center items-center'>Services</a>
 
@@ -100,6 +100,8 @@ import Sidebar from "./sidebar.astro";
   <Dropdown />
 </header>
 <script>
+  import { HtmlHTMLAttributes } from "react";
+
   const links = [
     [
       {
@@ -198,15 +200,15 @@ import Sidebar from "./sidebar.astro";
       },
     ],
   ];
-  const items = document.querySelectorAll(".services-dropdown"); // items name like => web development, low code development tools
-  const linkContainer = document.querySelector(".link-container"); // links when hover on the item show with image and text like => shopify etc.
-  const video = document.querySelector(".video-card"); // video in the dropdown..
-  const menu = document.querySelector(".menu-bar"); // menu bar icon double lines..
-  const sidebar = document.querySelector(".sidebar"); // sidebar open on mobile screen.
-  const topLine = document.querySelector(".top-line");
-  const bottomLine = document.querySelector(".bottom-line");
-  const services = document.querySelector(".services");
-  const dropdown = document.querySelector(".dropdown");
+  const items = document.querySelectorAll(".services-dropdown") as any; // items name like => web development, low code development tools
+  const linkContainer = document.querySelector(".link-container") as any; // links when hover on the item show with image and text like => shopify etc.
+  const video = document.querySelector(".video-card") as any; // video in the dropdown..
+  const menu = document.querySelector(".menu-bar") as any; // menu bar icon double lines..
+  const sidebar = document.querySelector(".sidebar") as any; // sidebar open on mobile screen.
+  const topLine = document.querySelector(".top-line") as any;
+  const bottomLine = document.querySelector(".bottom-line") as any;
+  const services = document.querySelector(".services") as any;
+  const dropdown = document.querySelector(".dropdown") as any;
   const header = document.querySelector("header") as any;
 
   services?.addEventListener("mouseenter", () => {

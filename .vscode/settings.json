@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
+    "amet",
     "Bestech",
     "ecommerce",
     "gsap",
@@ -7,10 +8,12 @@
     "magento",
     "Mohali",
     "navigations",
+    "nimg",
     "przeconnect",
     "sookshum",
     "Telemedicine",
     "Topsection",
     "Whyus"
-  ]
+  ],
+  "editor.cursorStyle": "line-thin"
 }

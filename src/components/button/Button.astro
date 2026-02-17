@@ -15,7 +15,7 @@ const { text } = Astro.props;
   const btns = document.querySelectorAll(".btn");
 
   btns.forEach((btn) => {
-    btn?.addEventListener("click", (e) => {
+    btn?.addEventListener("click", (e: any) => {
       const div = document.createElement("div");
       div.classList.add("btn-div");
       btn.appendChild(div);

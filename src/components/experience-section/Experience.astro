@@ -113,7 +113,7 @@ const topSectionContent = {
     scrollbar.scrollBy({ left: -350, behavior: "smooth" });
   });
 
-  scrollbar.addEventListener("mousedown", (e) => {
+  scrollbar.addEventListener("mousedown", (e: any) => {
     isPressed = true;
 
     startX = e.pageX - scrollbar.offsetLeft;
@@ -131,7 +131,7 @@ const topSectionContent = {
     scrollbar.style.cursor = "grab";
   });
 
-  scrollbar.addEventListener("mousemove", (e) => {
+  scrollbar.addEventListener("mousemove", (e: any) => {
     if (!isPressed) return;
     e.preventDefault();
 
