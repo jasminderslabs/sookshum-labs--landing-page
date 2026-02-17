@@ -1,11 +1,12 @@
 ---
 import TopSection from "../top-section/Topsection.astro";
 import TestimonialCard from "./testimonialCard.astro";
-const cards = Array.from({ length: 30 }, () => ({
+const cards = Array.from({ length: 20 }, () => ({
   name: "John Mark",
   title: "CEO of Facebook",
   review: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa deleniti
     obcaec temporibus autem alias ratione ducimus, minus, consectetur
+    adipisicing elit temporibus autem alias ratione ducimus, minus, consectetur
     adipisicing elit.`,
 }));
 const topSectionContent = {
@@ -60,9 +61,8 @@ const topSectionContent = {
     bottom: 0;
     height: 100%;
     z-index: 999;
-    opacity: 100%;
-    filter: blur(10px);
-    background: linear-gradient(90deg, black, transparent);
+
+    background-image: linear-gradient(to right, #000, #15151538, transparent);
   }
   .right-blur {
     position: absolute;
@@ -70,9 +70,8 @@ const topSectionContent = {
     top: 0;
     bottom: 0;
     height: 100%;
-    opacity: 100%;
-    filter: blur(10px);
-    background: linear-gradient(90deg, transparent, black);
+
+    background-image: linear-gradient(to left, #000, #15151538, transparent);
     z-index: 999;
   }
 </style>
