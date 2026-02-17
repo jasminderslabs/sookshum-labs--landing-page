@@ -37,78 +37,105 @@ const { src, title, content } = Astro.props;
     { name: "team-of-experts", imageCount: 50 },
   ];
 
-  const currentFrame = (index: number, path: string) => {
+  const currentFrame = (index, path) => {
     return `/why-us/${path}/${index.toString().padStart(4, "0")}.webp`;
   };
 
   cards.forEach((card, index) => {
-    const canvas = card.children[0].children[0] as HTMLCanvasElement;
+    const canvas = card.children[0].children[0];
     const ctx = canvas.getContext("2d");
 
     const { name, imageCount } = imagePaths[index];
 
-    let mouseLeave = false;
-    let isComplete = false;
-    let animationId: number | null = null;
-    const img = new Image();
+    let images = [];
+    let frame = 0;
+    let animationId = null;
 
-    const updateImage = (i: number) => {
-      if (i > imageCount) {
-        isComplete = true;
+    let isLoaded = false;
+    let isAnimating = false;
+    let isHovering = false;
+    let hasPlayedForward = false;
 
-        if (mouseLeave) {
-          updateImageWhenLeave(imageCount);
-        }
+    // 🔥 PRELOAD ALL FRAMES
+    const preloadImages = () => {
+      const promises = [];
 
-        return;
+      for (let i = 1; i <= imageCount; i++) {
+        const img = new Image();
+        img.src = currentFrame(i, name);
+        images.push(img);
+
+        promises.push(
+          new Promise((resolve) => {
+            img.onload = resolve;
+            img.onerror = resolve;
+          }),
+        );
       }
 
-      img.src = currentFrame(i, name);
+      Promise.all(promises).then(() => {
+        isLoaded = true;
 
-      img.onload = () => {
-        ctx?.clearRect(0, 0, canvas.width, canvas.height);
-        ctx?.drawImage(img, 0, 0, canvas.width, canvas.height);
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
 
-        animationId = requestAnimationFrame(() => updateImage(i + 1));
-      };
+        ctx.drawImage(images[0], 0, 0, canvas.width, canvas.height);
+      });
     };
 
-    const updateImageWhenLeave = (i: number) => {
-      if (i < 1) return;
+    preloadImages();
 
-      img.src = currentFrame(i, name);
+    const animateForward = () => {
+      if (!isLoaded) return;
 
-      img.onload = () => {
-        ctx?.clearRect(0, 0, canvas.width, canvas.height);
-        ctx?.drawImage(img, 0, 0, canvas.width, canvas.height);
+      isAnimating = true;
 
-        animationId = requestAnimationFrame(() => updateImageWhenLeave(i - 1));
-      };
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(images[frame], 0, 0, canvas.width, canvas.height);
+
+      if (frame < imageCount - 1) {
+        frame++;
+        animationId = requestAnimationFrame(animateForward);
+      } else {
+        hasPlayedForward = true;
+        isAnimating = false;
+
+        if (!isHovering) {
+          animateReverse();
+        }
+      }
     };
 
-    // Initial render
-    const firstImg = new Image();
-    firstImg.src = currentFrame(1, name);
-    firstImg.onload = () => {
-      ctx?.drawImage(firstImg, 0, 0, canvas.width, canvas.height);
+    const animateReverse = () => {
+      if (!isLoaded) return;
+
+      isAnimating = true;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(images[frame], 0, 0, canvas.width, canvas.height);
+
+      if (frame > 0) {
+        frame--;
+        animationId = requestAnimationFrame(animateReverse);
+      } else {
+        hasPlayedForward = false;
+        isAnimating = false;
+      }
     };
 
     card.addEventListener("mouseenter", () => {
-      mouseLeave = false;
-      isComplete = false;
+      isHovering = true;
 
-      if (animationId) cancelAnimationFrame(animationId);
-
-      updateImage(1);
+      if (!isAnimating && !hasPlayedForward) {
+        animateForward();
+      }
     });
 
     card.addEventListener("mouseleave", () => {
-      mouseLeave = true;
+      isHovering = false;
 
-      if (isComplete) {
-        if (animationId) cancelAnimationFrame(animationId);
-        updateImageWhenLeave(imageCount);
-        isComplete = false;
+      if (!isAnimating && hasPlayedForward) {
+        animateReverse();
       }
     });
   });
