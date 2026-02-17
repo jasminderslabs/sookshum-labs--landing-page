@@ -85,6 +85,10 @@ const topSectionContent = {
   const leftArrow = document.querySelector(".left-arrow") as any;
   const rightArrow = document.querySelector(".right-arrow") as any;
   const scrollbar = document.querySelector(".scrollbar") as any;
+  let isPressed = false; // In order to track if pressed on slider to slide or not.
+  let startX;
+  let scrollLeft;
+
   if (scrollbar.scrollLeft === 0) {
     leftArrow.style.color = "#777E91";
     rightArrow.style.color = "white";
@@ -107,5 +111,32 @@ const topSectionContent = {
 
   leftArrow.addEventListener("click", () => {
     scrollbar.scrollBy({ left: -350, behavior: "smooth" });
+  });
+
+  scrollbar.addEventListener("mousedown", (e) => {
+    isPressed = true;
+
+    startX = e.pageX - scrollbar.offsetLeft;
+    scrollLeft = scrollbar.scrollLeft;
+    scrollbar.style.cursor = "grabbing";
+  });
+
+  scrollbar.addEventListener("mouseleave", () => {
+    isPressed = false;
+    scrollbar.style.cursor = "grab";
+  });
+
+  scrollbar.addEventListener("mouseup", () => {
+    isPressed = false;
+    scrollbar.style.cursor = "grab";
+  });
+
+  scrollbar.addEventListener("mousemove", (e) => {
+    if (!isPressed) return;
+    e.preventDefault();
+
+    const x = e.pageX - scrollbar.offsetLeft;
+    const walk = (x - startX) * 1.2;
+    scrollbar.scrollLeft = scrollLeft - walk;
   });
 </script>
