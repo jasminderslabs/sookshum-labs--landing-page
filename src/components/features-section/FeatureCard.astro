@@ -71,7 +71,6 @@ const { title, content } = Astro.props;
     let isHovering = false;
     let hasPlayedForward = false;
 
-    // 🔥 Preload Images
     const preloadImages = () => {
       const promises = [];
 
@@ -111,7 +110,6 @@ const { title, content } = Astro.props;
         hasPlayedForward = true;
         isAnimating = false;
 
-        // If mouse already left during forward animation
         if (!isHovering) {
           animateReverse();
         }
@@ -146,7 +144,6 @@ const { title, content } = Astro.props;
     card.addEventListener("mouseleave", () => {
       isHovering = false;
 
-      // If forward animation already completed
       if (!isAnimating && hasPlayedForward) {
         animateReverse();
       }
