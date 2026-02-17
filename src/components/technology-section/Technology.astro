@@ -71,6 +71,9 @@ const topSectionContent = {
     card.children[0].addEventListener("mouseenter", (e: any) => {
       e?.target?.play();
     });
+    card.children[0].addEventListener("touchstart", (e: any) => {
+      e?.target?.play();
+    });
     card.children[0].addEventListener("ended", (e: any) => {
       e?.target?.pause();
     });
