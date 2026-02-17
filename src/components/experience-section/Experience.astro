@@ -120,8 +120,19 @@ const topSectionContent = {
     scrollLeft = scrollbar.scrollLeft;
     scrollbar.style.cursor = "grabbing";
   });
+  scrollbar.addEventListener("touchstart", (e: any) => {
+    isPressed = true;
+
+    startX = e.pageX - scrollbar.offsetLeft;
+    scrollLeft = scrollbar.scrollLeft;
+    scrollbar.style.cursor = "grabbing";
+  });
 
   scrollbar.addEventListener("mouseleave", () => {
+    isPressed = false;
+    scrollbar.style.cursor = "grab";
+  });
+  scrollbar.addEventListener("touchend", () => {
     isPressed = false;
     scrollbar.style.cursor = "grab";
   });

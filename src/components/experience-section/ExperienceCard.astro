@@ -139,6 +139,20 @@ const { title, content, list } = Astro.props;
         animateForward();
       }
     });
+    card.addEventListener("touchstart", () => {
+      isHovering = true;
+
+      if (!isAnimating && !hasPlayedForward) {
+        animateForward();
+      }
+    });
+    card.addEventListener("touchend", () => {
+      isHovering = false;
+
+      if (!isAnimating && hasPlayedForward) {
+        animateReverse();
+      }
+    });
 
     card.addEventListener("mouseleave", () => {
       isHovering = false;
