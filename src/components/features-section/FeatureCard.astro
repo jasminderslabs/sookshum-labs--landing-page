@@ -46,86 +46,96 @@ const { title, content } = Astro.props;
   ];
 
   const FRAME_COUNT = 30;
+  const WIDTH = 300;
+  const HEIGHT = 300;
 
-  const currentFrame = (index: number, path: string) => {
+  const currentFrame = (index, path) => {
     return `/core-services/${path}/${index.toString().padStart(4, "0")}.webp`;
   };
 
   cards.forEach((card, index) => {
     const path = imagePaths[index];
 
-    const canvas = card.querySelector("canvas") as HTMLCanvasElement;
+    const canvas = card.querySelector("canvas");
     const ctx = canvas.getContext("2d");
 
-    let mouseLeave = false;
-    let isComplete = false;
-    let running = false;
-    let animationId: number | null = null;
-    const img = new Image();
+    canvas.width = WIDTH;
+    canvas.height = HEIGHT;
 
-    const updateImage = (i: number) => {
-      if (i > FRAME_COUNT) {
-        isComplete = true;
-        running = false;
+    let images = [];
+    let frame = 0;
+    let animationId = null;
+    let direction = 1; // 1 forward, -1 backward
+    let isAnimating = false;
+    let isLoaded = false;
 
-        if (mouseLeave) {
-          updateImageWhenLeave(FRAME_COUNT);
-        }
+    // 🔥 PRELOAD ALL IMAGES
+    const preloadImages = () => {
+      const promises = [];
 
+      for (let i = 1; i <= FRAME_COUNT; i++) {
+        const img = new Image();
+        img.src = currentFrame(i, path);
+        images.push(img);
+
+        promises.push(
+          new Promise((resolve) => {
+            img.onload = resolve;
+            img.onerror = resolve;
+          }),
+        );
+      }
+
+      Promise.all(promises).then(() => {
+        isLoaded = true;
+        ctx.drawImage(images[0], 0, 0, WIDTH, HEIGHT);
+      });
+    };
+
+    preloadImages();
+
+    const animate = () => {
+      if (!isAnimating || !isLoaded) return;
+
+      ctx.clearRect(0, 0, WIDTH, HEIGHT);
+      ctx.drawImage(images[frame], 0, 0, WIDTH, HEIGHT);
+
+      frame += direction;
+
+      if (frame >= FRAME_COUNT - 1) {
+        frame = FRAME_COUNT - 1;
+        isAnimating = false;
         return;
       }
 
-      running = true;
-      img.src = currentFrame(i, path);
-
-      img.onload = () => {
-        ctx?.clearRect(0, 0, 300, 300);
-        ctx?.drawImage(img, 0, 0, 300, 300);
-
-        animationId = requestAnimationFrame(() => updateImage(i + 1));
-      };
-    };
-
-    const updateImageWhenLeave = (i: number) => {
-      if (i < 1) {
-        isComplete = false;
-        running = false;
+      if (frame <= 0) {
+        frame = 0;
+        isAnimating = false;
         return;
       }
 
-      running = true;
-      img.src = currentFrame(i, path);
-
-      img.onload = () => {
-        ctx?.clearRect(0, 0, 300, 300);
-        ctx?.drawImage(img, 0, 0, 300, 300);
-
-        animationId = requestAnimationFrame(() => updateImageWhenLeave(i - 1));
-      };
+      animationId = requestAnimationFrame(animate);
     };
 
-    const firstImg = new Image();
-    firstImg.src = currentFrame(1, path);
-    firstImg.onload = () => {
-      ctx?.drawImage(firstImg, 0, 0, 300, 300);
+    const startAnimation = (dir) => {
+      if (!isLoaded) return;
+
+      direction = dir;
+
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
+
+      isAnimating = true;
+      animationId = requestAnimationFrame(animate);
     };
 
     card.addEventListener("mouseenter", () => {
-      mouseLeave = false;
-
-      if (!running) {
-        if (animationId) cancelAnimationFrame(animationId);
-        updateImage(1);
-      }
+      startAnimation(1);
     });
 
     card.addEventListener("mouseleave", () => {
-      mouseLeave = true;
-
-      if (!running) {
-        if (animationId) cancelAnimationFrame(animationId);
-        updateImageWhenLeave(FRAME_COUNT);
-      }
+      startAnimation(-1);
     });
   });
 </script>
