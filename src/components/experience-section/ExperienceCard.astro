@@ -48,92 +48,104 @@ const { title, content, list } = Astro.props;
     { name: "on-demand-solutions", imageCount: 60 },
   ];
 
-  const currentFrame = (index: number, path: string) => {
+  const currentFrame = (index, path) => {
     return `industries/${path}/${index.toString().padStart(4, "0")}.webp`;
   };
 
   cards.forEach((card, index) => {
     const { name, imageCount } = imagePaths[index];
 
-    const canvas = card.querySelector("canvas") as HTMLCanvasElement;
+    const canvas = card.querySelector("canvas");
     const ctx = canvas.getContext("2d");
 
-    let frame = 1;
-    let animationId: number | null = null;
-    let direction: "forward" | "backward" = "forward";
-    let mouseInside = false;
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+
+    let images = [];
+    let frame = 0;
+    let animationId = null;
+
+    let isLoaded = false;
     let isAnimating = false;
-    let hasCompletedForward = false;
+    let isHovering = false;
+    let hasPlayedForward = false;
 
-    const img = new Image();
+    // 🔥 PRELOAD ALL FRAMES
+    const preloadImages = () => {
+      const promises = [];
 
-    const animate = () => {
-      img.src = currentFrame(frame, name);
+      for (let i = 1; i <= imageCount; i++) {
+        const img = new Image();
+        img.src = currentFrame(i, name);
+        images.push(img);
 
-      img.onload = () => {
-        ctx?.clearRect(0, 0, canvas.width, canvas.height);
-        ctx?.drawImage(img, 0, 0, canvas.width, canvas.height);
+        promises.push(
+          new Promise((resolve) => {
+            img.onload = resolve;
+            img.onerror = resolve;
+          }),
+        );
+      }
 
-        if (direction === "forward") {
-          if (frame < imageCount) {
-            frame++;
-          } else {
-            hasCompletedForward = true;
-
-            if (!mouseInside) {
-              direction = "backward";
-              frame--;
-            } else {
-              isAnimating = false;
-              return;
-            }
-          }
-        } else {
-          if (frame > 1) {
-            frame--;
-          } else {
-            // fully reversed
-            isAnimating = false;
-            hasCompletedForward = false;
-            return;
-          }
-        }
-
-        animationId = requestAnimationFrame(animate);
-      };
+      Promise.all(promises).then(() => {
+        isLoaded = true;
+        ctx.drawImage(images[0], 0, 0, canvas.width, canvas.height);
+      });
     };
 
-    // Initial frame render
-    const firstImg = new Image();
-    firstImg.src = currentFrame(1, name);
-    firstImg.onload = () => {
-      ctx?.drawImage(firstImg, 0, 0, canvas.width, canvas.height);
+    preloadImages();
+
+    const animateForward = () => {
+      if (!isLoaded) return;
+
+      isAnimating = true;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(images[frame], 0, 0, canvas.width, canvas.height);
+
+      if (frame < imageCount - 1) {
+        frame++;
+        animationId = requestAnimationFrame(animateForward);
+      } else {
+        hasPlayedForward = true;
+        isAnimating = false;
+
+        if (!isHovering) {
+          animateReverse();
+        }
+      }
+    };
+
+    const animateReverse = () => {
+      if (!isLoaded) return;
+
+      isAnimating = true;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(images[frame], 0, 0, canvas.width, canvas.height);
+
+      if (frame > 0) {
+        frame--;
+        animationId = requestAnimationFrame(animateReverse);
+      } else {
+        hasPlayedForward = false;
+        isAnimating = false;
+      }
     };
 
     card.addEventListener("mouseenter", () => {
-      mouseInside = true;
+      isHovering = true;
 
-      if (isAnimating) return;
-
-      direction = "forward";
-      frame = 1;
-      isAnimating = true;
-      hasCompletedForward = false;
-
-      if (animationId) cancelAnimationFrame(animationId);
-      animate();
+      if (!isAnimating && !hasPlayedForward) {
+        animateForward();
+      }
     });
 
     card.addEventListener("mouseleave", () => {
-      mouseInside = false;
+      isHovering = false;
 
-      if (hasCompletedForward && !isAnimating) {
-        direction = "backward";
-        frame = imageCount - 1;
-        isAnimating = true;
-
-        if (animationId) cancelAnimationFrame(animationId);
-        animate();
+      if (!isAnimating && hasPlayedForward) {
+        animateReverse();
       }
     });
   });
