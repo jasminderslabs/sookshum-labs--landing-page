@@ -27,9 +27,19 @@ import { ArrowUpRight } from "@lucide/astro";
         class='py-0 px-5 xl:px-6 h-12 xl:h-13.75 flex items-center rounded-full bg-[#E68624] cursor-pointer transition-all dark-bg duration-700 hover:[backdrop-filter:blur(100px)] dark-btn-shadow w-fit xl:mt-16.5 mt-7.5 md:mt-12.5'
       >
         <button
-          class='w-full h-full font-medium text-[13px] xl:text-[16px] flex justify-between items-center gap-1 text-white'
+          class='w-full h-full font-medium text-[13px] xl:text-[16px] flex justify-between items-center gap-2 text-white'
         >
-          Request a quote <ArrowUpRight size={16} />
+          Request a quote <img
+            alt='top-arrow'
+            loading='lazy'
+            width='200'
+            height='200'
+            decoding='async'
+            data-nimg='1'
+            class='w-2 h-2 sm:w-2.5 sm:h-2.5'
+            src='/arrow.svg'
+            style='color: transparent;'
+          />
         </button>
       </div>
     </div>
