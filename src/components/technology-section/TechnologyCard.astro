@@ -3,7 +3,7 @@ const { src, title, content, reverse, index } = Astro.props;
 ---
 
 <div
-  class=`w-full h-full xl:my-10 flex ${reverse ? 'flex-col-reverse sm:flex-row-reverse' : 'flex-col-reverse sm:flex-row'} justify-between items-center md:gap-10 lg:gap-0`
+  class=`w-full h-full xl:my-10 flex ${reverse ? 'flex-col-reverse sm:flex-row-reverse' : 'flex-col-reverse sm:flex-row'} justify-between items-center md:gap-10 lg:gap-0 card-animate-on-touch`
 >
   <div
     class='text-white h-full flex flex-col justify-start items-start gap-3 lg:gap-5 md:max-w-82.25 lg:max-w-122.75 xl:max-w-145.25'

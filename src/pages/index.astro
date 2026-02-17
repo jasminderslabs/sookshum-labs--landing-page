@@ -33,3 +33,28 @@ import Scroll from "../components/scrollOnTop/Scroll.astro";
   <Footer />
   <Scroll />
 </Layout>
+
+<script>
+  // To show border animation on touch only.
+  const featureCards = document.querySelectorAll(".card-animate-on-touch");
+  featureCards.forEach((card) => {
+    card.addEventListener("touchstart", (e) => {
+      console.log("start", card);
+      card.classList.add("feature-card-touch-active");
+      card.classList.add("touch-shadow");
+      removeClass(card);
+    });
+    // card.addEventListener("touchend", () => {
+    //   console.log("start", card);
+    //   card.classList.remove("feature-card-touch-active");
+    // });
+  });
+
+  function removeClass(currentCard) {
+    featureCards.forEach((card) => {
+      if (currentCard !== card) {
+        card.classList.remove("feature-card-touch-active");
+      }
+    });
+  }
+</script>
