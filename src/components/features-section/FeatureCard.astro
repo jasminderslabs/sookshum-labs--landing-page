@@ -55,15 +55,15 @@ const { title, content } = Astro.props;
 
   cards.forEach((card, index) => {
     const path = imagePaths[index];
-    const canvas = card.querySelector("canvas");
+    const canvas = card.querySelector("canvas") as any;
     const ctx = canvas.getContext("2d");
 
     canvas.width = WIDTH;
     canvas.height = HEIGHT;
 
-    let images = [];
+    let images: any = [];
     let frame = 0;
-    let animationId = null;
+    let animationId: null | number = null;
 
     let isLoaded = false;
     let isAnimating = false;
@@ -72,7 +72,7 @@ const { title, content } = Astro.props;
     let hasPlayedForward = false;
 
     const preloadImages = () => {
-      const promises = [];
+      const promises: any = [];
 
       for (let i = 1; i <= FRAME_COUNT; i++) {
         const img = new Image();
@@ -133,6 +133,13 @@ const { title, content } = Astro.props;
       }
     };
 
+    card.addEventListener("touchstart", () => {
+      isHovering = true;
+
+      if (!isAnimating && !hasPlayedForward) {
+        animateForward();
+      }
+    });
     card.addEventListener("mouseenter", () => {
       isHovering = true;
 
@@ -141,6 +148,13 @@ const { title, content } = Astro.props;
       }
     });
 
+    card.addEventListener("touchend", () => {
+      isHovering = false;
+
+      if (!isAnimating && hasPlayedForward) {
+        animateReverse();
+      }
+    });
     card.addEventListener("mouseleave", () => {
       isHovering = false;
 
