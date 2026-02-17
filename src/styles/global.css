@@ -197,6 +197,11 @@ header:has(ul .services:hover, .dropdown:hover) {
     );
   border-radius: 32px;
 }
+@media screen and (max-width: 768px) {
+  .card:hover::before {
+    border-radius: 20px;
+  }
+}
 /* .card:hover::after {
   content: "";
   position: absolute;
