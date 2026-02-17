@@ -47,3 +47,23 @@
     scroll-behavior: smooth;
   }
 </style>
+
+<script>
+  document.body.addEventListener("keydown", (e) => {
+    const key = e.key;
+
+    if (key >= "0" && key <= "9") {
+      const root = document.documentElement;
+      const scrollHeight = root.scrollHeight;
+      const viewportHeight = window.innerHeight;
+
+      const targetTop = (scrollHeight - viewportHeight) * (parseInt(key) / 9);
+
+      window.scrollTo({
+        top: targetTop,
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+  });
+</script>

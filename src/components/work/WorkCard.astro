@@ -17,7 +17,7 @@ const { src, gridSize } = Astro.props;
 
 <script>
   const images = document.querySelectorAll(".work-image");
-  images.forEach((parent) => {
+  images.forEach((parent: any) => {
     parent.addEventListener("mouseenter", () => {
       parent.children[0].style.transform = "scale(1.05)";
     });

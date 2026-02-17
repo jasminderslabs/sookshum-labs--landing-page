@@ -3,7 +3,7 @@ import TopSection from "../top-section/Topsection.astro";
 import WorkCard from "./WorkCard.astro";
 const topSectionContent = {
   heading: "See our Recent",
-  word: "Projects?",
+  word: "Projects.",
   para: `Explore our showcase of our recent projects to see tha solutions we’ve
         recently brought to life`,
   btnText: "work",
@@ -38,7 +38,7 @@ const cards = [
 ---
 
 <section
-  class='flex flex-col items-center gap-16 max-w-480 mx-auto md:pt-17.5 pt-15 lg:pt-22.5 xl:pt-30'
+  class='flex flex-col items-center gap-16 xl:gap-26 max-w-480 mx-auto md:pt-17.5 pt-15 lg:pt-22.5 xl:pt-30'
 >
   <TopSection {...topSectionContent} />
   <div class='max-w-480 xl:px-20 md:px-10 px-5'>
