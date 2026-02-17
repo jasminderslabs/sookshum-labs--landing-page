@@ -55,7 +55,6 @@ const { title, content } = Astro.props;
 
   cards.forEach((card, index) => {
     const path = imagePaths[index];
-
     const canvas = card.querySelector("canvas");
     const ctx = canvas.getContext("2d");
 
@@ -65,11 +64,14 @@ const { title, content } = Astro.props;
     let images = [];
     let frame = 0;
     let animationId = null;
-    let direction = 1; // 1 forward, -1 backward
-    let isAnimating = false;
-    let isLoaded = false;
 
-    // 🔥 PRELOAD ALL IMAGES
+    let isLoaded = false;
+    let isAnimating = false;
+
+    let isHovering = false;
+    let hasPlayedForward = false;
+
+    // 🔥 Preload Images
     const preloadImages = () => {
       const promises = [];
 
@@ -94,48 +96,60 @@ const { title, content } = Astro.props;
 
     preloadImages();
 
-    const animate = () => {
-      if (!isAnimating || !isLoaded) return;
+    const animateForward = () => {
+      if (!isLoaded) return;
+
+      isAnimating = true;
 
       ctx.clearRect(0, 0, WIDTH, HEIGHT);
       ctx.drawImage(images[frame], 0, 0, WIDTH, HEIGHT);
 
-      frame += direction;
-
-      if (frame >= FRAME_COUNT - 1) {
-        frame = FRAME_COUNT - 1;
+      if (frame < FRAME_COUNT - 1) {
+        frame++;
+        animationId = requestAnimationFrame(animateForward);
+      } else {
+        hasPlayedForward = true;
         isAnimating = false;
-        return;
-      }
 
-      if (frame <= 0) {
-        frame = 0;
-        isAnimating = false;
-        return;
+        // If mouse already left during forward animation
+        if (!isHovering) {
+          animateReverse();
+        }
       }
-
-      animationId = requestAnimationFrame(animate);
     };
 
-    const startAnimation = (dir) => {
+    const animateReverse = () => {
       if (!isLoaded) return;
 
-      direction = dir;
-
-      if (animationId) {
-        cancelAnimationFrame(animationId);
-      }
-
       isAnimating = true;
-      animationId = requestAnimationFrame(animate);
+
+      ctx.clearRect(0, 0, WIDTH, HEIGHT);
+      ctx.drawImage(images[frame], 0, 0, WIDTH, HEIGHT);
+
+      if (frame > 0) {
+        frame--;
+        animationId = requestAnimationFrame(animateReverse);
+      } else {
+        hasPlayedForward = false;
+        isAnimating = false;
+      }
     };
 
     card.addEventListener("mouseenter", () => {
-      startAnimation(1);
+      isHovering = true;
+
+      if (!isAnimating && !hasPlayedForward) {
+        animateForward();
+      }
     });
 
     card.addEventListener("mouseleave", () => {
-      startAnimation(-1);
+      isHovering = false;
+
+      // If forward animation already completed
+      if (!isAnimating && hasPlayedForward) {
+        animateReverse();
+      }
     });
   });
 </script>
