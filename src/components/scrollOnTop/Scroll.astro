@@ -3,7 +3,7 @@ import { IoChevronUpSharp } from "react-icons/io5";
 ---
 
 <span
-  class='scroll-btn hidden z-999 cursor-pointer flex justify-center items-center fixed bottom-22.5 md:bottom-25 lg:bottom-27.5 xl:bottom-30 right-3.75 w-12.5 h-12.5 rounded-full bg-[#1c1c1c] border border-[#79767666]'
+  class='scroll-btn z-999 cursor-pointer flex justify-center items-center fixed bottom-22.5 md:bottom-25 lg:bottom-27.5 xl:bottom-30 right-10 w-12.5 h-12.5 rounded-full bg-[#1c1c1c] border border-[#79767666]'
 >
   <IoChevronUpSharp
     size={20}
@@ -14,20 +14,17 @@ import { IoChevronUpSharp } from "react-icons/io5";
 <script>
   const scrollBtn = document.querySelector(".scroll-btn");
 
-  if (window.scrollY >= 300) {
-    scrollBtn?.classList.remove("hidden");
-  }
-  window.addEventListener("scroll", () => {
-    if (window.scrollY >= 300) {
-      scrollBtn?.classList.remove("hidden");
-    } else if (window.scrollY < 300) {
-      scrollBtn?.classList.add("hidden");
-    }
-  });
+  // document.body.addEventListener("scroll", () => {
+  //   if (window.scrollY >= 300) {
+  //     scrollBtn?.classList.remove("hidden");
+  //   } else if (window.scrollY < 300) {
+  //     scrollBtn?.classList.add("hidden");
+  //   }
+  // });
 
   scrollBtn?.addEventListener("click", () => {
     console.log("clicked");
-    window.scrollTo({
+    document.body.scrollTo({
       top: 0,
       behavior: "smooth",
     });
