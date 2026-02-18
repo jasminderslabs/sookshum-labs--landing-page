@@ -41,9 +41,7 @@ const cards = [
 >
   <TopSection {...topSectionContent} />
   <div class='max-w-480 xl:px-20 md:px-10 px-5'>
-    <div
-      class='gap-3 lg:gap-4.5 xl:gap-5 grid grid-cols-1 md:grid-cols-2 md:grid-rows-10'
-    >
+    <div class='gap-3 lg:gap-4.5 xl:gap-5 grid grid-cols-1 md:grid-cols-2'>
       {
         cards.map((data) => {
           return <WorkCard {...data} />;
