@@ -18,12 +18,12 @@ const { src, title, content, reverse, index, width, margin } = Astro.props;
     </p>
   </div>
   <div
-    class=`  ${index === 0 ? 'md:w-78.75! md:h-78.75! lg:w-112.5 lg:h-112.5' : 'w-[281px] md:h-75 md:w-75 lg:w-90 lg:h-90'} xl:h-126.25 xl:w-126.25 ${margin} flex items-center video-container`
+    class=`  ${index === 0 ? 'md:max-w-78.75 md:max-h-78.75 lg:max-w-112.5 lg:max-h-112.5' : 'max-w-70.25 md:max-h-75 md:max-w-75 lg:max-w-90 lg:max-h-90'} xl:max-h-126.25 xl:max-w-126.25 ${margin} flex items-center video-container`
   >
     <video
       src={src}
       muted
-      class='object-cover w-fit h-fit tech-video'
+      class='object-contain w-fit h-fit tech-video'
     ></video>
   </div>
 </div>
