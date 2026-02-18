@@ -1,24 +1,24 @@
 ---
-const { src, title, content, reverse, index } = Astro.props;
+const { src, title, content, reverse, index, width, margin } = Astro.props;
 ---
 
 <div
-  class=`w-full h-full xl:my-10 flex ${reverse ? 'flex-col-reverse sm:flex-row-reverse' : 'flex-col-reverse sm:flex-row'} justify-between items-center md:gap-10 lg:gap-0 card-animate-on-touch`
+  class=`w-full h-full  flex ${reverse ? 'flex-col-reverse sm:flex-row-reverse' : 'flex-col-reverse sm:flex-row'} justify-between items-center md:gap-10 lg:gap-0 xl:py-2`
 >
-  <div
-    class='text-white h-full flex flex-col justify-start items-start gap-3 lg:gap-5 md:max-w-82.25 lg:max-w-122.75 xl:max-w-145.25'
-  >
-    <h2 class='text-[20px] lg:text-[24px] xl:text-[36px] capitalize'>
+  <div class='h-full flex flex-col justify-start items-start gap-3'>
+    <h2
+      class='text-[20px] lg:text-[24px] xl:text-[36px] capitalize text-white font-medium'
+    >
       {title}
     </h2>
     <p
-      class='opacity-70 text-[13px] lg:text-[14px] xl:text-[16px] xl:leading-6 py-2 font-light xl:max-w-145.25'
+      class=`text-[#f8f8f8b2] ${width} text-[13px] lg:text-[14px] xl:text-[16px] xl:leading-6 py-2 font-light`
     >
       {content}
     </p>
   </div>
   <div
-    class=`md:h-75 md:w-75 lg:w-90 lg:h-90 xl:h-126.25 xl:w-126.25 flex items-center video-container`
+    class=`  ${index === 0 ? 'md:w-78.75! md:h-78.75! lg:w-112.5 lg:h-112.5' : 'w-[281px] md:h-75 md:w-75 lg:w-90 lg:h-90'} xl:h-126.25 xl:w-126.25 ${margin} flex items-center video-container`
   >
     <video
       src={src}

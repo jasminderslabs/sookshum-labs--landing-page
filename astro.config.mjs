@@ -13,6 +13,15 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
+  server: {
+    port: 4321,
+    host: true,
+    allowedHosts: [
+      "https://modern-bats-drum.loca.lt/",
+      "forty-onions-play.loca.lt",
+      "deep-files-join.loca.lt",
+    ],
+  },
   output: "server",
   adapter: vercel(),
   integrations: [react()],

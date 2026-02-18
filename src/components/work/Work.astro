@@ -4,8 +4,7 @@ import WorkCard from "./WorkCard.astro";
 const topSectionContent = {
   heading: "See our Recent",
   word: "Projects.",
-  para: `Explore our showcase of our recent projects to see tha solutions we’ve
-        recently brought to life`,
+  para: `Explore our showcase of our recent projects to see the solutions we’ve recently brought to life`,
   btnText: "work",
 };
 
@@ -42,7 +41,7 @@ const cards = [
 >
   <TopSection {...topSectionContent} />
   <div class='max-w-480 xl:px-20 md:px-10 px-5'>
-    <div class='md:gap-3 lg:gap-4.5 xl:gap-5 grid grid-cols-1 md:grid-cols-2'>
+    <div class='gap-3 lg:gap-4.5 xl:gap-5 grid grid-cols-1 md:grid-cols-2'>
       {
         cards.map((data) => {
           return <WorkCard {...data} />;
