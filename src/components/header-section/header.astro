@@ -212,6 +212,7 @@ import Sidebar from "./sidebar.astro";
   services?.addEventListener("mouseenter", () => {
     setTimeout(() => {
       dropdown?.classList.remove("hide-dropdown");
+      dropdown?.classList.add("show-dropdown");
       services.children[1].style.transform = "rotate(180deg)";
     }, 0);
   });
@@ -221,19 +222,21 @@ import Sidebar from "./sidebar.astro";
       dropdown?.classList.remove("show-dropdown");
       dropdown?.classList.add("hide-dropdown");
       services.children[1].style.transform = "rotate(0deg)";
-    }, 300);
+    }, 200);
   });
   dropdown?.addEventListener("mouseenter", () => {
     setTimeout(() => {
       services.children[1].style.transform = "rotate(180deg)";
       dropdown?.classList.remove("hide-dropdown");
-    }, 320);
+      dropdown?.classList.add("show-dropdown");
+    }, 250);
   });
   dropdown?.addEventListener("mouseleave", () => {
     setTimeout(() => {
       dropdown?.classList.add("hide-dropdown");
+      dropdown?.classList.remove("show-dropdown");
       services.children[1].style.transform = "rotate(0deg)";
-    }, 300);
+    }, 200);
   });
   video?.addEventListener("mouseenter", () => {
     video.children[0].children[0]?.play();
