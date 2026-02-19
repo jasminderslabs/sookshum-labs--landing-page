@@ -3,16 +3,18 @@ const { src, title, content, reverse, index, width, margin } = Astro.props;
 ---
 
 <div
-  class=`w-full h-full  flex ${reverse ? 'flex-col-reverse sm:flex-row-reverse' : 'flex-col-reverse sm:flex-row'} justify-between items-center md:gap-10 lg:gap-0 xl:py-2`
+  class=`w-full h-full  flex ${reverse ? 'flex-col-reverse sm:flex-row-reverse' : 'flex-col-reverse sm:flex-row'} justify-between items-center md:gap-10 py-2`
 >
-  <div class='h-full flex flex-col justify-start items-start gap-3'>
+  <div
+    class='h-full w-full sm:w-fit flex flex-col justify-start items-start lg:gap-3 xl:gap-5'
+  >
     <h2
       class='text-[20px] lg:text-[24px] xl:text-[36px] capitalize text-white font-medium'
     >
       {title}
     </h2>
     <p
-      class=`text-[#f8f8f8b2] ${width} text-[13px] lg:text-[14px] xl:text-[16px] xl:leading-6 py-2 font-light`
+      class=`text-[#f8f8f8b2] ${width} text-[13px] lg:text-[14px] xl:text-[16px] xl:leading-6 font-light`
     >
       {content}
     </p>

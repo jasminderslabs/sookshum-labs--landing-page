@@ -20,12 +20,12 @@ const topSectionContent = {
 ---
 
 <section
-  class='flex flex-col items-center gap-16 max-w-480 mx-auto md:pt-17.5 pt-15 lg:pt-22.5 xl:pt-30'
+  class='flex flex-col items-center gap-12 lg:gap-16 max-w-480 mx-auto md:pt-17.5 pt-15 lg:pt-22.5 xl:pt-30'
 >
   <TopSection {...topSectionContent} />
   <div class='relative w-[90%] mx-20'>
     <div
-      class='flex overflow-auto no-scrollbar scroll-auto gap-5 endless-scroll'
+      class='flex overflow-auto no-scrollbar scroll-auto gap-3.5 lg:gap-5 endless-scroll'
     >
       {
         cards.map((data) => {
@@ -35,7 +35,7 @@ const topSectionContent = {
     </div>
     <span class='left-blur w-[25%] pointer-events-none'></span>
     <span class='right-blur w-[25%] pointer-events-none'></span>
-    <div class='w-full flex justify-center items-center pt-12 xl:pt-20'>
+    <div class='w-full flex justify-center items-center pt-15 xl:pt-20'>
       <a
         href='https://www.designrush.com/'
         target='_blank'
