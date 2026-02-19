@@ -44,6 +44,7 @@ import Scroll from "../components/scrollOnTop/Scroll.astro";
       card.classList.add("touch-shadow");
       removeClass(card);
     });
+    // Commented: Because after touch start, it immediately after the touch end event fire the animation removed.
     // card.addEventListener("touchend", () => {
     //   console.log("start", card);
     //   card.classList.remove("feature-card-touch-active");
