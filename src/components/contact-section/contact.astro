@@ -1,5 +1,5 @@
 <section
-  class='max-w-480 mx-auto px-5 md:px-10 xl:px-20 py-7.5 md:pt-10 md:pb-20 xl:pt-30 overflow-hidden'
+  class='max-w-480 mx-auto px-5 md:px-10 xl:px-20 py-7.5 md:pt-10 md:pb-10 xl:pt-30 overflow-hidden'
 >
   <div
     class='w-full flex flex-col md:justify-normal md:flex-row items-center rounded-[20px] lg:rounded-4xl bg-[#282828B2] gap-5 dark-btn-shadow dropdown-bg dropdown-shadow-button relative h-162.5 md:h-fit'
@@ -77,27 +77,40 @@
   }
 </style>
 <script>
-  const firstBall = document.querySelector(".first-ball") as HTMLSpanElement;
-  const secondBall = document.querySelector(".second-ball") as HTMLSpanElement;
-  const thirdBall = document.querySelector(".third-ball") as HTMLSpanElement;
-  const image = document.querySelector(".image") as HTMLSpanElement;
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  document.body.addEventListener("scroll", () => {
-    const rect = firstBall.getBoundingClientRect();
+  gsap.registerPlugin(ScrollTrigger);
 
-    // Check if element is in viewport
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      const elementCenter = rect.top + rect.height / 2;
-      const screenCenter = window.innerHeight / 2;
+  window.addEventListener("DOMContentLoaded", () => {
+    const firstBall = document.querySelector(".first-ball") as HTMLSpanElement;
+    const secondBall = document.querySelector(
+      ".second-ball",
+    ) as HTMLSpanElement;
+    const thirdBall = document.querySelector(".third-ball") as HTMLSpanElement;
+    const image = document.querySelector(".image") as HTMLImageElement;
 
-      const distance = elementCenter - screenCenter;
+    if (!firstBall || !secondBall || !thirdBall || !image) return;
 
-      const translateY = -distance * 0.2;
+    const firstBallY = 80;
+    const secondBallY = 180;
+    const thirdBallY = 20;
+    const imageY = 50;
+    const scrubSpeed = 1;
 
-      firstBall.style.transform = `translateY(${translateY}px)`;
-      secondBall.style.transform = `translateY(${translateY}px)`;
-      thirdBall.style.transform = `translateY(${translateY}px)`;
-      image.style.transform = `translateY(${translateY}px)`;
-    }
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: image,
+          start: "top 80%",
+          end: "bottom 20%",
+          scrub: scrubSpeed,
+        },
+      })
+
+      .to(firstBall, { y: firstBallY, ease: "none" }, 0)
+      .to(thirdBall, { y: -thirdBallY, ease: "none" }, 0)
+      .to(image, { y: imageY, ease: "none" }, 0);
   });
+  // .to(secondBall, { y: -secondBallY, ease: "none" }, 0)
 </script>
