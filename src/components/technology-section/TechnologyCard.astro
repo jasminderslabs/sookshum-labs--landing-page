@@ -7,7 +7,7 @@ const { src, title, content, reverse, index, width, margin, height } =
   class=`w-full h-full  flex ${reverse ? 'flex-col-reverse sm:flex-row-reverse' : 'flex-col-reverse sm:flex-row'} justify-between items-center gap-3 md:gap-10 py-2`
 >
   <div
-    class='h-full w-full sm:w-fit flex flex-col justify-start items-start gap-3 xl:gap-5'
+    class=`h-full w-full sm:w-auto flex flex-col items-start gap-3 xl:gap-5 ${reverse ? 'justify-end' : 'justify-start'}`
   >
     <h2
       class='text-[20px] lg:text-[24px] xl:text-[36px] capitalize text-white font-medium'
