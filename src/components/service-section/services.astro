@@ -63,7 +63,7 @@ const topSectionContent = {
   </div>
 </section>
 <script>
-  const cards = document.querySelectorAll(".video-card");
+  const cards = document.querySelectorAll(".video-card") as any;
   cards.forEach((card) => {
     card.addEventListener("mouseenter", (e: any) => {
       card.children[0].children[0]?.play();
