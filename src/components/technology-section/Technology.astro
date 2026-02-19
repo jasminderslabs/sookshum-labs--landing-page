@@ -10,6 +10,7 @@ const cards = [
     width: "max-w-[385px] md:max-w-[384px] lg:max-w-[491px] xl:max-w-[581px]",
     imgWidth: "",
     margin: "xl:-mr-[68px]",
+    height: "h-[390px] sm:h-auto",
   },
   {
     src: "/FrontEnd.mp4",
@@ -45,7 +46,7 @@ const topSectionContent = {
   class='flex flex-col items-center gap-10 xl:gap-26 max-w-480 mx-auto px-5 md:px-10 pt-15 lg:pt-22.5 xl:px-20 xl:pt-30'
 >
   <TopSection {...topSectionContent} />
-  <div class='w-full h-full'>
+  <div class='w-full h-full flex flex-col gap-12 md:gap-6 lg:gap-0'>
     {
       cards.map((data, index) => {
         return (
