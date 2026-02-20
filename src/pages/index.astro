@@ -11,7 +11,7 @@ import Technology from "../components/technology-section/Technology.astro";
 import Experience from "../components/experience-section/Experience.astro";
 import Testimonial from "../components/testimonials-section/Testimonial.astro";
 import Work from "../components/work/Work.astro";
-import Blog from "../components/blogs/Blog.astro";
+// import Blog from "../components/blogs/Blog.astro";
 import Contact from "../components/contact-section/contact.astro";
 import Footer from "../components/footer-section/footer.astro";
 import Scroll from "../components/scrollOnTop/Scroll.astro";
@@ -58,4 +58,21 @@ import Scroll from "../components/scrollOnTop/Scroll.astro";
       }
     });
   }
+
+  const cards = document.querySelectorAll(".grayscale");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove("grayscale");
+
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 1 },
+  );
+
+  cards.forEach((card) => observer.observe(card));
 </script>

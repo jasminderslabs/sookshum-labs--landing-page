@@ -1,14 +1,15 @@
 ---
-const { src, title, content } = Astro.props;
+const { src, title, content, height, width } = Astro.props;
 ---
 
 <div
-  class='h-auto bg-[#282828B2] rounded-[20px] lg:rounded-4xl relative flex flex-col justify-between hover:bg-linear-to-br! from-[#e6862466] via-transparent to-[#e6862466] card why-us-card dark-btn-shadow dropdown-bg dropdown-shadow-button card-animate-on-touch'
+  class='h-auto bg-[#282828B2] rounded-[20px] lg:rounded-4xl relative flex flex-col justify-between hover:bg-linear-to-br! from-[#e6862466] grayscale
+   via-transparent to-[#e6862466] card why-us-card dark-btn-shadow dropdown-bg dropdown-shadow-button card-animate-on-touch'
 >
   <div
     class='w-full h-full rounded-[20px] bg-[#1c1c1c] lg:rounded-4xl p-5 md:p-6 lg:p-7 gap-2 md:gap-15 lg:gap-8 xl:gap-4 xl:p-8 flex flex-col dark-btn-shadow dropdown-bg dropdown-shadow-button justify-between'
   >
-    <canvas class='xl:w-30 xl:h-28.25 xl:max-h-28.25 w-20 h-20'></canvas>
+    <canvas class=`${height} ${width}`></canvas>
 
     <div class='w-full text-white flex flex-col gap-2 lg:gap-3 xl:gap-5'>
       <h3

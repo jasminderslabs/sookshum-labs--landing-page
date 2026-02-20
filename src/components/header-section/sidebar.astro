@@ -66,8 +66,8 @@ import ServicesDropdown from "./servicesDropdown.astro";
   const container = document.querySelector(".parent-container") as any;
   const icon = document.querySelector(".services-icon") as any;
   const arrow = document.querySelectorAll(".down-arrow") as any;
-  let prevElement: any = null;
-  let prevArrow: any = null;
+  let prevElement: any = null; // to track the previously open tab.
+  let prevArrow: any = null; // to track the previously open tab.
   icon?.addEventListener("click", () => {
     container?.classList.toggle("max-h-dvh");
   });
