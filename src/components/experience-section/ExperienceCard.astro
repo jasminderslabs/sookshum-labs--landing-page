@@ -3,7 +3,7 @@ const { title, content, list } = Astro.props;
 ---
 
 <div
-  class='bg-[#282828B2] rounded-[20px] lg:rounded-4xl relative flex flex-col 4 card max-w-70 sm:max-w-78.75 md:max-w-77.5
+  class='bg-[#282828B2] rounded-[20px] lg:rounded-4xl relative flex flex-col 4 card max-w-70 sm:max-w-78.75 md:max-w-88
   lg:max-w-100 xl:max-w-87.5 2xl:max-w-113.5 shrink-0 dark-btn-shadow dropdown-bg dropdown-shadow-button
   experience-card
   hover:bg-linear-to-br! from-[#e6862466] via-transparent to-[#e6862466] select-none card-animate-on-touch'
@@ -25,7 +25,9 @@ const { title, content, list } = Astro.props;
       >
         {title}
       </h3>
-      <p class='opacity-70 text-[13px] lg:text-[14px] xl:text-[16px]'>
+      <p
+        class='opacity-70 text-[13px] lg:text-[14px] xl:text-[16px] grow shrink-0'
+      >
         {content}
       </p>
       <ul
