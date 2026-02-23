@@ -13,7 +13,7 @@ const { title, content, list } = Astro.props;
     px-2.25 pt-2.25 lg:px-3.5 lg:pt-3.5 xl:pt-4 xl:px-4 gap-2 lg:gap-3 xl:gap-4 flex flex-col dark-btn-shadow dropdown-bg dropdown-shadow-button'
   >
     <canvas
-      class='md:h-25 lg:h-28 2xl:h-[112px] w-fit h-25 pt-1 pb-2 pl-3'
+      class='md:h-25 lg:h-28 2xl:h-28 w-fit h-25 pt-1 pb-2 pl-3'
       height='510'
       width='540'
     ></canvas>
@@ -54,16 +54,6 @@ const { title, content, list } = Astro.props;
       max-width: 370px;
     }
   }
-  /* @media screen and (max-width: 500px) {
-    .experience-card {
-      max-width: 290px;
-    }
-  }
-  @media screen and (max-width: 550px) {
-    .experience-card {
-      max-width: 355px;
-    }
-  } */
 </style>
 <script>
   const cards = document.querySelectorAll(".experience-card");
