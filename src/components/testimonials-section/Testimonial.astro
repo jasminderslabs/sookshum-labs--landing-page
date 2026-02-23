@@ -74,7 +74,10 @@ const topSectionContent = {
 <section
   class='flex flex-col items-center gap-12 lg:gap-16 max-w-480 mx-auto md:pt-17.5 pt-15 lg:pt-22.5 xl:pt-30'
 >
-  <TopSection {...topSectionContent} />
+  <TopSection
+    {...topSectionContent}
+    wrap='text-wrap md:text-nowrap'
+  />
   <div class='relative w-[90%] mx-20'>
     <div
       class='flex overflow-auto no-scrollbar scroll-auto gap-3.5 lg:gap-5 endless-scroll pb-8 md:pb-16 lg:py-20'

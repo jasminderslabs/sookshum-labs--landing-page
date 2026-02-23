@@ -1,7 +1,7 @@
 ---
 import Button from "../button/Button.astro";
 
-const { heading, word, para, btnText } = Astro.props;
+const { heading, word, para, btnText, wrap } = Astro.props;
 ---
 
 <div
@@ -13,7 +13,7 @@ const { heading, word, para, btnText } = Astro.props;
   >
     <Button text={btnText} />
     <h2
-      class='font-medium text-[28px] md:text-[36px] lg:text-[42px] xl:text-5xl text-center shrink-0 hero-heading xl:leading-16.75 capitalize lg:text-nowrap'
+      class=`font-medium text-[28px] md:text-[36px] lg:text-[42px] xl:text-5xl text-center shrink-0 hero-heading xl:leading-16.75 capitalize ${wrap}`
     >
       {heading.split("|")[0]}
       <i class='font-light'> {word}</i>
