@@ -47,3 +47,16 @@ const { title, name, review } = Astro.props;
     </div>
   </div>
 </div>
+
+<style>
+  @media screen and (max-width: 380px) {
+    .testimonial-animate {
+      max-width: 500px;
+    }
+  }
+  @media screen and (min-width: 390px) and (max-width: 420px) {
+    .testimonial-animate {
+      max-width: 480px;
+    }
+  }
+</style>

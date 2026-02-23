@@ -1,16 +1,68 @@
 ---
 import TopSection from "../top-section/Topsection.astro";
 import TestimonialCard from "./testimonialCard.astro";
-const cards = Array.from({ length: 20 }, () => ({
-  name: "John Mark",
-  title: "CEO of Facebook",
-  review: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa deleniti
-    obcaec temporibus autem alias ratione ducimus, minus, consectetur
-    adipisicing elit temporibus autem alias ratione ducimus, minus, consectetur
-    adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa deleniti
-    obcaec temporibus autem alias ratione ducimus, minus, consectetur
-    adipisicing elit.`,
-}));
+const cards = [
+  {
+    name: "Rob Wynne",
+    title: "CEO of Wynne Communications",
+    review: `Sookshum Labs team are very professional and responsive, I would recommend them very highly for web design and similar projects.`,
+  },
+  {
+    name: "Garth Holloway",
+    title: " MD of Innotech Aqua Pvt Ltd",
+    review: `"Our journey into the world of eCommerce started around eight months ago. We knew what we wanted but had no idea of how to get there. Sookshum-Labs patiently guided us and worked with us, at our speed, to build an eCommerce store we are proud of. Right from the start we found them to be professional and efficient. They did what they said they would do, on time and as agreed. We never had to push them for deliverables. Their project management was tight, and I felt we were always in control of our project. I would not hesitate to work with Sookshum-Labs again."`,
+  },
+  {
+    name: "David Block",
+    title: "CEO of Previnex",
+    review: `We have been working with Sookshum Labs for close to two years and they are outstanding. We have a fairly complex ecommerce site and regardless of the problem, Vipin and his team are fast to respond, fix, and offer solutions that have really helped our company. They are incredibly strong communicators, do excellent and fast work, and I could not recommend them more highly.`,
+  },
+  {
+    name: "Matt Bourne",
+    title: "CEO of Easy2Web UK",
+    review: `Great development team. Wide range of skills from Magento to Mobile. Complete package of skills, communication and approach.`,
+  },
+  {
+    name: "Francesco Benvenuto",
+    title: "Co Founder of Valitalia LLC",
+    review: `I had the pleasure of working with the Sookshum Labs on various projects (magento – mobile development) and I recommend them for their attention to details and ability to deliver high quality web design. The team went above and beyond our expectations. I would strongly recommend them.`,
+  },
+  {
+    name: "Rob Wynne",
+    title: "CEO of Wynne Communications",
+    review: `Sookshum Labs team are very professional and responsive, I would recommend them very highly for web design and similar projects.`,
+  },
+  {
+    name: "Garth Holloway",
+    title: " MD of Innotech Aqua Pvt Ltd",
+    review: `"Our journey into the world of eCommerce started around eight months ago. We knew what we wanted but had no idea of how to get there. Sookshum-Labs patiently guided us and worked with us, at our speed, to build an eCommerce store we are proud of. Right from the start we found them to be professional and efficient. They did what they said they would do, on time and as agreed. We never had to push them for deliverables. Their project management was tight, and I felt we were always in control of our project. I would not hesitate to work with Sookshum-Labs again."`,
+  },
+  {
+    name: "David Block",
+    title: "CEO of Previnex",
+    review: `We have been working with Sookshum Labs for close to two years and they are outstanding. We have a fairly complex ecommerce site and regardless of the problem, Vipin and his team are fast to respond, fix, and offer solutions that have really helped our company. They are incredibly strong communicators, do excellent and fast work, and I could not recommend them more highly.`,
+  },
+  {
+    name: "Matt Bourne",
+    title: "CEO of Easy2Web UK",
+    review: `Great development team. Wide range of skills from Magento to Mobile. Complete package of skills, communication and approach.`,
+  },
+  {
+    name: "Francesco Benvenuto",
+    title: "Co Founder of Valitalia LLC",
+    review: `I had the pleasure of working with the Sookshum Labs on various projects (magento – mobile development) and I recommend them for their attention to details and ability to deliver high quality web design. The team went above and beyond our expectations. I would strongly recommend them.`,
+  },
+  {
+    name: "Rob Wynne",
+    title: "CEO of Wynne Communications",
+    review: `Sookshum Labs team are very professional and responsive, I would recommend them very highly for web design and similar projects.`,
+  },
+  {
+    name: "Garth Holloway",
+    title: " MD of Innotech Aqua Pvt Ltd",
+    review: `"Our journey into the world of eCommerce started around eight months ago. We knew what we wanted but had no idea of how to get there. Sookshum-Labs patiently guided us and worked with us, at our speed, to build an eCommerce store we are proud of. Right from the start we found them to be professional and efficient. They did what they said they would do, on time and as agreed. We never had to push them for deliverables. Their project management was tight, and I felt we were always in control of our project. I would not hesitate to work with Sookshum-Labs again."`,
+  },
+];
 const topSectionContent = {
   heading: "There are reason people are | about us",
   word: "raving",
