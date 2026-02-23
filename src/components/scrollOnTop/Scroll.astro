@@ -13,7 +13,7 @@ import { IoChevronUpSharp } from "react-icons/io5";
 
 <script>
   const scrollBtn = document.querySelector(".scroll-btn");
-  const body = document.querySelector("body");
+  const body = document.querySelector("body") as any;
   body.addEventListener("scroll", () => {
     if (body?.scrollTop >= 300) {
       scrollBtn?.classList.remove("hidden");
