@@ -3,7 +3,7 @@ const { title, content, list } = Astro.props;
 ---
 
 <div
-  class='bg-[#282828B2] rounded-[20px] lg:rounded-4xl relative flex flex-col 4 card max-w-[280px] xs:max-w-[380px] sm:max-w-78.75 md:max-w-[325px]
+  class='bg-[#282828B2] rounded-[20px] lg:rounded-4xl relative flex flex-col 4 card md:max-w-[360px]
   lg:max-w-100 xl:max-w-87.5 2xl:max-w-113.5 shrink-0 dark-btn-shadow dropdown-bg dropdown-shadow-button
   experience-card
   hover:bg-linear-to-br! from-[#e6862466] via-transparent to-[#e6862466] select-none card-animate-on-touch'
@@ -43,6 +43,28 @@ const { title, content, list } = Astro.props;
   </div>
 </div>
 
+<style>
+  @media screen and (min-width: 330px) and (max-width: 450px) {
+    .experience-card {
+      max-width: 296px;
+    }
+  }
+  @media screen and (min-width: 535px) and (max-width: 550px) {
+    .experience-card {
+      max-width: 370px;
+    }
+  }
+  /* @media screen and (max-width: 500px) {
+    .experience-card {
+      max-width: 290px;
+    }
+  }
+  @media screen and (max-width: 550px) {
+    .experience-card {
+      max-width: 355px;
+    }
+  } */
+</style>
 <script>
   const cards = document.querySelectorAll(".experience-card");
 
