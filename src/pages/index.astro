@@ -39,7 +39,6 @@ import Scroll from "../components/scrollOnTop/Scroll.astro";
   const featureCards = document.querySelectorAll(".card-animate-on-touch");
   featureCards.forEach((card) => {
     card.addEventListener("touchstart", (e) => {
-      console.log("start", card);
       card.classList.add("feature-card-touch-active");
       card.classList.add("touch-shadow");
       removeClass(card);
