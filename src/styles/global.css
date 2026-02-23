@@ -387,3 +387,14 @@ button {
     );
   border-radius: 20px;
 }
+body {
+  scrollbar-color: #888 #2c2c2c;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #2c2c2c;
+}
