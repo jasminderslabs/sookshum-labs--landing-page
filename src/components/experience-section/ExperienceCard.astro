@@ -44,6 +44,11 @@ const { title, content, list } = Astro.props;
 </div>
 
 <style>
+  @media screen and (min-width: 1000px) and (max-width: 1200px) {
+    .experience-card {
+      max-width: 296px;
+    }
+  }
   @media screen and (min-width: 330px) and (max-width: 450px) {
     .experience-card {
       max-width: 296px;
