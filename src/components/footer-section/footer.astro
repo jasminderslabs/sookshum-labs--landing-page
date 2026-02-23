@@ -5,59 +5,59 @@ import Address from "./footer-address.astro";
 import SocialLinks from "./social-links.astro";
 ---
 
-<section
-  class='max-w-480 bg-[#151515] flex flex-col mx-auto gap-5 md:gap-3 lg:gap-17.5'
->
-  <div
-    class='flex flex-col items-center md:items-start w-full md:flex-row justify-between flex-wrap
-    2xl:px-20.25 md:pt-15 xl:pt-21.25 px-10 pt-15 sm:gap-0 gap-5'
-  >
+<section class='bg-[#151515]'>
+  <div class='max-w-480 flex flex-col mx-auto gap-5 md:gap-3 lg:gap-17.5'>
     <div
-      class='text-white flex flex-col md:items-start items-center gap-5 md:p-0 text-base md:text-sm max-w-75 xl:max-w-88.5'
+      class='flex flex-col items-center md:items-start w-full md:flex-row justify-between flex-wrap
+    2xl:px-20.25 md:pt-15 xl:pt-21.25 px-10 pt-15 sm:gap-0 gap-5'
     >
-      <span class='inline-block w-32 md:w-46.5'>
-        <img
-          src='sookshum-logo.svg'
-          alt='sookshum-logo'
-          class='object-fill h-full w-full'
-        />
-      </span>
-      <p
-        class='text-[13px] font-light lg:text-[14px] xl:text-[16px] text-[#f8f8f8f2] sm:text-left text-center md:leading-5 xl:leading-6'
-      >
-        We deliver excellence through our innovative solutions and exceptionally
-        reliable service.
-      </p>
       <div
-        class='w-full flex flex-row justify-center sm:justify-start items-center shrink-0'
+        class='text-white flex flex-col md:items-start items-center gap-5 md:p-0 text-base md:text-sm max-w-75 xl:max-w-88.5'
       >
-        <div
-          class='px-5 xl:px-6 flex items-center rounded-full bg-[#E68624] cursor-pointer transition-all dark-bg duration-700 hover:[backdrop-filter:blur(100px)] dark-btn-shadow w-fit h-12 xl:h-13.75'
+        <span class='inline-block w-32 md:w-46.5'>
+          <img
+            src='sookshum-logo.svg'
+            alt='sookshum-logo'
+            class='object-fill h-full w-full'
+          />
+        </span>
+        <p
+          class='text-[13px] font-light lg:text-[14px] xl:text-[16px] text-[#f8f8f8f2] sm:text-left text-center md:leading-5 xl:leading-6'
         >
-          <button
-            class='w-full h-fit font-medium text-[13px] xl:text-[16px] flex items-center gap-2 text-white'
+          We deliver excellence through our innovative solutions and
+          exceptionally reliable service.
+        </p>
+        <div
+          class='w-full flex flex-row justify-center sm:justify-start items-center shrink-0'
+        >
+          <div
+            class='px-5 xl:px-6 flex items-center rounded-full bg-[#E68624] cursor-pointer transition-all dark-bg duration-700 hover:[backdrop-filter:blur(100px)] dark-btn-shadow w-fit h-12 xl:h-13.75'
           >
-            <span> Request a quote</span>
-            <img
-              alt='top-arrow'
-              loading='lazy'
-              width='200'
-              height='200'
-              decoding='async'
-              data-nimg='1'
-              class='w-2 h-2 sm:w-2.5 sm:h-2.5'
-              src='/arrow.svg'
-              style='color: transparent;'
-            />
-          </button>
+            <button
+              class='w-full h-fit font-medium text-[13px] xl:text-[16px] flex items-center gap-2 text-white'
+            >
+              <span> Request a quote</span>
+              <img
+                alt='top-arrow'
+                loading='lazy'
+                width='200'
+                height='200'
+                decoding='async'
+                data-nimg='1'
+                class='w-2 h-2 sm:w-2.5 sm:h-2.5'
+                src='/arrow.svg'
+                style='color: transparent;'
+              />
+            </button>
+          </div>
         </div>
       </div>
+      <OurServices />
+      <Company />
+      <Address />
     </div>
-    <OurServices />
-    <Company />
-    <Address />
-  </div>
-  <div class='flex justify-center items-center px-5 sm:px-10 2xl:px-20.25'>
-    <SocialLinks />
+    <div class='flex justify-center items-center px-5 sm:px-10 2xl:px-20.25'>
+      <SocialLinks />
+    </div>
   </div>
 </section>
