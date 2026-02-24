@@ -4,16 +4,16 @@ const { title, content, list } = Astro.props;
 
 <div
   class='bg-[#282828B2] rounded-[20px] lg:rounded-4xl relative flex flex-col 4 card md:max-w-[320px]
-  lg:max-w-100 xl:max-w-87.5 xl:max-w-113.5 shrink-0 dark-btn-shadow dropdown-bg dropdown-shadow-button
+  lg:max-w-100 xl:max-w-87.5 2xl:max-w-113.5 shrink-0 dark-btn-shadow dropdown-bg dropdown-shadow-button
   experience-card
   hover:bg-linear-to-br! from-[#e6862466] via-transparent to-[#e6862466] select-none card-animate-on-touch'
 >
   <div
     class='w-full h-full rounded-[20px] bg-[#1c1c1c] lg:rounded-4xl
-    px-2.25 pt-2.25 lg:px-3.5 lg:pt-3.5 xl:pt-4 xl:px-4 gap-2 lg:gap-3 xl:gap-4 flex flex-col dark-btn-shadow dropdown-bg dropdown-shadow-button'
+    px-2.25 pt-2.25 lg:px-3.5 lg:pt-3.5 2xl:pt-4 2xl:px-4 gap-2 lg:gap-3 xl:gap-4 flex flex-col dark-btn-shadow dropdown-bg dropdown-shadow-button'
   >
     <canvas
-      class='md:h-25 lg:h-28 xl:h-28 xl:h-44.75 w-fit h-25 pt-1 pb-2 pl-3'
+      class='md:h-25 lg:h-28 xl:h-28 2xl:h-44.75 w-fit h-25 pt-1 pb-2 pl-3'
       height='510'
       width='540'
     ></canvas>
@@ -31,7 +31,7 @@ const { title, content, list } = Astro.props;
         {content}
       </p>
       <ul
-        class='text-white list-disc pl-4 sm:pl-3 xl:pl-3 font-medium flex flex-col gap-2 text-[14px] lg:text-[14px] xl:text-[18px] grow'
+        class='text-white list-disc pl-4 sm:pl-3 xl:pl-3 font-medium flex flex-col gap-2 text-[14px] lg:text-[14px] 2xl:text-[18px] grow'
       >
         {
           list?.map((data: unknown) => {
