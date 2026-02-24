@@ -1,10 +1,19 @@
 ---
-const { src, title, content, reverse, index, width, margin, height } =
-  Astro.props;
+const {
+  src,
+  title,
+  content,
+  reverse,
+  index,
+  width,
+  margin,
+  height,
+  cardHeight,
+} = Astro.props;
 ---
 
 <div
-  class=`w-full h-full  flex ${reverse ? 'flex-col-reverse sm:flex-row-reverse' : 'flex-col-reverse sm:flex-row'} justify-between items-center gap-2 md:gap-10 py-2 xl:h-[376px] 2xl:h-[521px] `
+  class=`w-full h-full  flex ${reverse ? 'flex-col-reverse sm:flex-row-reverse' : 'flex-col-reverse sm:flex-row'} justify-between items-center gap-2 md:gap-10 py-2 ${cardHeight} `
 >
   <div
     class=`h-full w-full sm:w-auto flex flex-col items-start justify-center gap-3 xl:gap-5 `
@@ -21,7 +30,7 @@ const { src, title, content, reverse, index, width, margin, height } =
     </p>
   </div>
   <div
-    class=` ${height}  ${index === 0 ? 'max-w-[390px] max-h-[390px] md:max-w-78.75 md:max-h-78.75 lg:max-w-112.5 lg:max-h-112.5' : 'max-w-70.25 md:max-h-75 md:max-w-75 lg:max-w-90 lg:max-h-90'} 2xl:max-h-126.25 2xl:max-w-126.25 ${margin} flex items-center video-container`
+    class=` ${height}  ${index === 0 ? 'max-w-[390px] max-h-[390px] md:max-w-78.75 md:max-h-78.75 lg:max-w-112.5 lg:max-h-112.5' : 'max-w-70.25 md:max-h-75 md:max-w-75 lg:max-w-90 lg:max-h-90'}  2xl:max-h-126.25 2xl:max-w-126.25 ${margin} flex items-center video-container`
   >
     <video
       src={src}
