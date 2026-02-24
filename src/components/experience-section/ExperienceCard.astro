@@ -3,8 +3,7 @@ const { title, content, list } = Astro.props;
 ---
 
 <div
-  class='bg-[#282828B2] rounded-[20px] lg:rounded-4xl relative flex flex-col 4 card md:max-w-[320px]
-  lg:max-w-100 xl:max-w-87.5 2xl:max-w-113.5 shrink-0 dark-btn-shadow dropdown-bg dropdown-shadow-button
+  class='bg-[#282828B2] rounded-[20px] lg:rounded-4xl relative flex flex-col 4 card shrink-0 dark-btn-shadow dropdown-bg dropdown-shadow-button
   experience-card
   hover:bg-linear-to-br! from-[#e6862466] via-transparent to-[#e6862466] select-none card-animate-on-touch'
 >
@@ -13,7 +12,7 @@ const { title, content, list } = Astro.props;
     px-2.25 pt-2.25 lg:px-3.5 lg:pt-3.5 2xl:pt-4 2xl:px-4 gap-2 lg:gap-3 xl:gap-4 flex flex-col dark-btn-shadow dropdown-bg dropdown-shadow-button'
   >
     <canvas
-      class='md:h-25 lg:h-28 xl:h-28 2xl:h-44.75 w-fit h-25 pt-1 pb-2 pl-3'
+      class='md:h-26 lg:h-28 2xl:h-44.75 w-fit h-25 pt-1 pb-2 pl-3'
       height='510'
       width='540'
     ></canvas>
@@ -44,24 +43,49 @@ const { title, content, list } = Astro.props;
 </div>
 
 <style>
-  @media screen and (min-width: 1000px) and (max-width: 1200px) {
+  @media screen and (max-width: 330px) {
     .experience-card {
-      max-width: 296px;
+      max-width: 270px;
     }
   }
-  @media screen and (min-width: 330px) and (max-width: 450px) {
+  @media screen and (min-width: 331px) and (max-width: 380px) {
     .experience-card {
-      max-width: 288px;
+      max-width: 270px;
     }
   }
-  @media screen and (min-width: 535px) and (max-width: 550px) {
+  @media screen and (min-width: 381px) and (max-width: 430px) {
+    .experience-card {
+      max-width: 310px;
+    }
+  }
+  @media screen and (min-width: 431px) and (max-width: 768px) {
+    .experience-card {
+      max-width: 300px;
+    }
+  }
+  @media screen and (min-width: 769px) and (max-width: 830px) {
+    .experience-card {
+      max-width: 330px;
+    }
+  }
+  @media screen and (min-width: 831px) and (max-width: 920px) {
     .experience-card {
       max-width: 370px;
     }
   }
-  @media screen and (min-width: 1024px) and (max-width: 1024px) {
+  @media screen and (min-width: 921px) and (max-width: 1024px) {
     .experience-card {
       max-width: 400px;
+    }
+  }
+  @media screen and (min-width: 1025px) and (max-width: 1440px) {
+    .experience-card {
+      max-width: 350px;
+    }
+  }
+  @media screen and (min-width: 1441px) and (max-width: 2560px) {
+    .experience-card {
+      max-width: 460px;
     }
   }
 </style>
