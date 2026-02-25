@@ -88,9 +88,14 @@ const { title, content, list } = Astro.props;
       max-width: 330px;
     }
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1440px) and (max-width: 1500px) {
     .experience-card {
       max-width: 460px;
+    }
+  }
+  @media screen and (min-width: 1501px) and (max-width: 1920px) {
+    .experience-card {
+      max-width: 430px;
     }
   }
 </style>
