@@ -95,7 +95,7 @@ const topSectionContent = {
     >
   </div>
   <div
-    class='overflow-auto w-full flex gap-4 xl:gap-5! 2xl:gap-7.5! no-scrollbar pl-6 pr-10 2xl:pr-20! md:pl-10 lg:pl-15 xl:pl-20! 2xl:pl-40! scrollbar grayscale'
+    class='overflow-auto w-full flex gap-4 xl:gap-5! 2xl:gap-7.5! no-scrollbar pl-6 pr-10 2xl:pr-20! md:pl-10 lg:pl-15 xl:pl-20! 2xl:pl-40! scrollbar grayscale why-us-container'
   >
     {
       cards.map((data) => {
@@ -104,6 +104,13 @@ const topSectionContent = {
     }
   </div>
 </section>
+<style>
+  @media screen and (min-width: 1600px) {
+    .why-us-container {
+      gap: 20px !important;
+    }
+  }
+</style>
 <script>
   const leftArrow = document.querySelector(".left-arrow") as any;
   const rightArrow = document.querySelector(".right-arrow") as any;
