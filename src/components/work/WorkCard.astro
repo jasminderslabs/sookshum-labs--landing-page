@@ -3,11 +3,11 @@ const { src, gridSize } = Astro.props;
 ---
 
 <div
-  class=`relative ${gridSize} bg-[#1c1c1c] p-2 md:p-3 lg:p-4 rounded-[26px] xl:rounded-[50px] overflow-hidden dark-btn-shadow dropdown-bg dropdown-shadow-button work-image sm:col-span-1 xs:col-auto [grid-area:auto!important]`
+  class=`relative ${gridSize} bg-[#1c1c1c] p-2 md:p-3 lg:p-4 rounded-[26px] 2xl:rounded-[50px]! overflow-hidden dark-btn-shadow dropdown-bg dropdown-shadow-button work-image sm:col-span-1 xs:col-auto [grid-area:auto!important]`
 >
   <img
     src={src}
-    class='h-full w-full transition-all duration-1000 object-cover rounded-[26px] xl:rounded-4xl'
+    class='h-full w-full transition-all duration-1000 object-cover rounded-[26px] 2xl:rounded-4xl!'
   />
   <span
     class='w-full h-[35%] block absolute bottom-0 left-0 right-0 bg-linear-to-t via-[#0000007c] to-transparent from-[#070707] pointer-events-none'

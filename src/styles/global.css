@@ -1,4 +1,11 @@
 @import "tailwindcss";
+@theme {
+  /* Set xl to 1280px */
+  --breakpoint-xl: 1280px;
+
+  /* Set 2xl to 1440px */
+  --breakpoint-2xl: 1440px;
+}
 
 .poppins-thin {
   font-family: "Poppins", "Poppins Fallback";

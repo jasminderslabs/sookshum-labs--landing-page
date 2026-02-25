@@ -19,18 +19,18 @@ const {
     class=`h-full w-full sm:w-auto flex flex-col items-start justify-center gap-3 xl:gap-5 `
   >
     <h2
-      class='text-[20px] lg:text-[24px] xl:text-[36px] capitalize text-[#f8f8f8f2] font-medium'
+      class='text-[20px] lg:text-[24px] xl:text-[36px]! capitalize text-[#f8f8f8f2] font-medium'
     >
       {title}
     </h2>
     <p
-      class=`text-[#f8f8f8b2] ${width} text-[13px] lg:text-[14px] xl:text-[16px] xl:leading-6 font-light`
+      class=`text-[#f8f8f8b2] ${width} text-[13px] lg:text-[14px] xl:text-[16px]! xl:leading-6! font-light`
     >
       {content}
     </p>
   </div>
   <div
-    class=` ${height}  ${index === 0 ? 'max-w-[390px] max-h-[390px] md:max-w-78.75 md:max-h-78.75 lg:max-w-112.5 lg:max-h-112.5' : 'max-w-70.25 md:max-h-75 md:max-w-75 lg:max-w-90 lg:max-h-90'}  2xl:max-h-126.25 2xl:max-w-126.25 ${margin} flex items-center video-container`
+    class=` ${height}  ${index === 0 ? 'max-w-[390px] max-h-[390px] md:max-w-78.75 md:max-h-78.75 lg:max-w-112.5 lg:max-h-112.5' : 'max-w-70.25 md:max-h-75 md:max-w-75 lg:max-w-90 lg:max-h-90'}  2xl:max-h-126.25! 2xl:max-w-126.25! ${margin} flex items-center video-container`
   >
     <video
       src={src}

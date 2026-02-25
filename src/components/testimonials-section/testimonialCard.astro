@@ -10,9 +10,9 @@ const { title, name, review, style } = Astro.props;
          card-animate-on-touch ${style} max-h-75 h-auto`
 >
   <div
-    class='testimonial-card w-full h-full bg-transparent relative overflow-hidden p-2.5 sm:py-4 sm:px-3 xl:py-4 xl:px-3 2xl:py-8 2xl:px-4 rounded-4xl dark-btn-shadow dropdown-bg dropdown-shadow-button flex flex-col gap-4 sm:gap-5 z-auto'
+    class='testimonial-card w-full h-full bg-transparent relative overflow-hidden p-2.5 sm:py-4 sm:px-3 xl:py-4! xl:px-3! 2xl:py-8! 2xl:px-4! rounded-4xl dark-btn-shadow dropdown-bg dropdown-shadow-button flex flex-col gap-4 sm:gap-5 z-auto'
   >
-    <div class='flex items-center gap-2 w-full relative z-999 pl-3'>
+    <div class='flex items-center gap-2 2xl:gap-5! w-full relative z-999 pl-3'>
       {
         stars.map((path) => (
           <img
@@ -25,7 +25,7 @@ const { title, name, review, style } = Astro.props;
     </div>
 
     <p
-      class='px-3 text-[10px] sm:text-[13px] lg:text-[14px] xl:text-[16px] font-light leading-relaxed wrap-break-word grow relative z-999'
+      class='px-3 text-[10px] sm:text-[13px] lg:text-[14px] xl:text-[16px]! font-light leading-relaxed wrap-break-word grow relative z-999'
     >
       "{review}"
     </p>
@@ -37,10 +37,10 @@ const { title, name, review, style } = Astro.props;
         alt='avatar'
       />
       <div class='flex flex-col'>
-        <span class='font-medium text-sm lg:text-base xl:text-[19px]'
+        <span class='font-medium text-sm lg:text-base xl:text-[19px]!'
           >{name}</span
         >
-        <span class='text-[10px] xl:text-base font-light md:text-sm opacity-70'
+        <span class='text-[10px] xl:text-base! font-light md:text-sm opacity-70'
           >{title}</span
         >
       </div>

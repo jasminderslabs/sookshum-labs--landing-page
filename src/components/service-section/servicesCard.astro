@@ -8,10 +8,10 @@ const { src, title, content } = Astro.props;
   class='w-full h-auto rounded-[20px] overflow-hidden md:rounded-4xl hover:bg-linear-to-br! from-[#e6862466] via-transparent to-[#e6862466] card bg-[#282828B2] flex flex-col items-center p-1 border border-[#1c1c1c] dark-btn-shadow dropdown-bg dropdown-shadow-button card-animate-on-touch grayscale'
 >
   <div
-    class='w-full h-full rounded-[20px] md:rounded-4xl bg-[#1c1c1c] pb-6 2xl:pb-8 flex flex-col dark-btn-shadow dropdown-bg dropdown-shadow-button gap-3 sm:gap-2 video-card'
+    class='w-full h-full rounded-[20px] md:rounded-4xl bg-[#1c1c1c] pb-6 2xl:pb-8! flex flex-col dark-btn-shadow dropdown-bg dropdown-shadow-button gap-3 sm:gap-2 video-card'
   >
     <div
-      class='w-full flex justify-center h-59.75 md:h-65.25 lg:h-55.25 2xl:h-88.5 video-container overflow-hidden'
+      class='w-full flex justify-center h-59.75 md:h-65.25 lg:h-55.25 2xl:h-[334px]! video-container overflow-hidden'
     >
       <video
         src={src}
@@ -21,24 +21,24 @@ const { src, title, content } = Astro.props;
     </div>
 
     <div
-      class='flex flex-col gap-4 lg:gap-5 xl:gap-6 justify-between grow px-4 md:px-2 xl:px-4'
+      class='flex flex-col gap-4 lg:gap-5 xl:gap-6! justify-between grow px-4 md:px-2 xl:px-3! 2xl:px-4!'
     >
       <div
-        class='w-full text-white flex flex-col gap-1 lg:gap-3 xl:gap-3.5 md:pl-4.25 md:pr-[10.5px] lg:pl-2 lg:pr-3 xl:px-4'
+        class='w-full flex flex-col gap-1 lg:gap-3 xl:gap-3.5! md:pl-4.25 md:pr-[10.5px] lg:pl-2 lg:pr-3 xl:px-4!'
       >
         <h3
-          class='font-medium text-white text-[14px] lg:text-[16px] xl:text-[19px] capitalize'
+          class='font-medium text-[#f8f8f8f2] text-[14px] lg:text-[16px] xl:text-[19px]! capitalize'
         >
           {title}
         </h3>
         <p
-          class='opacity-70 text-[13px] lg:text-[14px] xl:text-[16px] grow lg:leading-5 xl:leading-6'
+          class='text-[#f8f8f8b2] text-[13px] lg:text-[14px] xl:text-[16px]! grow lg:leading-5 xl:leading-6!'
         >
           {content}
         </p>
       </div>
       <div
-        class='md:pl-4.25 md:pr-[10.5px] lg:pl-2 xl:px-4 lg:gap-1 xl:gap-3.5'
+        class='md:pl-4.25 md:pr-[10.5px] lg:pl-2 xl:px-4! lg:gap-1 xl:gap-3.5'
       >
         <Button text='Discover' />
       </div>

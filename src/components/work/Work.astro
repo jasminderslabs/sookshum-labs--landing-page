@@ -37,14 +37,14 @@ const cards = [
 ---
 
 <section
-  class='flex flex-col items-center gap-14 md:gap-12 lg:gap-[80px] xl:gap-26 max-w-480 mx-auto md:pt-17.5 pt-15 lg:pt-22.5 xl:pt-30'
+  class='flex flex-col items-center gap-14 md:gap-12 lg:gap-[80px] xl:gap-26! max-w-480 mx-auto md:pt-17.5 pt-15 lg:pt-22.5 xl:pt-30!'
 >
   <TopSection
     {...topSectionContent}
     wrap='text-nowrap'
   />
-  <div class='max-w-480 2xl:px-20 md:px-10 px-5'>
-    <div class='grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4.5 xl:gap-5'>
+  <div class='max-w-480 2xl:px-20! md:px-10 px-5'>
+    <div class='grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4.5 xl:gap-5!'>
       {
         cards.map((data) => {
           return <WorkCard {...data} />;
