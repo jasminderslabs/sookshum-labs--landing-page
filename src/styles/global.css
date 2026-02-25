@@ -406,7 +406,7 @@ body::-webkit-scrollbar-track {
   background: #2c2c2c;
 }
 /* Hides scrollbar when the viewport width is exactly 1440px */
-@media screen and (min-width: 1440px) {
+/* @media screen and (min-width: 1440px) {
   body {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -415,4 +415,4 @@ body::-webkit-scrollbar-track {
   body::-webkit-scrollbar {
     display: none;
   }
-}
+} */
