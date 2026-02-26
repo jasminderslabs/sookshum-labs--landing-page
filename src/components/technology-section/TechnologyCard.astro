@@ -13,7 +13,7 @@ const {
 ---
 
 <div
-  class=`w-full h-full  flex ${reverse ? 'flex-col-reverse sm:flex-row-reverse' : 'flex-col-reverse sm:flex-row'} justify-between items-center gap-2 md:gap-10 py-2 ${cardHeight} `
+  class=`w-full h-full  flex ${reverse ? 'flex-col-reverse sm:flex-row-reverse' : 'flex-col-reverse sm:flex-row'} justify-between items-center gap-2 md:gap-10 py-2 ${cardHeight} card-height`
 >
   <div
     class=`h-full w-full sm:w-auto flex flex-col items-start justify-center gap-3 xl:gap-5 `
@@ -56,6 +56,9 @@ const {
     .first-video {
       max-height: 450px;
       max-width: 450px;
+    }
+    .card-height {
+      height: 376px;
     }
   }
 </style>
