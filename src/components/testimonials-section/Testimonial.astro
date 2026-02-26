@@ -144,7 +144,7 @@ const topSectionContent = {
 ---
 
 <section
-  class='flex flex-col items-center gap-12 lg:gap-[50px] max-w-480 mx-auto md:pt-17.5 pt-15 lg:pt-30'
+  class='flex flex-col items-center gap-8 md:gap-12 lg:gap-[50px] max-w-480 mx-auto md:pt-17.5 pt-15 lg:pt-30'
 >
   <TopSection
     {...topSectionContent}
@@ -203,6 +203,11 @@ const topSectionContent = {
 
     background-image: linear-gradient(to left, #000, #15151538, transparent);
     z-index: 999;
+  }
+  @media screen and (width: 1024px) {
+    section {
+      padding-top: 90px;
+    }
   }
 </style>
 

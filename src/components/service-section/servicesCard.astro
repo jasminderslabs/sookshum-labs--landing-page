@@ -21,18 +21,18 @@ const { src, title, content } = Astro.props;
     </div>
 
     <div
-      class='flex flex-col gap-4 lg:gap-5 xl:gap-6! justify-between grow px-4 md:px-2 lg:px-3 xl:px-4!'
+      class='flex flex-col gap-4 lg:gap-5 xl:gap-6! justify-between grow px-4 md:px-2 lg:px-3 xl:px-4! service-content-section'
     >
       <div
         class='w-full flex flex-col gap-1 lg:gap-3 xl:gap-3.5! md:pl-4.25 md:pr-[10.5px] lg:px-4'
       >
         <h3
-          class='font-medium text-[#f8f8f8f2] text-[14px] lg:text-[19px] capitalize'
+          class='font-medium text-[#f8f8f8f2] text-[14px] lg:text-[19px] capitalize service-title'
         >
           {title}
         </h3>
         <p
-          class='text-[#f8f8f8b2] text-[13px] lg:text-[16px] grow lg:leading-6!'
+          class='text-[#f8f8f8b2] text-[13px] lg:text-[16px] grow lg:leading-6! service-content'
         >
           {content}
         </p>
@@ -43,3 +43,19 @@ const { src, title, content } = Astro.props;
     </div>
   </div>
 </div>
+
+<style>
+  @media screen and (width: 1024px) {
+    .service-title {
+      font-size: 16px;
+    }
+    .service-content {
+      font-size: 14px;
+      line-height: 20px;
+    }
+    .service-content-section {
+      padding-right: 8px;
+      padding-left: 8px;
+    }
+  }
+</style>

@@ -4,7 +4,7 @@ const { text } = Astro.props;
 
 <a href={`#${text.toString().toLowerCase()}`}>
   <button
-    class='cursor-pointer text-[#f8f8f8b2] rounded-full w-fit text-[11px] lg:text-[16px] px-3 py-2 lg:py-3 lg:px-8 font-medium dropdown-shadow-button dropdown-bg dark-btn-shadow h-9 lg:h-13 tracking-wide dropdown-shadow-button btn relative overflow-hidden flex justify-center items-center'
+    class='cursor-pointer text-[#f8f8f8b2] rounded-full w-fit text-[11px] lg:text-[16px] px-3 py-2 lg:py-3 lg:px-8 font-medium dropdown-shadow-button dropdown-bg dark-btn-shadow h-9 lg:h-13 tracking-wide dropdown-shadow-button btn relative overflow-hidden flex justify-center items-center top-btn'
     style=`background-color: #282828b3`
     ;
   >
@@ -27,3 +27,13 @@ const { text } = Astro.props;
     });
   });
 </script>
+
+<style>
+  @media screen and (width: 1024px) {
+    .top-btn {
+      font-size: 14px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+</style>

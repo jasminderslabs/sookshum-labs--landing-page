@@ -19,12 +19,12 @@ const {
     class=`h-full w-full sm:w-auto flex flex-col items-start justify-center gap-3 xl:gap-5 `
   >
     <h2
-      class='text-[20px] lg:text-[36px] capitalize text-[#f8f8f8f2] font-medium'
+      class='text-[20px] lg:text-[36px] capitalize text-[#f8f8f8f2] font-medium technology-title'
     >
       {title}
     </h2>
     <p
-      class=`text-[#f8f8f8b2] ${width} text-[13px] lg:text-[16px] xl:leading-6! font-light`
+      class=`text-[#f8f8f8b2] ${width} text-[13px] lg:text-[16px] xl:leading-6! font-light technology-content`
     >
       {content}
     </p>
@@ -39,3 +39,23 @@ const {
     ></video>
   </div>
 </div>
+
+<style>
+  @media screen and (width: 1024px) {
+    .technology-title {
+      font-size: 24px;
+    }
+    .technology-content {
+      font-size: 14px;
+      line-height: 20px;
+    }
+    .technology-content-section {
+      padding-right: 12px;
+      padding-left: 20px;
+    }
+    .first-video {
+      max-height: 450px;
+      max-width: 450px;
+    }
+  }
+</style>

@@ -42,7 +42,8 @@
         >
           <span class='inline-block w-1.5 h-1.5 bg-green-400 rounded-full'
           ></span>
-          <span class='text-[11px] lg:text-[16px] font-medium text-[#F8F8F8]'
+          <span
+            class='text-[11px] lg:text-[16px] font-medium text-[#F8F8F8] hero-green-dot-text'
             >Open For Projects</span
           >
         </span>
@@ -65,7 +66,7 @@
         </div>
       </div>
       <div
-        class='py-0 px-5 xl:px-6! h-12 xl:h-13.75! flex items-center rounded-full bg-[#E68624] cursor-pointer transition-all dark-bg duration-700 hover:[backdrop-filter:blur(100px)] dark-btn-shadow w-fit mt-7.5 lg:mt-16.5'
+        class='py-0 px-5 xl:px-6! h-12 xl:h-13.75! flex items-center rounded-full bg-[#E68624] cursor-pointer transition-all dark-bg duration-700 hover:[backdrop-filter:blur(100px)] dark-btn-shadow w-fit mt-7.5 lg:mt-16.5 hero-button'
       >
         <button
           class='w-full h-full font-medium text-[13px] xl:text-[16px]! flex justify-between items-center gap-2 text-white'
@@ -102,6 +103,14 @@
 </section>
 
 <style>
+  @media screen and (width: 1024px) {
+    .hero-button {
+      margin-top: 30px;
+    }
+    .hero-green-dot-text {
+      font-size: 14px;
+    }
+  }
   @media screen and (max-width: 330px) {
     .hero-heading {
       font-size: 28px !important;

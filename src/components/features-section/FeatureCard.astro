@@ -24,18 +24,28 @@ const { title, content } = Astro.props;
       class='pt-26 p-2.25 lg:px-3.5 xl:px-4! pb-3.5 lg:pb-5.75 xl:pb-8! flex flex-col gap-2 lg:gap-3 xl:gap-3.5! grow'
     >
       <span
-        class='text-white block relative text-[14px] lg:text-[26px] pt-4 lg:pt-5 xl:pt-7! font-medium font-poppins capitalize hero-heading'
+        class='text-white feature-title block relative text-[14px] lg:text-[26px] pt-4 lg:pt-5 xl:pt-7! font-medium font-poppins capitalize hero-heading'
         >{title}</span
       >
       <p
-        class='text-[#F8F8F8B2] text-[12px] lg:text-[16px] leading-4 lg:leading-6'
+        class='text-[#F8F8F8B2] feature-content text-[12px] lg:text-[16px] leading-4 lg:leading-6'
       >
         {content}
       </p>
     </div>
   </div>
 </div>
-
+<style>
+  @media screen and (width: 1024px) {
+    .feature-title {
+      font-size: 20px;
+    }
+    .feature-content {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+</style>
 <script>
   const cards = document.querySelectorAll(".feature-card");
 

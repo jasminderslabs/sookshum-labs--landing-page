@@ -10,7 +10,7 @@ const cards = [
     width: "w-full sm:max-w-[385px] md:max-w-[384px] lg:max-w-[581px]",
     imgWidth: "",
     margin: "xl:-mr-[68px]!",
-    height: "h-[390px] lg:h-[450px] xl:h-[505px]!",
+    height: "h-[390px] lg:h-[450px] xl:h-[505px]! first-video",
     cardHeight: "lg:h-[466px] xl:h-[521px]!",
   },
   {
@@ -69,6 +69,13 @@ const topSectionContent = {
     }
   </div>
 </section>
+<style>
+  @media screen and (width: 1024px) {
+    section {
+      padding-top: 90px;
+    }
+  }
+</style>
 <script>
   const videos = document.querySelectorAll(".tech-video");
   const observer = new IntersectionObserver(
