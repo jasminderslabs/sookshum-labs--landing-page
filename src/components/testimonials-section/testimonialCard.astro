@@ -10,14 +10,14 @@ const { title, name, review, style } = Astro.props;
          card-animate-on-touch ${style} max-h-75 h-auto`
 >
   <div
-    class='testimonial-card w-full h-full bg-transparent relative overflow-hidden p-2.5 sm:py-4 sm:px-3 xl:py-4! xl:px-3! 2xl:py-8! 2xl:px-4! rounded-4xl dark-btn-shadow dropdown-bg dropdown-shadow-button flex flex-col gap-4 sm:gap-5 z-auto'
+    class='testimonial-card w-full h-full bg-transparent relative overflow-hidden p-2.5 sm:py-4 sm:px-3 xl:py-4! xl:px-3! xl:py-8! xl:px-4! rounded-4xl dark-btn-shadow dropdown-bg dropdown-shadow-button flex flex-col gap-4 sm:gap-5 z-auto'
   >
-    <div class='flex items-center gap-2 2xl:gap-5! w-full relative z-999 pl-3'>
+    <div class='flex items-center gap-2 xl:gap-5! w-full relative z-999 pl-3'>
       {
         stars.map((path) => (
           <img
             src={path}
-            class='w-4 h-4 md:w-6 md:h-6 xl:w-6 xl:h-6 object-contain'
+            class='w-4 h-4 md:w-6 md:h-6 xl:w-6! xl:h-6! object-contain'
             alt='star'
           />
         ))

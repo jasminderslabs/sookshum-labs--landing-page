@@ -9,18 +9,18 @@ const { heading, word, para, btnText, wrap } = Astro.props;
   class='h-full flex flex-col items-center gap-5 px-4 md:px-0 max-w-125 lg:max-w-[650px] xl:max-w-165.25! transition-all duration-700'
 >
   <div
-    class='flex flex-col justify-between px-4 sm:px-0 gap-2 md:gap-3.75 2xl:gap-6! items-center text-white md:max-w-125 lg:max-w-[650px] xl:max-w-165.25!'
+    class='flex flex-col justify-between px-4 sm:px-0 gap-2 md:gap-3.75 xl:gap-6! items-center text-white md:max-w-125 lg:max-w-[650px] xl:max-w-165.25!'
   >
     <Button text={btnText} />
     <h2
-      class=`font-medium text-[28px] md:text-[36px] lg:text-[42px] 2xl:text-5xl! text-center shrink-0 hero-heading 2xl:leading-16.75! capitalize ${wrap}`
+      class=`font-medium text-[28px] md:text-[36px] lg:text-[42px] xl:text-5xl! text-center shrink-0 hero-heading xl:leading-16.75! capitalize ${wrap}`
     >
       {heading.split("|")[0]}
       <i class='font-light'> {word}</i>
       {heading.split("|")[1]}
     </h2>
     <p
-      class='text-center text-[12px] md:text-[13px] lg:text-[14px] 2xl:text-[18px]! text-[#f8f8f8b2] font-light w-fit
+      class='text-center text-[12px] md:text-[13px] lg:text-[14px] xl:text-[18px]! text-[#f8f8f8b2] font-light w-fit
       lg:leading-5 xl:leading-[1.4]!'
     >
       {para}.

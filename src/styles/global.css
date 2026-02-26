@@ -1,9 +1,9 @@
 @import "tailwindcss";
 @theme {
   /* Set xl to 1280px */
-  --breakpoint-xl: 1280px;
+  --breakpoint-xl: 1281px;
 
-  /* Set 2xl to 1440px */
+  /* Set 2xl to 1500px */
   --breakpoint-2xl: 1500px;
 }
 
@@ -406,7 +406,7 @@ body::-webkit-scrollbar-track {
   background: #2c2c2c;
 }
 /* Hides scrollbar when the viewport width is exactly 1440px */
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1440px) and (max-width: 1600px) {
   body {
     scrollbar-width: none;
     -ms-overflow-style: none;

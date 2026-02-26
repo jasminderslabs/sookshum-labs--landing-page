@@ -9,28 +9,24 @@ const { title, content, list } = Astro.props;
 >
   <div
     class='w-full h-full rounded-[20px] bg-[#1c1c1c] lg:rounded-4xl
-    px-2.25 pt-2.25 lg:px-3.5 lg:pt-3.5 2xl:pt-4! 2xl:px-4! gap-2 lg:gap-3 xl:gap-4! flex flex-col dark-btn-shadow dropdown-bg dropdown-shadow-button'
+    px-2.25 pt-2.25 lg:px-3.5 lg:pt-3.5 xl:pt-4! xl:px-4! gap-2 lg:gap-3 xl:gap-4! flex flex-col dark-btn-shadow dropdown-bg dropdown-shadow-button'
   >
     <canvas
-      class='md:h-26 lg:h-28 2xl:h-44.75! w-fit h-25 pt-1 pb-2 pl-3'
+      class='md:h-26 lg:h-28 xl:h-44.75! w-fit h-25 pt-1 pb-2 pl-3'
       height='510'
       width='540'
     ></canvas>
     <div
       class='w-full text-white flex flex-col justify-end gap-2.5 h-fit p-1 sm:p-4'
     >
-      <h3
-        class='font-medium text-[14px] lg:text-[16px] xl:text-[19px]! capitalize'
-      >
+      <h3 class='font-medium text-[14px] lg:text-[19px] capitalize'>
         {title}
       </h3>
-      <p
-        class='opacity-70 text-[13px] lg:text-[14px] xl:text-[16px]! grow shrink-0'
-      >
+      <p class='opacity-70 text-[13px] lg:text-[16px] grow shrink-0'>
         {content}
       </p>
       <ul
-        class='text-white list-disc pl-4 sm:pl-3 xl:pl-3 font-medium flex flex-col gap-2 text-[14px] lg:text-[14px] 2xl:text-[18px]! grow'
+        class='text-white list-disc sm:pl-3 lgpl-3 font-medium flex flex-col gap-2 text-[14px] lg:text-[14px] xl:text-[18px]! grow'
       >
         {
           list?.map((data: unknown) => {
@@ -73,24 +69,24 @@ const { title, content, list } = Astro.props;
       max-width: 370px;
     }
   }
-  @media screen and (min-width: 921px) and (max-width: 1024px) {
+  @media screen and (min-width: 921px) and (max-width: 1025px) {
     .experience-card {
-      max-width: 400px;
+      max-width: 388px;
     }
   }
-  @media screen and (min-width: 1025px) and (max-width: 1279px) {
+  @media screen and (min-width: 1026px) and (max-width: 1279px) {
     .experience-card {
       max-width: 325px;
     }
   }
   @media screen and (min-width: 1280px) and (max-width: 1439px) {
     .experience-card {
-      max-width: 330px;
+      max-width: 300px;
     }
   }
   @media screen and (min-width: 1440px) and (max-width: 1500px) {
     .experience-card {
-      max-width: 355px;
+      max-width: 370px;
     }
   }
   @media screen and (min-width: 1501px) and (max-width: 1700px) {
