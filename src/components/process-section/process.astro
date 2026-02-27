@@ -82,7 +82,7 @@ const topSectionContent = {
     <div
       class='w-full h-full rounded-[20px] bg-[#1c1c1c] lg:rounded-4xl pb-6 xl:pb-8 xl:gap-2 lg:flex lg:flex-row hidden justify-center items-center dark-btn-shadow dropdown-bg dropdown-shadow-button video-card overflow-hidden'
     >
-      <div class='overflow-hidden w-full 2xl:max-w-[500px] video-container'>
+      <div class='overflow-hidden w-full 2xl:max-w-[500px]! video-container'>
         <video
           src='/Agile-Development.webm'
           muted
@@ -148,6 +148,11 @@ const topSectionContent = {
     .process-content-section {
       padding-right: 12px;
       padding-left: 20px;
+    }
+  }
+  @media screen and (min-width: 1440px) and (max-width: 1499px) {
+    .video-container {
+      max-width: 500px;
     }
   }
   @media screen and (width: 1024px) {
