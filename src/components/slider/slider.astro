@@ -1,0 +1,310 @@
+<div class='w-full'>
+  <div class='swiper mySwiper'>
+    <div class='swiper-wrapper
+    h-auto'></div>
+
+    <div class='swiper-pagination'></div>
+
+    <div class='swiper-scrollbar'></div>
+  </div>
+</div>
+
+<script>
+  // import Swiper from "swiper/types/swiper-class";
+  import Swiper from "swiper";
+  import { Navigation } from "swiper/modules";
+  import "swiper/css";
+  const cardsData = [
+    {
+      title: "healthcare",
+      content:
+        "We develop apps & websites that streamline operations, elevate patient care, and empower healthcare.",
+      list: [
+        "Telemedicine Platform",
+        "Patient Health Management System",
+        "Virtual Health Coaching",
+      ],
+    },
+    {
+      title: "eCommerce",
+      content:
+        "We craft user-friendly e-Commerce solutions that drive conversions and build customer loyalty.",
+      list: [
+        "Multi-Channel Retail Platforms",
+        "B2B platforms",
+        "B2C solutions",
+      ],
+    },
+    {
+      title: "Sports",
+      content:
+        "We design and develop fan-centric sports platforms that drive engagement and connect communities.",
+      list: [
+        "Fitness Tracking Apps",
+        "Personal Training & Coaching Solutions",
+        "Activity and Performance Tracking solutions",
+      ],
+    },
+    {
+      title: "business solutions",
+      content:
+        "We craft custom design & development solutions to streamline workflows, boost efficiency, and fuel growth.",
+      list: [
+        "CRM apps",
+        "Project Management apps",
+        "Custom Business solutions",
+      ],
+    },
+    {
+      title: "on demand solutions",
+      content:
+        "Craft seamless on demand experiences with our design and development expertise. Get what you need.",
+      list: ["Online Classes App", "E-Learning Portals", "School Management"],
+    },
+  ];
+
+  const swiperWrapper = document.querySelector(".swiper-wrapper");
+
+  // Create slides dynamically
+  cardsData.forEach((card) => {
+    const slide = document.createElement("div");
+    slide.className = "swiper-slide";
+    slide.style.height = "auto";
+
+    slide.innerHTML = `
+      <div class="bg-[#282828B2] h-full grow rounded-[20px] lg:rounded-4xl shrink-0 relative flex flex-col card dark-btn-shadow dropdown-bg dropdown-shadow-button
+      experience-card hover:bg-linear-to-br! from-[#e6862466] via-transparent to-[#e6862466] select-none card-animate-on-touch">
+
+        <div class="w-full h-full rounded-[20px] bg-[#1c1c1c] lg:rounded-4xl
+        px-2.25 pt-2.25 lg:px-3.5 lg:pt-3.5 xl:pt-4! xl:px-4! gap-2 lg:gap-3 xl:gap-4! flex flex-col dark-btn-shadow dropdown-bg dropdown-shadow-button">
+
+          <canvas class="md:h-26 lg:h-28 xl:h-44.75! w-fit h-25 pt-1 pb-2 pl-3"
+            height="510"
+            width="510"></canvas>
+
+          <div class="w-full text-white flex flex-col justify-end gap-2.5 h-fit p-1 sm:p-4">
+            <h3 class="font-medium text-[14px] lg:text-[19px] capitalize" id="exp-title">
+              ${card.title}
+            </h3>
+
+            <p class="opacity-70 text-[13px] lg:text-base grow shrink-0 " id='exp-content'>
+              ${card.content}
+            </p>
+
+            <ul class="text-white list-disc pl-4 sm:pl-3 lg:pl-3 font-medium flex flex-col gap-2 text-[14px] lg:text-[14px] xl:text-[18px]! grow">
+              ${card.list.map((item) => `<li>${item}</li>`).join("")}
+            </ul>
+          </div>
+        </div>
+      </div>
+    `;
+
+    swiperWrapper.appendChild(slide);
+  });
+
+  const leftArrow = document.getElementById("arrow-left");
+  const rightArrow = document.getElementById("arrow-right");
+  // Initialize Swiper
+  const swiper = new Swiper(".mySwiper", {
+    spaceBetween: 20,
+    grabCursor: true,
+    modules: [Navigation],
+    navigation: {
+      nextEl: "#arrow-right",
+      prevEl: "#arrow-left",
+    },
+
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+
+    scrollbar: {
+      el: ".swiper-scrollbar",
+      draggable: true,
+    },
+
+    breakpoints: {
+      0: { slidesPerView: 1 },
+      350: { slidesPerView: 1.2 },
+      400: { slidesPerView: 1.2 },
+      550: { slidesPerView: 2 },
+      739: { slidesPerView: 2.2, spaceBetween: 17 },
+      1050: { slidesPerView: 3.2, spaceBetween: 20 },
+      1500: { slidesPerView: 3.3, spaceBetween: 20 },
+      1700: { slidesPerView: 3.5, spaceBetween: 30 },
+    },
+
+    on: {
+      init: function () {
+        console.log(this);
+      },
+      slideChange: function () {
+        if (swiper.isBeginning) {
+          leftArrow.style.fill = "#777e91";
+          rightArrow.style.fill = "white";
+        } else {
+          leftArrow.style.fill = "white";
+          rightArrow.style.fill = "#777e91";
+        }
+      },
+    },
+  });
+  if (swiper.isBeginning) {
+    leftArrow.style.fill = "#777e91";
+    rightArrow.style.fill = "white";
+  } else {
+    leftArrow.style.fill = "white";
+    rightArrow.style.fill = "#777e91";
+  }
+  const cards = document.querySelectorAll(".experience-card");
+
+  const imagePaths = [
+    { name: "healthcare", imageCount: 60 },
+    { name: "e-commerce", imageCount: 70 },
+    { name: "sports", imageCount: 40 },
+    { name: "business-solutions", imageCount: 100 },
+    { name: "on-demand-solutions", imageCount: 60 },
+  ];
+
+  const currentFrame = (index, path) => {
+    return `industries/${path}/${index.toString().padStart(4, "0")}.webp`;
+  };
+
+  cards.forEach((card, index) => {
+    const { name, imageCount } = imagePaths[index];
+    const canvas = card.querySelector("canvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+
+    let images = [];
+    let frame = 0;
+    let animationId = null;
+
+    let isLoaded = false;
+    let isAnimating = false;
+    let isHovering = false;
+    let hasPlayedForward = false;
+
+    const preloadImages = () => {
+      const promises = [];
+
+      for (let i = 1; i <= imageCount; i++) {
+        const img = new Image();
+        img.src = currentFrame(i, name);
+        images.push(img);
+
+        promises.push(
+          new Promise((resolve) => {
+            img.onload = resolve;
+            img.onerror = resolve;
+          }),
+        );
+      }
+
+      Promise.all(promises).then(() => {
+        isLoaded = true;
+        ctx.drawImage(images[0], 0, 0, canvas.width, canvas.height);
+      });
+    };
+
+    preloadImages();
+
+    const animateForward = () => {
+      if (!isLoaded) return;
+
+      isAnimating = true;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(images[frame], 0, 0, canvas.width, canvas.height);
+
+      if (frame < imageCount - 1) {
+        frame++;
+        animationId = requestAnimationFrame(animateForward);
+      } else {
+        hasPlayedForward = true;
+        isAnimating = false;
+        if (!isHovering) animateReverse();
+      }
+    };
+
+    const animateReverse = () => {
+      if (!isLoaded) return;
+
+      isAnimating = true;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(images[frame], 0, 0, canvas.width, canvas.height);
+
+      if (frame > 0) {
+        frame--;
+        animationId = requestAnimationFrame(animateReverse);
+      } else {
+        hasPlayedForward = false;
+        isAnimating = false;
+      }
+    };
+
+    card.addEventListener("mouseenter", () => {
+      isHovering = true;
+      if (!isAnimating && !hasPlayedForward) animateForward();
+    });
+
+    card.addEventListener("mouseleave", () => {
+      isHovering = false;
+      if (!isAnimating && hasPlayedForward) animateReverse();
+    });
+
+    card.addEventListener("touchstart", () => {
+      isHovering = true;
+      if (!isAnimating && !hasPlayedForward) animateForward();
+    });
+
+    card.addEventListener("touchend", () => {
+      isHovering = false;
+      if (!isAnimating && hasPlayedForward) animateReverse();
+    });
+  });
+</script>
+<style>
+  @media screen and (max-width: 450px) {
+    .mySwiper {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+  @media screen and (min-width: 451px) and (max-width: 960px) {
+    .mySwiper {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+  @media screen and (min-width: 961px) and (max-width: 1024px) {
+    .mySwiper {
+      padding-left: 60px;
+      padding-right: 60px;
+    }
+  }
+  @media screen and (min-width: 1025px) and (max-width: 1280px) {
+    .mySwiper {
+      padding-left: 80px;
+      padding-right: 80px;
+    }
+  }
+  @media screen and (min-width: 1281px) and (min-width: 1281px) {
+    .mySwiper {
+      padding-left: 160px;
+      padding-right: 81px;
+    }
+  }
+  @media screen and (width: 1024px) {
+    #exp-title {
+      border: 2px solid red;
+      font-size: 16px !important;
+    }
+    #exp-content {
+      font-size: 14px !important;
+      line-height: 20px !important;
+    }
+  }
+</style>

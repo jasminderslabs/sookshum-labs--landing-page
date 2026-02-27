@@ -1,4 +1,5 @@
 ---
+import Slider from "../slider/slider.astro";
 import TopSection from "../top-section/Topsection.astro";
 import ExperienceCard from "./ExperienceCard.astro";
 const cards = [
@@ -69,9 +70,10 @@ const topSectionContent = {
     <svg
       width='14'
       height='9'
+      id='arrow-left'
       viewBox='0 0 14 9'
       fill='none'
-      class='w-6 h-6 left-arrow'
+      class='w-6 h-6 left-arrow cursor-pointer block'
       xmlns='http://www.w3.org/2000/svg'
       ><path
         fill-rule='evenodd'
@@ -83,9 +85,10 @@ const topSectionContent = {
     <svg
       width='14'
       height='9'
+      id='arrow-right'
       viewBox='0 0 14 9'
       fill='none'
-      class='w-6 h-6 right-arrow'
+      class='w-6 h-6 right-arrow cursor-pointer block'
       xmlns='http://www.w3.org/2000/svg'
       ><path
         fill-rule='evenodd'
@@ -94,15 +97,8 @@ const topSectionContent = {
       ></path></svg
     >
   </div>
-  <div
-    class='overflow-auto w-full flex gap-4.25 lg:gap-4 xl:gap-5! 2xl:gap-7.5! no-scrollbar pl-6 pr-10 xl:pr-20! sm:pl-10 md:pl-15 lg:pl-20 xl:pl-40! scrollbar grayscale experience-container'
-  >
-    {
-      cards.map((data) => {
-        return <ExperienceCard {...data} />;
-      })
-    }
-  </div>
+
+  <Slider />
 </section>
 <style>
   @media screen and (width: 1024px) {
@@ -126,73 +122,3 @@ const topSectionContent = {
     }
   }
 </style>
-<script>
-  const leftArrow = document.querySelector(".left-arrow") as any;
-  const rightArrow = document.querySelector(".right-arrow") as any;
-  const scrollbar = document.querySelector(".scrollbar") as any;
-  let isPressed = false; // In order to track if pressed on slider to slide or not.
-  let startX;
-  let scrollLeft;
-
-  if (scrollbar.scrollLeft === 0) {
-    leftArrow.style.fill = "#777E91";
-    rightArrow.style.fill = "white";
-  }
-  scrollbar.addEventListener("scroll", () => {
-    const isAtStart = scrollbar.scrollLeft === 0;
-
-    const isAtEnd =
-      Math.ceil(scrollbar.scrollLeft + scrollbar.clientWidth) >=
-      scrollbar.scrollWidth;
-
-    leftArrow.style.fill = isAtStart ? "#777E91" : "white";
-
-    rightArrow.style.fill = isAtEnd ? "#777E91" : "white";
-  });
-
-  rightArrow.addEventListener("click", () => {
-    scrollbar.scrollBy({ left: 350, behavior: "smooth" });
-  });
-
-  leftArrow.addEventListener("click", () => {
-    scrollbar.scrollBy({ left: -350, behavior: "smooth" });
-  });
-
-  scrollbar.addEventListener("mousedown", (e: any) => {
-    isPressed = true;
-
-    startX = e.pageX - scrollbar.offsetLeft;
-    scrollLeft = scrollbar.scrollLeft;
-    scrollbar.style.cursor = "grabbing";
-  });
-  scrollbar.addEventListener("touchstart", (e: any) => {
-    isPressed = true;
-
-    startX = e.pageX - scrollbar.offsetLeft;
-    scrollLeft = scrollbar.scrollLeft;
-    scrollbar.style.cursor = "grabbing";
-  });
-
-  scrollbar.addEventListener("mouseleave", () => {
-    isPressed = false;
-    scrollbar.style.cursor = "grab";
-  });
-  scrollbar.addEventListener("touchend", () => {
-    isPressed = false;
-    scrollbar.style.cursor = "grab";
-  });
-
-  scrollbar.addEventListener("mouseup", () => {
-    isPressed = false;
-    scrollbar.style.cursor = "grab";
-  });
-
-  scrollbar.addEventListener("mousemove", (e: any) => {
-    if (!isPressed) return;
-    e.preventDefault();
-
-    const x = e.pageX - scrollbar.offsetLeft;
-    const walk = (x - startX) * 1.2;
-    scrollbar.scrollLeft = scrollLeft - walk;
-  });
-</script>
