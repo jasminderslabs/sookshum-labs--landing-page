@@ -13,7 +13,7 @@ const navigations = [
 ---
 
 <div
-  class='max-w-480 md:block z-999 border border-[#ffffff1a] border-t-0 rounded-bl-4xl rounded-br-4xl mx-auto lg:pt-8.5 lg:px-10 xl:px-20! px-5 md:px-10 w-full hide-dropdown bg-[#151515] overflow-hidden absolute left-0 right-0 top-[80%] dropdown flex'
+  class='max-w-480 md:block z-999 border border-[#ffffff1a] border-t-0 rounded-bl-4xl rounded-br-4xl mx-auto lg:pt-8.5 lg:px-10 xl:px-20! px-5 md:px-10 w-full hide-dropdown bg-[#151515] overflow-hidden absolute left-0 right-0 top-[73%] dropdown flex'
 >
   <div
     class='flex justify-between w-full z-999 gap-10 relative sm:gap-4 lg:py-8 lg:gap-5 xl:gap-26.25!'
@@ -23,9 +23,24 @@ const navigations = [
       {
         navigations.map((text, index) => {
           return (
-            <span class='services-dropdown block flex w-full border border-[#151515] hover:border-[#ffffff1a] capitalize h-18  lg:py-4 lg:pl-8 lg:pr-6.5 rounded-full items-center justify-between  text-sm shrink-0 hover:text-white text-gray-400 '>
+            <span class='services-dropdown block flex w-full border border-[#151515] hover:border-[#ffffff1a] capitalize h-18  lg:py-4 lg:pl-8 lg:pr-6.5 gap-10 rounded-4xl items-center justify-between  text-sm shrink-0 hover:text-white text-gray-400 '>
               {text}
-              <ChevronRight class='text-gray-400 hover:text-white' />
+              {/* <ChevronRight class='text-gray-400 hover:text-white' /> */}
+              <svg
+                width='9'
+                height='14'
+                viewBox='0 0 9 14'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+                class='group-hover:stroke-white stroke-current block'
+              >
+                <path
+                  d='M1.66846 1L7.66846 7L1.66846 13'
+                  stroke-width='1.5'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                />
+              </svg>
             </span>
           );
         })
@@ -66,17 +81,17 @@ const navigations = [
       </div>
 
       <div
-        class='p-4 rounded-4xl w-fit h-fit gap-2 flex flex-col bg-[#1c1c1c] video-card cursor-pointer'
+        class='p-4 rounded-4xl w-fit h-fit gap-2 flex flex-col bg-[#1c1c1c] border-[#ffffff1a] border video-card cursor-pointer'
         style='box-shadow : 2px 4px 16px 0px #f8f8f80f inset;'
       >
         <div
-          class='flex flex-col xl:h-45! xl:w-79! w-58 h-47.5 rounded-4xl cursor-pointer'
+          class='flex flex-col xl:h-45! xl:w-79! w-58 h-47.5 rounded-[20px] cursor-pointer'
         >
           <video
             src='/let-connect.webm'
             id='video'
             muted
-            class='object-cover w-full h-full z-1 rounded-4xl'
+            class='object-cover w-full h-full z-1 rounded-[20px]'
           ></video>
         </div>
         <span
