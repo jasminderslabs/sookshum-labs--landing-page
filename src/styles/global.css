@@ -523,10 +523,18 @@ body::-webkit-scrollbar-track {
     right: 1rem;
   }
 }
-@media screen and (min-width: 961px) {
+@media screen and (min-width: 961px) and (max-width: 1280px) {
   .arrow-container {
     display: flex;
     top: -44%;
+    right: 4%;
+  }
+}
+
+@media screen and (min-width: 1281px) {
+  .arrow-container {
+    display: flex;
+    top: -40%;
     right: 4%;
   }
 }
