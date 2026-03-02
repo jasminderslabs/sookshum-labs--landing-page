@@ -1,7 +1,6 @@
 ---
 import Slider from "../slider/slider.astro";
 import TopSection from "../top-section/Topsection.astro";
-import ExperienceCard from "./ExperienceCard.astro";
 const cards = [
   {
     src: "industries/healthcare/0001.webp",
@@ -50,13 +49,13 @@ const cards = [
 const topSectionContent = {
   heading: "Our Diverse Industry ",
   word: "Experiences?",
-  para: `Our team is dedicated to designing digital solutions that meet the unique demands of various sectors leveraging the latest technology to meet unique industry demands and drive innovation.`,
+  para: `Our team is dedicated to designing digital solutions that meet the unique demands of various sectors leveraging the latest technology to meet unique industry demands and drive innovation`,
   btnText: "Industries we serve",
 };
 ---
 
 <section
-  class='relative flex flex-col items-center gap-8 sm:gap-12 lg:gap-15 xl:gap-16! max-w-480 mx-auto md:pt-17.5 pt-15 lg:pt-30'
+  class='relative flex flex-col items-center gap-8 sm:gap-12 lg:gap-15 xl:gap-[70px]! max-w-480 mx-auto md:pt-17.5 pt-15 lg:pt-30'
 >
   <TopSection
     {...topSectionContent}
