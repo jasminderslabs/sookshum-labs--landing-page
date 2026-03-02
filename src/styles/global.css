@@ -132,7 +132,6 @@ header:has(ul .services:hover, .dropdown:hover) {
 }
 
 .card {
-  border: 1px solid #1c1c1c;
   padding: 1px;
   position: relative;
   z-index: 1;
