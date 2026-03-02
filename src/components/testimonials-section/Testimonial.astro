@@ -209,10 +209,14 @@ const topSectionContent = {
       padding-top: 90px;
     }
   }
+  .endless-scroll {
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+  }
 </style>
 
 <script>
-  const scrollbar = document.querySelector(".endless-scroll");
+  const scrollbar = document.querySelector(".endless-scroll") as HTMLElement;
   const cards = document.querySelectorAll(".testimonial-card");
 
   let requestAnimationFrameID = null;
@@ -220,29 +224,25 @@ const topSectionContent = {
 
   function autoScroll() {
     if (!scrollbar) return;
-
     scrollbar.scrollLeft += speed;
 
-    // When scrolled half (original width), reset smoothly
-    if (scrollbar.scrollLeft >= scrollbar.scrollWidth / 2) {
+    if (scrollbar.scrollLeft >= scrollbar.scrollWidth - scrollbar.clientWidth) {
       scrollbar.scrollLeft = 0;
     }
 
     requestAnimationFrameID = requestAnimationFrame(autoScroll);
   }
 
+  // Pause on hover
   cards.forEach((card) => {
     card.addEventListener("mouseenter", () => {
-      if (requestAnimationFrameID !== null) {
+      if (requestAnimationFrameID) {
         cancelAnimationFrame(requestAnimationFrameID);
-        requestAnimationFrameID = null;
       }
     });
 
     card.addEventListener("mouseleave", () => {
-      if (requestAnimationFrameID === null) {
-        requestAnimationFrameID = requestAnimationFrame(autoScroll);
-      }
+      requestAnimationFrameID = requestAnimationFrame(autoScroll);
     });
   });
 
