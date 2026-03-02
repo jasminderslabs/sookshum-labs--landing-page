@@ -1,6 +1,7 @@
 ---
 import TopSection from "../top-section/Topsection.astro";
 import TestimonialCard from "./testimonialCard.astro";
+
 const cards = [
   {
     name: "David Block",
@@ -135,6 +136,7 @@ const cards = [
     style: "lg:w-[1050px] md:w-[750px] sm:w-[650px] w-[650px]",
   },
 ];
+
 const topSectionContent = {
   heading: "There are reason people are | about us",
   word: "raving",
@@ -150,20 +152,21 @@ const topSectionContent = {
     {...topSectionContent}
     wrap='text-wrap lg:text-wrap xl:text-nowrap!'
   />
+
   <div
     class='relative w-[90%] mx-20 flex flex-col gap-2 md:gap-3 lg:gap-8 xl:gap-0 2xl:gap-5'
   >
-    <div
-      class='flex overflow-auto no-scrollbar scroll-auto gap-3.5 lg:gap-5 endless-scroll pb-4 md:pb-16 lg:pt-20 lg:pb-17.5'
-    >
-      {
-        cards.map((data) => {
-          return <TestimonialCard {...data} />;
-        })
-      }
+    <div class='scroll-wrapper pb-4 md:pb-16 lg:pt-20 lg:pb-17.5'>
+      <div class='scroll-track'>
+        {cards.map((data) => <TestimonialCard {...data} />)}
+
+        {cards.map((data) => <TestimonialCard {...data} />)}
+      </div>
     </div>
+
     <span class='left-blur w-[25%] pointer-events-none'></span>
     <span class='right-blur w-[25%] pointer-events-none'></span>
+
     <div class='w-full flex justify-center items-center'>
       <a
         href='https://www.designrush.com/'
@@ -178,11 +181,12 @@ const topSectionContent = {
               class='object-cover xl:w-25 xl:h-26.5'
             />
           </div>
-        </div></a
-      >
+        </div>
+      </a>
     </div>
   </div>
 </section>
+
 <style>
   .left-blur {
     position: absolute;
@@ -190,32 +194,62 @@ const topSectionContent = {
     top: 0;
     bottom: 0;
     height: 100%;
-    z-index: 999;
-
+    z-index: 10;
     background-image: linear-gradient(to right, #000, #15151538, transparent);
   }
+
   .right-blur {
     position: absolute;
     right: -10px;
     top: 0;
     bottom: 0;
     height: 100%;
-
+    z-index: 10;
     background-image: linear-gradient(to left, #000, #15151538, transparent);
-    z-index: 999;
   }
+
+  /* Scroll System */
+  .scroll-wrapper {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .scroll-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: autoScroll 200s linear infinite;
+    will-change: transform;
+  }
+
+  / .scroll-track > * {
+    flex: 0 0 auto;
+  }
+
+  .scroll-wrapper:hover .scroll-track {
+    animation-play-state: paused;
+  }
+
+  .scroll-wrapper:active .scroll-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes autoScroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Tablet Fix */
   @media screen and (width: 1024px) {
     section {
       padding-top: 90px;
     }
   }
-  .endless-scroll {
-    scroll-behavior: auto;
-    -webkit-overflow-scrolling: touch;
-    overflow-x: scroll;
-  }
 </style>
-
 <!-- <script>
   const scrollbar = document.querySelector(".endless-scroll") as HTMLElement;
   const cards = document.querySelectorAll(".testimonial-card");
@@ -249,47 +283,3 @@ const topSectionContent = {
 
   requestAnimationFrameID = requestAnimationFrame(autoScroll);
 </script> -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const scrollbar = document.querySelector(".endless-scroll");
-    const cards = document.querySelectorAll(".testimonial-card");
-
-    if (!scrollbar) return;
-
-    let requestId = null;
-    const speed = 1;
-
-    function autoScroll() {
-      scrollbar.scrollLeft = Math.round(scrollbar.scrollLeft + speed);
-
-      if (
-        scrollbar.scrollLeft >=
-        scrollbar.scrollWidth - scrollbar.clientWidth - 1
-      ) {
-        scrollbar.scrollLeft = 0;
-      }
-
-      requestId = requestAnimationFrame(autoScroll);
-    }
-
-    function startScroll() {
-      if (!requestId) requestId = requestAnimationFrame(autoScroll);
-    }
-
-    function stopScroll() {
-      if (requestId) {
-        cancelAnimationFrame(requestId);
-        requestId = null;
-      }
-    }
-
-    cards.forEach((card) => {
-      card.addEventListener("mouseenter", stopScroll);
-      card.addEventListener("mouseleave", startScroll);
-      card.addEventListener("touchstart", stopScroll, { passive: true });
-      card.addEventListener("touchend", startScroll, { passive: true });
-    });
-
-    startScroll();
-  });
-</script>
