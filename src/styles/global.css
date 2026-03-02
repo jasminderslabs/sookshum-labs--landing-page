@@ -535,6 +535,6 @@ body::-webkit-scrollbar-track {
   .arrow-container {
     display: flex;
     top: -40%;
-    right: 4%;
+    right: 6%;
   }
 }
