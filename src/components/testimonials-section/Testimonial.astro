@@ -215,7 +215,7 @@ const topSectionContent = {
   }
 </style>
 
-<script>
+<!-- <script>
   const scrollbar = document.querySelector(".endless-scroll") as HTMLElement;
   const cards = document.querySelectorAll(".testimonial-card");
 
@@ -247,4 +247,81 @@ const topSectionContent = {
   });
 
   requestAnimationFrameID = requestAnimationFrame(autoScroll);
+</script> -->
+<script>
+  (function () {
+    var lastTime = 0;
+    var vendors = ["ms", "moz", "webkit", "o"];
+
+    for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+      window.requestAnimationFrame =
+        window[vendors[x] + "RequestAnimationFrame"];
+      window.cancelAnimationFrame =
+        window[vendors[x] + "CancelAnimationFrame"] ||
+        window[vendors[x] + "CancelRequestAnimationFrame"];
+    }
+
+    if (!window.requestAnimationFrame) {
+      window.requestAnimationFrame = function (callback) {
+        var currTime = new Date().getTime();
+        var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+        var id = window.setTimeout(function () {
+          callback(currTime + timeToCall);
+        }, timeToCall);
+        lastTime = currTime + timeToCall;
+        return id;
+      };
+    }
+
+    if (!window.cancelAnimationFrame) {
+      window.cancelAnimationFrame = function (id) {
+        clearTimeout(id);
+      };
+    }
+  })();
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var scrollbar = document.querySelector(".endless-scroll");
+    var cards = document.querySelectorAll(".testimonial-card");
+
+    if (!scrollbar) return;
+
+    var requestId = null;
+    var speed = 0.5;
+
+    function autoScroll() {
+      scrollbar.scrollLeft += speed;
+
+      // Reset when fully scrolled
+      if (
+        scrollbar.scrollLeft >=
+        scrollbar.scrollWidth - scrollbar.clientWidth
+      ) {
+        scrollbar.scrollLeft = 0;
+      }
+
+      requestId = window.requestAnimationFrame(autoScroll);
+    }
+
+    function startScroll() {
+      if (!requestId) {
+        requestId = window.requestAnimationFrame(autoScroll);
+      }
+    }
+
+    function stopScroll() {
+      if (requestId) {
+        window.cancelAnimationFrame(requestId);
+        requestId = null;
+      }
+    }
+
+    // Pause on hover
+    for (var i = 0; i < cards.length; i++) {
+      cards[i].addEventListener("mouseenter", stopScroll);
+      cards[i].addEventListener("mouseleave", startScroll);
+    }
+
+    startScroll();
+  });
 </script>
