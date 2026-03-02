@@ -1,13 +1,12 @@
 ---
 import TopSection from "../top-section/Topsection.astro";
 import TestimonialCard from "./testimonialCard.astro";
-
 const cards = [
   {
     name: "David Block",
     title: "CEO of Previnex",
-    review: `We have been working with Sookshum Labs for close to two years and they are outstanding...`,
-    style: "lg:w-[700px] sm:w-[520px] w-[450px]",
+    review: `We have been working with Sookshum Labs for close to two years and they are outstanding. We have a fairly complex ecommerce site and regardless of the problem, Vipin and his team are fast to respond, fix, and offer solutions that have really helped our company. They are incredibly strong communicators, do excellent and fast work, and I could not recommend them more highly.`,
+    style: "lg:w-[700px] sm:w-[520px] w-[450px] ",
   },
   {
     name: "Jeremy Redman",
@@ -18,11 +17,124 @@ const cards = [
   {
     name: "Ryan Carter",
     title: "CEO of Torque Digital Media",
-    review: `I have worked with Sookshum Labs many times now...`,
+    review: `I have worked with Sookshum Labs many times now. I am always impressed by their professionalism, the high quality of their work, and their timeliness in completing work by the due date. I highly recommend them to anyone in need of engineering and development services. Keep up the great work!`,
     style: "lg:w-[570px] md:w-[450px] w-[380px]",
   },
+  {
+    name: "Francesco Benvenuto",
+    title: "Co Founder of Valitalia LLC",
+    review: `I had the pleasure of working with the Sookshum Labs on various projects (magento – mobile development) and I recommend them for their attention to details and ability to deliver high quality web design. The team went above and beyond our expectations. I would strongly recommend them.`,
+    style: "lg:w-[570px] md:w-[450px] w-[380px]",
+  },
+  {
+    name: "Garth Holloway",
+    title: "MD of Innotech Aqua Pvt Ltd",
+    review: `Our journey into the world of eCommerce started around eight months ago. We knew what we wanted but had no idea of how to get there. Sookshum-Labs patiently guided us and worked with us, at our speed, to build an eCommerce store we are proud of. Right from the start we found them to be professional and efficient. They did what they said they would do, on time and as agreed. We never had to push them for deliverables. Their project management was tight, and I felt we were always in control of our project. I would not hesitate to work with Sookshum-Labs again.`,
+    style: "lg:w-[1050px] md:w-[750px] sm:w-[650px] w-[650px]",
+  },
+  {
+    name: "Greg Burch",
+    title: "CEO of Tiny Medical Apps",
+    review: `I have been working with Sookshum Labs directly and indirectly for over two years and very much recommend this company. We have been commissioning apps and websites for our clients in the UK using Sookshum Labs development services.`,
+    style: "lg:w-[500px] md:w-[400px] w-[350px]",
+  },
+  {
+    name: "Matt Bourne",
+    title: "CEO of Easy2Web UK",
+    review: `Great development team. Wide range of skills from Magento to Mobile. Complete package of skills, communication and approach.`,
+    style: "lg:w-[450px] md:w-[380px] sm:w-[350px] w-[300px]",
+  },
+  {
+    name: "David Block",
+    title: "CEO of Previnex",
+    review: `We have been working with Sookshum Labs for close to two years and they are outstanding. We have a fairly complex ecommerce site and regardless of the problem, Vipin and his team are fast to respond, fix, and offer solutions that have really helped our company. They are incredibly strong communicators, do excellent and fast work, and I could not recommend them more highly.`,
+    style: "lg:w-[700px] sm:w-[520px] w-[450px] ",
+  },
+  {
+    name: "Jeremy Redman",
+    title: "CEO of YourVOne",
+    review: `Always amazing team to work with and very efficient.`,
+    style: "lg:w-[450px] md:w-[380px] sm:w-[350px] w-[300px]",
+  },
+  {
+    name: "Ryan Carter",
+    title: "CEO of Torque Digital Media",
+    review: `I have worked with Sookshum Labs many times now. I am always impressed by their professionalism, the high quality of their work, and their timeliness in completing work by the due date. I highly recommend them to anyone in need of engineering and development services. Keep up the great work!`,
+    style: "lg:w-[570px] md:w-[450px] w-[380px]",
+  },
+  {
+    name: "Francesco Benvenuto",
+    title: "Co Founder of Valitalia LLC",
+    review: `I had the pleasure of working with the Sookshum Labs on various projects (magento – mobile development) and I recommend them for their attention to details and ability to deliver high quality web design. The team went above and beyond our expectations. I would strongly recommend them.`,
+    style: "lg:w-[570px] md:w-[450px] w-[380px]",
+  },
+  {
+    name: "Garth Holloway",
+    title: "MD of Innotech Aqua Pvt Ltd",
+    review: `Our journey into the world of eCommerce started around eight months ago. We knew what we wanted but had no idea of how to get there. Sookshum-Labs patiently guided us and worked with us, at our speed, to build an eCommerce store we are proud of. Right from the start we found them to be professional and efficient. They did what they said they would do, on time and as agreed. We never had to push them for deliverables. Their project management was tight, and I felt we were always in control of our project. I would not hesitate to work with Sookshum-Labs again.`,
+    style: "lg:w-[1050px] md:w-[750px] sm:w-[650px] w-[650px]",
+  },
+  {
+    name: "Greg Burch",
+    title: "CEO of Tiny Medical Apps",
+    review: `I have been working with Sookshum Labs directly and indirectly for over two years and very much recommend this company. We have been commissioning apps and websites for our clients in the UK using Sookshum Labs development services.`,
+    style: "lg:w-[500px] md:w-[400px] w-[350px]",
+  },
+  {
+    name: "Matt Bourne",
+    title: "CEO of Easy2Web UK",
+    review: `Great development team. Wide range of skills from Magento to Mobile. Complete package of skills, communication and approach.`,
+    style: "lg:w-[450px] md:w-[380px] sm:w-[350px] w-[300px]",
+  },
+  {
+    name: "David Block",
+    title: "CEO of Previnex",
+    review: `We have been working with Sookshum Labs for close to two years and they are outstanding. We have a fairly complex ecommerce site and regardless of the problem, Vipin and his team are fast to respond, fix, and offer solutions that have really helped our company. They are incredibly strong communicators, do excellent and fast work, and I could not recommend them more highly.`,
+    style: "lg:w-[700px] sm:w-[520px] w-[450px] ",
+  },
+  {
+    name: "Jeremy Redman",
+    title: "CEO of YourVOne",
+    review: `Always amazing team to work with and very efficient.`,
+    style: "lg:w-[450px] md:w-[380px] sm:w-[350px] w-[300px]",
+  },
+  {
+    name: "Ryan Carter",
+    title: "CEO of Torque Digital Media",
+    review: `I have worked with Sookshum Labs many times now. I am always impressed by their professionalism, the high quality of their work, and their timeliness in completing work by the due date. I highly recommend them to anyone in need of engineering and development services. Keep up the great work!`,
+    style: "lg:w-[570px] md:w-[450px] w-[380px]",
+  },
+  {
+    name: "Francesco Benvenuto",
+    title: "Co Founder of Valitalia LLC",
+    review: `I had the pleasure of working with the Sookshum Labs on various projects (magento – mobile development) and I recommend them for their attention to details and ability to deliver high quality web design. The team went above and beyond our expectations. I would strongly recommend them.`,
+    style: "lg:w-[570px] md:w-[450px] w-[380px]",
+  },
+  {
+    name: "Garth Holloway",
+    title: "MD of Innotech Aqua Pvt Ltd",
+    review: `Our journey into the world of eCommerce started around eight months ago. We knew what we wanted but had no idea of how to get there. Sookshum-Labs patiently guided us and worked with us, at our speed, to build an eCommerce store we are proud of. Right from the start we found them to be professional and efficient. They did what they said they would do, on time and as agreed. We never had to push them for deliverables. Their project management was tight, and I felt we were always in control of our project. I would not hesitate to work with Sookshum-Labs again.`,
+    style: "lg:w-[1050px] md:w-[750px] sm:w-[650px] w-[650px]",
+  },
+  {
+    name: "Greg Burch",
+    title: "CEO of Tiny Medical Apps",
+    review: `I have been working with Sookshum Labs directly and indirectly for over two years and very much recommend this company. We have been commissioning apps and websites for our clients in the UK using Sookshum Labs development services.`,
+    style: "lg:w-[500px] md:w-[400px] w-[350px]",
+  },
+  {
+    name: "Matt Bourne",
+    title: "CEO of Easy2Web UK",
+    review: `Great development team. Wide range of skills from Magento to Mobile. Complete package of skills, communication and approach.`,
+    style: "lg:w-[450px] md:w-[380px] sm:w-[350px] w-[300px]",
+  },
+  {
+    name: "Garth Holloway",
+    title: "MD of Innotech Aqua Pvt Ltd",
+    review: `Our journey into the world of eCommerce started around eight months ago. We knew what we wanted but had no idea of how to get there. Sookshum-Labs patiently guided us and worked with us, at our speed, to build an eCommerce store we are proud of. Right from the start we found them to be professional and efficient. They did what they said they would do, on time and as agreed. We never had to push them for deliverables. Their project management was tight, and I felt we were always in control of our project. I would not hesitate to work with Sookshum-Labs again.`,
+    style: "lg:w-[1050px] md:w-[750px] sm:w-[650px] w-[650px]",
+  },
 ];
-
 const topSectionContent = {
   heading: "There are reason people are | about us",
   word: "raving",
@@ -38,28 +150,20 @@ const topSectionContent = {
     {...topSectionContent}
     wrap='text-wrap lg:text-wrap xl:text-nowrap!'
   />
-
   <div
     class='relative w-[90%] mx-20 flex flex-col gap-2 md:gap-3 lg:gap-8 xl:gap-0 2xl:gap-5'
   >
-    <!-- Scroll Container -->
     <div
-      class='flex overflow-x-auto no-scrollbar gap-5 endless-scroll pb-4 md:pb-16 lg:pt-20 lg:pb-17.5'
+      class='flex overflow-auto no-scrollbar scroll-auto gap-3.5 lg:gap-5 endless-scroll pb-4 md:pb-16 lg:pt-20 lg:pb-17.5'
     >
       {
-        cards.concat(cards).map((data) => (
-          <div class='testimonial-card'>
-            <TestimonialCard {...data} />
-          </div>
-        ))
+        cards.map((data) => {
+          return <TestimonialCard {...data} />;
+        })
       }
     </div>
-
-    <!-- Blur Effects -->
     <span class='left-blur w-[25%] pointer-events-none'></span>
     <span class='right-blur w-[25%] pointer-events-none'></span>
-
-    <!-- Award -->
     <div class='w-full flex justify-center items-center'>
       <a
         href='https://www.designrush.com/'
@@ -74,31 +178,37 @@ const topSectionContent = {
               class='object-cover xl:w-25 xl:h-26.5'
             />
           </div>
-        </div>
-      </a>
+        </div></a
+      >
     </div>
   </div>
 </section>
-
 <style>
   .left-blur {
     position: absolute;
     left: -15px;
     top: 0;
     bottom: 0;
-    z-index: 10;
+    height: 100%;
+    z-index: 999;
+
     background-image: linear-gradient(to right, #000, #15151538, transparent);
   }
-
   .right-blur {
     position: absolute;
     right: -10px;
     top: 0;
     bottom: 0;
-    z-index: 10;
-    background-image: linear-gradient(to left, #000, #15151538, transparent);
-  }
+    height: 100%;
 
+    background-image: linear-gradient(to left, #000, #15151538, transparent);
+    z-index: 999;
+  }
+  @media screen and (width: 1024px) {
+    section {
+      padding-top: 90px;
+    }
+  }
   .endless-scroll {
     scroll-behavior: auto;
     -webkit-overflow-scrolling: touch;
@@ -106,40 +216,35 @@ const topSectionContent = {
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const scrollbar = document.querySelector(".endless-scroll");
-    const cards = document.querySelectorAll(".testimonial-card");
+  const scrollbar = document.querySelector(".endless-scroll") as HTMLElement;
+  const cards = document.querySelectorAll(".testimonial-card");
 
+  let requestAnimationFrameID = null;
+  let speed = 0.5;
+
+  function autoScroll() {
     if (!scrollbar) return;
+    scrollbar.scrollLeft += speed;
 
-    let requestId;
-    const speed = 0.5;
-
-    function autoScroll() {
-      scrollbar.scrollLeft += speed;
-
-      // Reset smoothly at end
-      if (
-        scrollbar.scrollLeft >=
-        scrollbar.scrollWidth - scrollbar.clientWidth
-      ) {
-        scrollbar.scrollLeft = 0;
-      }
-
-      requestId = requestAnimationFrame(autoScroll);
+    if (scrollbar.scrollLeft >= scrollbar.scrollWidth - scrollbar.clientWidth) {
+      scrollbar.scrollLeft = 0;
     }
 
-    // Pause on hover
-    cards.forEach((card) => {
-      card.addEventListener("mouseenter", () => {
-        if (requestId) cancelAnimationFrame(requestId);
-      });
+    requestAnimationFrameID = requestAnimationFrame(autoScroll);
+  }
 
-      card.addEventListener("mouseleave", () => {
-        requestId = requestAnimationFrame(autoScroll);
-      });
+  // Pause on hover
+  cards.forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      if (requestAnimationFrameID) {
+        cancelAnimationFrame(requestAnimationFrameID);
+      }
     });
 
-    requestId = requestAnimationFrame(autoScroll);
+    card.addEventListener("mouseleave", () => {
+      requestAnimationFrameID = requestAnimationFrame(autoScroll);
+    });
   });
+
+  requestAnimationFrameID = requestAnimationFrame(autoScroll);
 </script>
