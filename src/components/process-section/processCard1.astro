@@ -3,7 +3,7 @@ const { src, title, content, index, height } = Astro.props;
 ---
 
 <div
-  class=` rounded-[20px] lg:rounded-4xl pb-6 card bg-[#282828B2] flex-col justify-between dark-btn-shadow dropdown-bg   overflow-hidden dropdown-shadow-button ${index === 3 ? 'lg:hidden' : 'flex'} hover:bg-linear-to-br! from-[#e6862466] via-transparent to-[#e6862466] card-animate-on-touch grayscale`
+  class=` rounded-[20px] lg:rounded-4xl pb-6  bg-[#73737366] flex-col justify-between dark-btn-shadow overflow-hidden dropdown-shadow-button ${index === 3 ? 'lg:hidden' : 'flex'} process-cards hover:bg-linear-to-br! from-[#e6862466] via-transparent to-[#e6862466] card-animate-on-touch grayscale p-[1px]`
 >
   <div
     class='w-full h-full rounded-[20px] bg-[#1c1c1c] overflow-hidden
@@ -15,18 +15,18 @@ const { src, title, content, index, height } = Astro.props;
         src={src}
         width='320'
         height='240'
-        class=`w-full ${index === 0 ? 'object-contain sm:object-cover' : 'object-cover'} rounded-4xl  ${index === 3 ? 'max-w-100 max-h-62.5' : height}`
+        class=`w-full ${index === 0 ? 'object-contain sm:object-cover' : 'object-cover'}   ${index === 3 ? 'max-w-100 max-h-62.5' : height}`
       ></video>
     </div>
     <div
-      class='process-content-section w-full text-white flex flex-col px-4 md:pr-[10.5px] md:pl-4.25 gap-1.25 lg:px-[36px] xl:px-8! lg:gap-3.5 h-fit lg:justify-end'
+      class='process-content-section w-full text-white flex flex-col px-4 md:pr-[10.5px] md:pl-4.25 gap-1.25 lg:px-9 xl:px-8! lg:gap-3.5 h-fit lg:justify-end'
     >
       <h3
         class='font-medium text-[14px] lg:text-[19px] capitalize process-title'
       >
         {title}
       </h3>
-      <p class='text-[#f8f8f8b2] text-[13px] lg:text-[16px] process-content'>
+      <p class=`text-[#f8f8f8b2] text-[13px] lg:text-[16px] process-content `>
         {content}
       </p>
     </div>
@@ -45,6 +45,16 @@ const { src, title, content, index, height } = Astro.props;
     .process-content-section {
       padding-right: 12px;
       padding-left: 20px;
+    }
+  }
+  @media screen and (max-width: 960px) {
+    .process-cards {
+      border-radius: 20px;
+    }
+  }
+  @media screen and (min-width: 961px) {
+    .process-cards {
+      border-radius: 32px;
     }
   }
 </style>

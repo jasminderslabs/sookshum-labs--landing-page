@@ -56,72 +56,74 @@ const topSectionContent = {
 ---
 
 <section
-  class='flex flex-col items-center max-w-480 mx-auto px-5 md:px-10 xl:px-20! gap-3 lg:gap-5 md:pt-17.5 pt-15 lg:pt-30 transition-all duration-700'
+  class='flex flex-col items-center max-w-480 mx-auto px-5 md:px-10 xl:px-20! md:pt-17.5 pt-15 lg:pt-30 transition-all duration-700'
 >
   <TopSection
     {...topSectionContent}
     wrap='text-wrap sm:text-nowrap'
   />
-  <div
-    class='grid md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-3 lg:gap-4.5 xl:gap-5 mt-9 xl:pt-5'
-  >
-    {
-      cards.map((data, index) => {
-        return (
-          <ProcessCard1
-            {...data}
-            index={index}
-          />
-        );
-      })
-    }
-  </div>
-  <div
-    class='overflow-hidden rounded-[20px] lg:rounded-4xl lg:flex lg:flex-row hidden justify-center items-center bg-[#282828B2] card xl:h-98 hover:bg-linear-to-br! from-[#e6862466] via-transparent to-[#e6862466] card-animate-on-touch grayscale'
-  >
+  <div class='flex flex-col gap-3 lg:gap-5'>
     <div
-      class='w-full h-full rounded-[20px] bg-[#1c1c1c] lg:rounded-4xl pb-6 xl:pb-8 xl:gap-2 lg:flex lg:flex-row hidden justify-center items-center dark-btn-shadow dropdown-bg dropdown-shadow-button video-card overflow-hidden'
+      class='grid md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-3 lg:gap-4.5 xl:gap-5!'
     >
-      <div class='overflow-hidden w-full 2xl:max-w-[500px]! video-container'>
-        <video
-          src='/Agile-Development.webm'
-          muted
-          width='320'
-          height='240'
-          class='object-contain rounded-4xl h-auto 2xl:mt-[10px]!
-          sm:min-w-[400px] m-0 sm:h-[350px] lg:h-[400px] xl:h-[500px]! xl:min-w-[500px]! h-[250px]'
-        ></video>
-      </div>
+      {
+        cards.map((data, index) => {
+          return (
+            <ProcessCard1
+              {...data}
+              index={index}
+            />
+          );
+        })
+      }
+    </div>
+    <div
+      class='overflow-hidden rounded-[20px] lg:rounded-4xl lg:flex lg:flex-row hidden justify-center items-center bg-[#73737366] card xl:h-98 hover:bg-linear-to-br! from-[#e6862466] via-transparent to-[#e6862466] card-animate-on-touch grayscale p-[1px]'
+    >
       <div
-        class='w-fit h-full text-white flex flex-col md:justify-center gap-3 2xl:gap-[14px]! 2xl:px-8! content-container'
+        class='w-full h-full rounded-[20px] bg-[#1c1c1c] lg:rounded-4xl pb-6 xl:pb-8 xl:gap-2 lg:flex lg:flex-row hidden justify-center items-center dark-btn-shadow dropdown-bg dropdown-shadow-button video-card overflow-hidden'
       >
-        <h2
-          class='text-white relative font-medium font-poppins capitalize md:text-center lg:text-[19px] process-title'
+        <div class='overflow-hidden w-full 2xl:max-w-[500px]! video-container'>
+          <video
+            src='/Agile-Development.webm'
+            muted
+            width='320'
+            height='240'
+            class='object-contain rounded-4xl h-auto 2xl:mt-[10px]!
+          sm:min-w-[400px] m-0 sm:h-[350px] lg:h-[400px] xl:h-[500px]! xl:min-w-[500px]! h-[250px] agile-video'
+          ></video>
+        </div>
+        <div
+          class='w-fit h-full text-white flex flex-col md:justify-center gap-3 2xl:gap-[14px]! 2xl:px-8! content-container'
         >
-          Agile Development
-        </h2>
-        <p
-          class='opacity-70 text-[14px] leading-5 lg:text-[16px] lg:leading-6 lg:px-6 md:text-center process-content'
-        >
-          Tailored to your needs, our agile development approach involves
-          ongoing refinement and integration of your feedback. This ensures that
-          your digital products evolve seamlessly with your changing needs,
-          delivering a solution that stays relevant and effective throughout its
-          lifecycle. Your input drives continuous improvement for optimal
-          results.
-        </p>
+          <h2
+            class='text-white relative font-medium font-poppins capitalize md:text-center lg:text-[19px] process-title'
+          >
+            Agile Development
+          </h2>
+          <p
+            class='opacity-70 text-[14px] leading-5 lg:text-[16px] lg:leading-6 lg:px-6 md:text-center process-content'
+          >
+            Tailored to your needs, our agile development approach involves
+            ongoing refinement and integration of your feedback. This ensures
+            that your digital products evolve seamlessly with your changing
+            needs, delivering a solution that stays relevant and effective
+            throughout its lifecycle. Your input drives continuous improvement
+            for optimal results.
+          </p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div
-    class='flex flex-col md:flex-row justify-between h-fit text-white gap-3 lg:gap-5'
-  >
-    {
-      bottomCards.map((data) => {
-        return <ProcessCard2 {...data} />;
-      })
-    }
+    <div
+      class='flex flex-col md:flex-row justify-between h-fit text-white gap-3 lg:gap-5'
+    >
+      {
+        bottomCards.map((data) => {
+          return <ProcessCard2 {...data} />;
+        })
+      }
+    </div>
   </div>
 </section>
 
@@ -161,6 +163,36 @@ const topSectionContent = {
   @media screen and (width: 1024px) {
     section {
       padding-top: 90px;
+    }
+  }
+  @media screen and (max-width: 650px) {
+    section {
+      gap: 32px;
+    }
+  }
+  @media screen and (min-width: 651px) and (max-width: 960px) {
+    section {
+      gap: 48px;
+    }
+  }
+  @media screen and (min-width: 961px) and (max-width: 1024px) {
+    section {
+      gap: 60px;
+    }
+  }
+  @media screen and (min-width: 1025px) {
+    section {
+      gap: 70px;
+    }
+  }
+  @media screen and (min-width: 961px) and (max-width: 1280px) {
+    .agile-video {
+      max-height: 350px;
+    }
+  }
+  @media screen and (min-width: 1281px) and (max-width: 1499px) {
+    .agile-video {
+      max-height: 420px;
     }
   }
 </style>
