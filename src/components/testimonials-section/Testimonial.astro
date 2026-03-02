@@ -23,7 +23,7 @@ const cards = [
   {
     name: "Francesco Benvenuto",
     title: "Co Founder of Valitalia LLC",
-    review: `I had the pleasure of working with the Sookshum Labs on various projects (magento – mobile development) and I recommend them for their attention to details and ability to deliver high quality web design. The team went above and beyond our expectations. I would strongly recommend them.`,
+    review: `I had the pleasure of working with the Sookshum Labs on letious projects (magento – mobile development) and I recommend them for their attention to details and ability to deliver high quality web design. The team went above and beyond our expectations. I would strongly recommend them.`,
     style: "lg:w-[570px] md:w-[450px] w-[380px]",
   },
   {
@@ -65,7 +65,7 @@ const cards = [
   {
     name: "Francesco Benvenuto",
     title: "Co Founder of Valitalia LLC",
-    review: `I had the pleasure of working with the Sookshum Labs on various projects (magento – mobile development) and I recommend them for their attention to details and ability to deliver high quality web design. The team went above and beyond our expectations. I would strongly recommend them.`,
+    review: `I had the pleasure of working with the Sookshum Labs on letious projects (magento – mobile development) and I recommend them for their attention to details and ability to deliver high quality web design. The team went above and beyond our expectations. I would strongly recommend them.`,
     style: "lg:w-[570px] md:w-[450px] w-[380px]",
   },
   {
@@ -107,7 +107,7 @@ const cards = [
   {
     name: "Francesco Benvenuto",
     title: "Co Founder of Valitalia LLC",
-    review: `I had the pleasure of working with the Sookshum Labs on various projects (magento – mobile development) and I recommend them for their attention to details and ability to deliver high quality web design. The team went above and beyond our expectations. I would strongly recommend them.`,
+    review: `I had the pleasure of working with the Sookshum Labs on letious projects (magento – mobile development) and I recommend them for their attention to details and ability to deliver high quality web design. The team went above and beyond our expectations. I would strongly recommend them.`,
     style: "lg:w-[570px] md:w-[450px] w-[380px]",
   },
   {
@@ -212,6 +212,7 @@ const topSectionContent = {
   .endless-scroll {
     scroll-behavior: auto;
     -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
   }
 </style>
 
@@ -248,12 +249,12 @@ const topSectionContent = {
 
   requestAnimationFrameID = requestAnimationFrame(autoScroll);
 </script> -->
-<script>
+<script client:load>
   (function () {
-    var lastTime = 0;
-    var vendors = ["ms", "moz", "webkit", "o"];
+    let lastTime = 0;
+    let vendors = ["ms", "moz", "webkit", "o"];
 
-    for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+    for (let x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
       window.requestAnimationFrame =
         window[vendors[x] + "RequestAnimationFrame"];
       window.cancelAnimationFrame =
@@ -263,9 +264,9 @@ const topSectionContent = {
 
     if (!window.requestAnimationFrame) {
       window.requestAnimationFrame = function (callback) {
-        var currTime = new Date().getTime();
-        var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-        var id = window.setTimeout(function () {
+        let currTime = new Date().getTime();
+        let timeToCall = Math.max(0, 16 - (currTime - lastTime));
+        let id = window.setTimeout(function () {
           callback(currTime + timeToCall);
         }, timeToCall);
         lastTime = currTime + timeToCall;
@@ -281,13 +282,13 @@ const topSectionContent = {
   })();
 
   document.addEventListener("DOMContentLoaded", function () {
-    var scrollbar = document.querySelector(".endless-scroll");
-    var cards = document.querySelectorAll(".testimonial-card");
+    let scrollbar = document.querySelector(".endless-scroll");
+    let cards = document.querySelectorAll(".testimonial-card");
 
     if (!scrollbar) return;
 
-    var requestId = null;
-    var speed = 0.5;
+    let requestId = null;
+    let speed = 0.5;
 
     function autoScroll() {
       scrollbar.scrollLeft += speed;
@@ -317,7 +318,7 @@ const topSectionContent = {
     }
 
     // Pause on hover
-    for (var i = 0; i < cards.length; i++) {
+    for (let i = 0; i < cards.length; i++) {
       cards[i].addEventListener("mouseenter", stopScroll);
       cards[i].addEventListener("mouseleave", startScroll);
     }
