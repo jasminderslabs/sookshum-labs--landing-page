@@ -1,11 +1,11 @@
 ---
 const url = [
-  "/upwork.png",
-  "/be.png",
-  "/yt.png",
-  "/linked.png",
-  "/facebook.png",
-  "/insta.png",
+  "footerImages/upwork.webp",
+  "footerImages/behance.webp",
+  "footerImages/yt.webp",
+  "footerImages/linked.webp",
+  "footerImages/facebook.webp",
+  "footerImages/insta.webp",
   "/x.png",
 ];
 ---
@@ -20,11 +20,13 @@ const url = [
     {
       url.map((src) => {
         return (
-          <span class='w-7.5 h-7.5 sm:w-6.25 sm:h-6 lg:w-9.25 lg:h-9 block'>
+          <span class=' block'>
             <img
+              width='76'
+              height='76'
               src={src}
               alt={src.replace("/", "")}
-              class={`aspect-square h-full w-full object-contain cursor-pointer`}
+              class={`aspect-square object-contain cursor-pointer h-[30px] w-[30px] md:w-[37px] md:h-9`}
             />
           </span>
         );
