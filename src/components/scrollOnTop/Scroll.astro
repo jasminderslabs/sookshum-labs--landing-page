@@ -10,7 +10,13 @@ import { IoChevronUpSharp } from "react-icons/io5";
     color='white'
   />
 </span>
-
+<style>
+  @media screen and (min-width: 1900px) {
+    .scroll-btn {
+      right: 30px;
+    }
+  }
+</style>
 <script>
   const scrollBtn = document.querySelector(".scroll-btn");
   const body = document.querySelector("body") as any;
