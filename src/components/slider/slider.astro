@@ -109,18 +109,18 @@
         <div class="w-full h-full rounded-[20px] bg-[#1c1c1c] lg:rounded-4xl
         px-2.25 pt-2.25 lg:px-3.5 lg:pt-3.5 xl:pt-4! xl:px-4! gap-2 lg:gap-3 xl:gap-4! flex flex-col dark-btn-shadow dropdown-bg dropdown-shadow-button">
 
-          <canvas class="md:h-26 lg:h-28 xl:h-44.75! w-fit h-25 pt-1 pb-2 pl-3"
-            height="510"
+          <canvas class="md:h-26 lg:h-28 xl:h-44.75! w-fit h-25 pt-1 pb-2 pl-3 shrink-0"
+            height='510'
             width="510"></canvas>
 
-          <div class="w-full text-white flex flex-col justify-end gap-2.5 h-fit p-1 sm:p-4">
-            <h3 class="font-medium text-[14px] lg:text-[19px] capitalize" id="exp-title">
+          <div class="w-full text-white flex flex-col justify-end gap-2.5 p-1 sm:p-4">
+            <div class="font-medium text-[14px] lg:text-[19px] capitalize" id="exp-title">
               ${card.title}
-            </h3>
+            </div>
 
-            <p class="opacity-70 text-[13px] lg:text-base grow shrink-0 " id='exp-content'>
+            <div class="opacity-70 text-[13px] lg:text-base grow shrink-0 " id='exp-content'>
               ${card.content}
-            </p>
+            </div>
 
             <ul class="text-white list-disc pl-4 sm:pl-3 lg:pl-3 font-medium flex flex-col gap-2 text-[14px] lg:text-[14px] xl:text-[18px]! grow">
               ${card.list.map((item) => `<li>${item}</li>`).join("")}
@@ -198,26 +198,33 @@
   const currentFrame = (index, path) => {
     return `industries/${path}/${index.toString().padStart(4, "0")}.webp`;
   };
-
   cards.forEach((card, index) => {
     const { name, imageCount } = imagePaths[index];
-    const canvas = card.querySelector("canvas");
+    const canvas = card.querySelector("canvas") as HTMLCanvasElement;
+    if (!canvas) return;
+
     const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
+    ctx.imageSmoothingEnabled = false;
+    // ctx.imageSmoothingQuality = "high";
 
-    let images = [];
+    let images: HTMLImageElement[] = [];
     let frame = 0;
-    let animationId = null;
+    let animationId: number | null = null;
 
     let isLoaded = false;
     let isAnimating = false;
     let isHovering = false;
     let hasPlayedForward = false;
 
+    const drawFrame = (img: HTMLImageElement) => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    };
+
     const preloadImages = () => {
-      const promises = [];
+      const promises: Promise<void>[] = [];
 
       for (let i = 1; i <= imageCount; i++) {
         const img = new Image();
@@ -226,15 +233,18 @@
 
         promises.push(
           new Promise((resolve) => {
-            img.onload = resolve;
-            img.onerror = resolve;
+            img.onload = () => resolve();
+            img.onerror = () => resolve();
           }),
         );
       }
 
       Promise.all(promises).then(() => {
         isLoaded = true;
-        ctx.drawImage(images[0], 0, 0, canvas.width, canvas.height);
+
+        if (images.length > 0) {
+          drawFrame(images[0]);
+        }
       });
     };
 
@@ -244,8 +254,7 @@
       if (!isLoaded) return;
 
       isAnimating = true;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(images[frame], 0, 0, canvas.width, canvas.height);
+      drawFrame(images[frame]);
 
       if (frame < imageCount - 1) {
         frame++;
@@ -253,6 +262,7 @@
       } else {
         hasPlayedForward = true;
         isAnimating = false;
+
         if (!isHovering) animateReverse();
       }
     };
@@ -261,8 +271,7 @@
       if (!isLoaded) return;
 
       isAnimating = true;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(images[frame], 0, 0, canvas.width, canvas.height);
+      drawFrame(images[frame]);
 
       if (frame > 0) {
         frame--;
@@ -275,22 +284,34 @@
 
     card.addEventListener("mouseenter", () => {
       isHovering = true;
-      if (!isAnimating && !hasPlayedForward) animateForward();
+
+      if (!isAnimating && !hasPlayedForward) {
+        animateForward();
+      }
     });
 
     card.addEventListener("mouseleave", () => {
       isHovering = false;
-      if (!isAnimating && hasPlayedForward) animateReverse();
+
+      if (!isAnimating && hasPlayedForward) {
+        animateReverse();
+      }
     });
 
     card.addEventListener("touchstart", () => {
       isHovering = true;
-      if (!isAnimating && !hasPlayedForward) animateForward();
+
+      if (!isAnimating && !hasPlayedForward) {
+        animateForward();
+      }
     });
 
     card.addEventListener("touchend", () => {
       isHovering = false;
-      if (!isAnimating && hasPlayedForward) animateReverse();
+
+      if (!isAnimating && hasPlayedForward) {
+        animateReverse();
+      }
     });
   });
 </script>

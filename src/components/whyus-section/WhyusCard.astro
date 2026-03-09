@@ -114,7 +114,7 @@ const { title, content, height, width } = Astro.props;
       isAnimating = true;
 
       ctx?.clearRect(0, 0, canvas.width, canvas.height);
-      const rect = canvas.getBoundingClientRect();
+      // const rect = canvas.getBoundingClientRect();
       ctx?.drawImage(images[frame], 0, 0, canvas.width, canvas.height);
 
       if (frame < imageCount - 1) {
@@ -136,7 +136,7 @@ const { title, content, height, width } = Astro.props;
       isAnimating = true;
 
       ctx?.clearRect(0, 0, canvas.width, canvas.height);
-      const rect = canvas.getBoundingClientRect();
+      // const rect = canvas.getBoundingClientRect();
       ctx?.drawImage(images[frame], 0, 0, canvas.width, canvas.height);
 
       if (frame > 0) {
