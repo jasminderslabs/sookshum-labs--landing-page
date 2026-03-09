@@ -91,15 +91,15 @@ const { title, content, height, width } = Astro.props;
       Promise.all(promises).then(() => {
         isLoaded = true;
 
-        const dpr = window.devicePixelRatio || 1;
+        // const dpr = window.devicePixelRatio || 1;
 
-        const cssWidth = canvas.offsetWidth;
-        const cssHeight = canvas.offsetHeight;
+        // const cssWidth = canvas.offsetWidth;
+        // const cssHeight = canvas.offsetHeight;
 
-        canvas.width = cssWidth;
-        canvas.height = cssHeight;
+        // canvas.width = cssWidth;
+        // canvas.height = cssHeight;
 
-        ctx?.setTransform(dpr, 0, 0, dpr, 0, 0);
+        // ctx?.setTransform(dpr, 0, 0, dpr, 0, 0);
 
         ctx?.clearRect(0, 0, canvas.width, canvas.height);
         ctx?.drawImage(images[0], 0, 0, canvas.width, canvas.height);
