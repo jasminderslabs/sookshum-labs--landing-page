@@ -92,14 +92,14 @@ const { title, content, height, width } = Astro.props;
         isLoaded = true;
 
         const dpr = window.devicePixelRatio || 1;
-        console.log(dpr);
+
         const cssWidth = canvas.offsetWidth;
         const cssHeight = canvas.offsetHeight;
 
-        canvas.width = cssWidth * dpr;
-        canvas.height = cssHeight * dpr;
+        canvas.width = cssWidth;
+        canvas.height = cssHeight;
 
-        // ctx?.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx?.setTransform(dpr, 0, 0, dpr, 0, 0);
 
         ctx?.clearRect(0, 0, canvas.width, canvas.height);
         ctx?.drawImage(images[0], 0, 0, canvas.width, canvas.height);
@@ -115,7 +115,7 @@ const { title, content, height, width } = Astro.props;
 
       ctx?.clearRect(0, 0, canvas.width, canvas.height);
       const rect = canvas.getBoundingClientRect();
-      ctx?.drawImage(images[frame], 0, 0, rect.width, rect.height);
+      ctx?.drawImage(images[frame], 0, 0, canvas.width, canvas.height);
 
       if (frame < imageCount - 1) {
         frame++;
@@ -137,7 +137,7 @@ const { title, content, height, width } = Astro.props;
 
       ctx?.clearRect(0, 0, canvas.width, canvas.height);
       const rect = canvas.getBoundingClientRect();
-      ctx?.drawImage(images[frame], 0, 0, rect.width, rect.height);
+      ctx?.drawImage(images[frame], 0, 0, canvas.width, canvas.height);
 
       if (frame > 0) {
         frame--;
